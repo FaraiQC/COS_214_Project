@@ -9,7 +9,7 @@ class concreteMediator : public SatelliteMediator {
 public:
 	Satellite** satelliteList;
 
-	void notify(Satellite** satelliteList);
+	void notify();
 };
 
 #endif
