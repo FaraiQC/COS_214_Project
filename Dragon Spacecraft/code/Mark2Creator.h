@@ -9,5 +9,4 @@ public:
 
 	Parachute* createParachute();
 };
-//Life is nice
 #endif
