@@ -4,8 +4,7 @@
 #include <iostream>
 using namespace std;
 
-class ConcreteAntenna : public Antenna 
-{
+class ConcreteAntenna : public Antenna {
 
 private:
 	bool radioSignal;
@@ -18,4 +17,5 @@ public:
 
 	~ConcreteAntenna();
 };
+
 #endif
