@@ -18,13 +18,17 @@ void satellitesMaker::CollectNextCluster() {
 	first->prevS = null;
 	
 	//prototype 59 Satellites using prototype and iterator 
-	Satellite* cur = first;
+	Satellite* curr = first;
 	Satellite* prev = null;
 	
-	for (int n=1;n<60;n++)
+	for (int n=0;n<60;n++)
 	{
 		curr->nextS = p->clone();
-	
+
+		prev = curr;
+		curr = curr->nextS;
+		curr->prevS = prev;
+
 	}
 	
 	cout<<"60 Satellites have been collected by the Falcon 9 Rocket."<<endl;
