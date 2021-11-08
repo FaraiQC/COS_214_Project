@@ -9,7 +9,7 @@ class SatelliteMediator {
 
 
 public:
-	virtual void notify(Satellite* satelliteList) = 0;
+	virtual void notify() = 0;
 
 	SatelliteMediator();
 
