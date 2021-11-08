@@ -4,7 +4,7 @@
 #include <iostream>
 using namespace std;
 
-class concreteSatellite :public Satellite
+class concreteSatellite : public Satellite
 {
 
 	public:
