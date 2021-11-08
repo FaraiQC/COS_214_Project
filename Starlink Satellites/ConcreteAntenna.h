@@ -18,5 +18,4 @@ public:
 
 	~ConcreteAntenna();
 };
-//ksdknf
 #endif
