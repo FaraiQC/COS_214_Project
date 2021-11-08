@@ -1,7 +1,8 @@
 #ifndef CONCRETEANTENNA_H
 #define CONCRETEANTENNA_H
+#include "Antenna.h"
 
-class ConcreteAntenna : Antenna {
+class ConcreteAntenna : public Antenna {
 
 private:
 	bool radioSignal;
