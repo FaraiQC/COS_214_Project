@@ -11,6 +11,8 @@ private:
 	double distance;
 	Antenna* antenna;
 	SatelliteMediator mediator;
+	Satellite* nextS;
+	Satellite* prevS;
 
 public:
 	~Satellite();
