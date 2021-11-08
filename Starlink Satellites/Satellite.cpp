@@ -30,7 +30,17 @@ void Satellite :: attach(Antenna* a)
 
 void Satellite :: detach(Antenna* a) 
 {
-
+	bool found = false;
+	vector<Antenna*>::iterator it = antenna.begin();
+	while((it != antenna.end()) && (!found))
+	{
+		if (*it == a)
+		{
+			found = true;
+			antenna.erase(it);
+		}
+		++it;
+	}
 }
 
 void Satellite :: notifyAntenna() 
