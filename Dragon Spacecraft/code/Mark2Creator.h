@@ -8,7 +8,6 @@ public:
 	Mark2Creator();
 
 	Parachute* createParachute();
-	//fgh 123 qwert
-	//kbgv jgcj qwertyuio sucks
+
 };
 #endif
