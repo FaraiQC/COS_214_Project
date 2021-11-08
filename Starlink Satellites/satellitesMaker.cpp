@@ -1,8 +1,7 @@
 #include "satellitesMaker.h"
 
 satellitesMaker::satellitesMaker() {
-	// TODO - implement satellitesMaker::satellitesMaker
-	throw "Not yet implemented";
+	
 }
 
 void satellitesMaker::CollectNextCluster() {
