@@ -5,7 +5,7 @@ using namespace std;
 
 concreteSatellite::concreteSatellite() 
 {
-	
+	this->setSignal();
 }
 
 void concreteSatellite::setDistance() 
