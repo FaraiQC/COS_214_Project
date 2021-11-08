@@ -32,6 +32,8 @@ public:
 	void notifyAntenna();
 
 	virtual double getDistance() = 0;
+	
+	void SatellitesMoved() ;
 };
 
 #endif
