@@ -12,7 +12,7 @@ void concreteSatellite::setDistance() {
 
 Satellite* concreteSatellite::Clone() {
 	// TODO - implement concreteSatellite::Clone
-	throw "Not yet implemented";
+	return new Satellite();
 }
 
 bool concreteSatellite::getSignal() {
