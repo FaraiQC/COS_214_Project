@@ -6,7 +6,6 @@ concreteSatellite::concreteSatellite() {
 }
 
 void concreteSatellite::setDistance() {
-	// TODO - implement concreteSatellite::setDistance
 	this->distance = 0.1 ;
 }
 
