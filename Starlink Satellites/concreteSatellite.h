@@ -1,6 +1,8 @@
 #ifndef CONCRETESATELLITE_H
 #define CONCRETESATELLITE_H
 #include "Satellite.h"
+#include <iostream>
+using namespace std;
 
 class concreteSatellite :public Satellite
 {
