@@ -1,11 +1,11 @@
 #include "SatelliteMediator.h"
 
-SatelliteMediator::SatelliteMediator() {
-	// TODO - implement SatelliteMediator::SatelliteMediator
-	throw "Not yet implemented";
+SatelliteMediator::SatelliteMediator() 
+{
+
 }
 
-SatelliteMediator::~SatelliteMediator() {
-	// TODO - implement SatelliteMediator::~SatelliteMediator
-	throw "Not yet implemented";
+SatelliteMediator::~SatelliteMediator() 
+{
+
 }
