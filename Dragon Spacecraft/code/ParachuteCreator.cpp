@@ -1,6 +1,9 @@
 #include "ParachuteCreator.h"
 
+
+ParachuteCreator::ParachuteCreator(){
+	cout<<"Ready to create Parachutes."<<endl;
+}
 Parachute* ParachuteCreator::createParachute() {
-	// TODO - implement ParachuteCreator::createParachute
-	throw "Not yet implemented";
+	return new Parachute();
 }

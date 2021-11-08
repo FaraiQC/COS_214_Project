@@ -1,11 +1,12 @@
 #include "Mark3Creator.h"
+#include <iostream>
+
+using namespace std;
 
 Parachute* Mark3Creator::createParachute() {
-	// TODO - implement Mark3Creator::createParachute
-	throw "Not yet implemented";
+	cout<<"Ready to create Mark3 Parachutes."<<endl;
 }
 
 Mark3Creator::Mark3Creator() {
-	// TODO - implement Mark3Creator::Mark3Creator
-	throw "Not yet implemented";
+	return new Mark3Parachute();
 }

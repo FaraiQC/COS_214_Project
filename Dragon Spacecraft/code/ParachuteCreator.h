@@ -2,10 +2,9 @@
 #define PARACHUTECREATOR_H
 
 class ParachuteCreator {
-
-
-public:
-	Parachute* createParachute();
+	public:
+		ParachuteCreator();
+		Parachute* createParachute();
 };
 
 #endif

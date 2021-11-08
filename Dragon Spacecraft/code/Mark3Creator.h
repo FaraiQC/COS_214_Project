@@ -1,12 +1,11 @@
 #ifndef MARK3CREATOR_H
 #define MARK3CREATOR_H
-
-class Mark3Creator : ParachuteCreator {
+#include "ParachuteCreator"
+class Mark3Creator :public ParachuteCreator {
 
 
 public:
 	Parachute* createParachute();
-
 	Mark3Creator();
 };
 
