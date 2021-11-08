@@ -9,5 +9,5 @@ public:
 
 	Parachute* createParachute();
 };
-//Life is not nice
+//Life is nice
 #endif
