@@ -25,7 +25,7 @@ Satellite* Satellite :: prevSatellite()
 
 void Satellite :: attach(Antenna* a) 
 {
-
+	antenna.push_back(a);
 }
 
 void Satellite :: detach(Antenna* a) 
