@@ -16,6 +16,5 @@ void satellitesMaker::CollectNextCluster() {
 }
 
 void satellitesMaker::isEmpty() {
-	// TODO - implement satellitesMaker::isEmpty
-	throw "Not yet implemented";
+	return this->empty;
 }
