@@ -9,6 +9,6 @@ public:
 
 	Parachute* createParachute();
 	//fgh 123 qwert
-	//kbgv jgcj
+	//kbgv jgcj qwertyuio
 };
 #endif
