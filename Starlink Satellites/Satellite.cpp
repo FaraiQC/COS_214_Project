@@ -1,36 +1,47 @@
 #include "Satellite.h"
+#include <iostream>
 
-Satellite::~Satellite() 
+using namespace std;
+
+Satellite :: ~Satellite() 
 {
 
 }
 
-Satellite::Satellite() 
+Satellite :: Satellite() 
 {
 	this-> distance = 0.0;
 }
 
-Satellite* Satellite::nextSatellite() 
+Satellite* Satellite :: nextSatellite() 
+{
+	return nextS;
+}
+
+Satellite* Satellite :: prevSatellite() 
+{
+	return prevS;
+}
+
+void Satellite :: attach(Antenna* a) 
 {
 
 }
 
-Satellite* Satellite::prevSatellite() 
+void Satellite :: detach(Antenna* a) 
 {
 
 }
 
-void Satellite::attach(Antenna antenna, Antenna antenna) 
+void Satellite :: notifyAntenna() 
 {
-
+	cout<<"Radio Signal for atleast One Satellite has bee turned of, Notifying the Antenna!"<<endl;
+	antenna -> update();
 }
 
-void Satellite::detach(Antenna antenna, Antenna antenna) 
+void Satellite :: SatellitesMoved()
 {
-
-}
-
-void Satellite::notifyAntenna() 
-{
-
+	cout<<"One or more satellites have moved, Notifying the system!"<<endl;
+	mediator -> notify();
+	
 }
