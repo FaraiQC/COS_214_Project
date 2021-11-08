@@ -1,16 +1,16 @@
 #include "ConcreteAntenna.h"
 
-void ConcreteAntenna::update() {
-	// TODO - implement ConcreteAntenna::update
-	throw "Not yet implemented";
+void ConcreteAntenna::update() 
+{
+
 }
 
-ConcreteAntenna::ConcreteAntenna() {
-	// TODO - implement ConcreteAntenna::ConcreteAntenna
-	throw "Not yet implemented";
+ConcreteAntenna::ConcreteAntenna() 
+{
+
 }
 
-ConcreteAntenna::~ConcreteAntenna() {
-	// TODO - implement ConcreteAntenna::~ConcreteAntenna
-	throw "Not yet implemented";
+ConcreteAntenna::~ConcreteAntenna() 
+{
+
 }
