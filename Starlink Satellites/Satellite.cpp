@@ -6,8 +6,7 @@ Satellite::~Satellite() {
 }
 
 Satellite::Satellite() {
-	// TODO - implement Satellite::Satellite
-	throw "Not yet implemented";
+	this-> distance = 0.0;
 }
 
 Satellite* Satellite::nextSatellite() {
