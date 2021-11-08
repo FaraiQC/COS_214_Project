@@ -45,8 +45,12 @@ void Satellite :: detach(Antenna* a)
 
 void Satellite :: notifyAntenna() 
 {
-	cout<<"Radio Signal for atleast One Satellite has bee turned of, Notifying the Antenna!"<<endl;
-	antenna -> update();
+	cout<<"Some Satellite's Radio Signals have been turned off, Notifying the Antenna!"<<endl;
+	vector<Antenna*>::iterator it = antenna.begin();
+	for (it = antenna.begin(); it < antenna.end(); ++it)
+	{
+		(*it)->update();
+	}
 }
 
 void Satellite :: SatellitesMoved()
