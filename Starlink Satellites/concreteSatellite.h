@@ -1,22 +1,24 @@
 #ifndef CONCRETESATELLITE_H
 #define CONCRETESATELLITE_H
+#include "Satellite.h"
 
-class concreteSatellite : Satellite {
+class concreteSatellite :public Satellite
+{
 
-public:
-	bool satelliteSignal;
+	public:
+		bool satelliteSignal;
 
-	concreteSatellite();
+		concreteSatellite();
 
-	void setDistance();
+		void setDistance();
 
-	Satellite* Clone();
+		Satellite* Clone();
 
-	bool getSignal();
+		bool getSignal();
 
-	void setSignal();
+		void setSignal();
 
-	void getDistance();
+		void getDistance();
 };
 
 #endif
