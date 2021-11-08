@@ -1,25 +1,31 @@
 #include "concreteSatellite.h"
 
-concreteSatellite::concreteSatellite() {
+concreteSatellite::concreteSatellite() 
+{
 	
 }
 
-void concreteSatellite::setDistance() {
+void concreteSatellite::setDistance() 
+{
 	this->distance = 0.1 ;
 }
 
-Satellite* concreteSatellite::Clone() {
+Satellite* concreteSatellite::Clone() 
+{
 	return new Satellite();
 }
 
-bool concreteSatellite::getSignal() {
+bool concreteSatellite::getSignal() 
+{
 	
 }
 
-void concreteSatellite::setSignal() {
+void concreteSatellite::setSignal() 
+{
 	
 }
 
-void concreteSatellite::getDistance() {
+void concreteSatellite::getDistance() 
+{
 	
 }
