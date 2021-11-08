@@ -1,11 +1,15 @@
 #ifndef SATELLITE_H
 #define SATELLITE_H
+#include "SatelliteMediator.h"
+#include "Antenna.h"
+#include <iostream>
+using namespace std;
 
 class Satellite {
 
 private:
 	double distance;
-	Antenna* Antena;
+	Antenna* antenna;
 	SatelliteMediator mediator;
 
 public:
