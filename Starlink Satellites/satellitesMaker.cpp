@@ -1,10 +1,12 @@
 #include "satellitesMaker.h"
 
-satellitesMaker::satellitesMaker() {
+satellitesMaker::satellitesMaker() 
+{
 	
 }
 
-void satellitesMaker::CollectNextCluster() {
+void satellitesMaker::CollectNextCluster() 
+{
 	//var
 	Satellite* p = new Satellite() ;
 	
