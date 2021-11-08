@@ -1,4 +1,7 @@
 #include "concreteSatellite.h"
+#include <iostream>
+
+using namespace std;
 
 concreteSatellite::concreteSatellite() 
 {
@@ -17,15 +20,14 @@ Satellite* concreteSatellite::Clone()
 
 bool concreteSatellite::getSignal() 
 {
-	
+	return this->satelliteSignal;
 }
 
 void concreteSatellite::setSignal() 
 {
-	
+	this->satelliteSignal = true; //On
 }
 
 void concreteSatellite::getDistance() 
 {
-	
-}
+	return this->distance ;
