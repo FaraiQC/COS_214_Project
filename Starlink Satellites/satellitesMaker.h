@@ -5,6 +5,7 @@ class satellitesMaker {
 
 private:
 	Satellite* first;
+	bool empty = false;
 
 public:
 	satellitesMaker();
