@@ -37,6 +37,7 @@ void satellitesMaker::CollectNextCluster()
 	this->empty = true;
 }
 
-void satellitesMaker::isEmpty() {
+void satellitesMaker::isEmpty() 
+{
 	return this->empty;
 }
