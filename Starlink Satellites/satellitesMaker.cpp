@@ -6,8 +6,13 @@ satellitesMaker::satellitesMaker() {
 }
 
 void satellitesMaker::CollectNextCluster() {
-	// TODO - implement satellitesMaker::CollectNextCluster
-	throw "Not yet implemented";
+	if(isEmpty() == true)
+	{
+		cout<<"There are no StarLink Satellites to collect."<<endl;
+	}
+	
+	cout<<"60 Satellites have been collected by the Falcon 9 Rocket."<<endl;
+	this->empty = true;
 }
 
 void satellitesMaker::isEmpty() {
