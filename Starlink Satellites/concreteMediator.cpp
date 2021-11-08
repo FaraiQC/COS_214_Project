@@ -1,6 +1,6 @@
 #include "concreteMediator.h"
 
-void concreteMediator::notify(Satellite** satelliteList) 
+void concreteMediator::notify() 
 {
 
 }
