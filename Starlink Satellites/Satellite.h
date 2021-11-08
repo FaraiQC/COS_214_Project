@@ -9,7 +9,7 @@ class Satellite {
 
 private:
 	double distance;
-	Antenna* antenna;
+	antenna : vector<Antenna*>;
 	SatelliteMediator mediator;
 	Satellite* nextS = NULL;
 	Satellite* prevS = NULL;
