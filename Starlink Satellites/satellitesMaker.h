@@ -1,18 +1,19 @@
 #ifndef SATELLITESMAKER_H
 #define SATELLITESMAKER_H
+#include "Satellite.h"
 
 class satellitesMaker {
 
 private:
 	Satellite* first;
-	bool empty = false;
+	bool empty;
 
 public:
 	satellitesMaker();
 
 	void CollectNextCluster();
 
-	void isEmpty();
+	bool isEmpty();
 };
 
 #endif

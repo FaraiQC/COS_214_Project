@@ -10,12 +10,19 @@ Satellite :: ~Satellite()
 
 Satellite :: Satellite() 
 {
+	nextS = NULL;
+	prevS = NULL;
+
 	this-> distance = 0.0;
 }
 
 Satellite* Satellite :: nextSatellite() 
 {
 	return nextS;
+}
+Satellite* Satellite :: Clone() 
+{
+	return new Satellite();
 }
 
 Satellite* Satellite :: prevSatellite() 
@@ -59,4 +66,19 @@ void Satellite :: SatellitesMoved()
 	cout<<"One or more satellites have moved, Notifying the system!"<<endl;
 	mediator -> notify();
 	
+}
+
+double Satellite :: getDistance()
+{
+	return this->distance;
+}
+
+double Satellite :: getDist()
+{
+	return this->distance;
+}
+
+void Satellite ::  setDist(double d)
+{
+	this->distance = d;
 }

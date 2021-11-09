@@ -20,7 +20,7 @@ class concreteSatellite : public Satellite
 
 		void setSignal();
 
-		void getDistance();
+		double getDistance();
 };
 
 #endif

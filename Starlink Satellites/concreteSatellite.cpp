@@ -10,7 +10,7 @@ concreteSatellite::concreteSatellite()
 
 void concreteSatellite::setDistance() 
 {
-	this->distance = 0.1 ;
+	setDist(0.1);
 }
 
 Satellite* concreteSatellite::Clone() 
@@ -28,6 +28,7 @@ void concreteSatellite::setSignal()
 	this->satelliteSignal = true; //On
 }
 
-void concreteSatellite::getDistance() 
+double concreteSatellite::getDistance() 
 {
-	return this->distance ;
+	return getDist();
+}

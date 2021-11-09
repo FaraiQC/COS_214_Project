@@ -1,7 +1,12 @@
 #include "satellitesMaker.h"
+#include <iostream>
+
+using namespace std;
 
 satellitesMaker::satellitesMaker() 
 {
+	// this->first = new Satellite();
+	first = NULL;
 	
 }
 
@@ -9,27 +14,23 @@ void satellitesMaker::CollectNextCluster()
 {
 	//var
 	Satellite* p = new Satellite() ;
-	
-	if(isEmpty() == true)
-	{
-		cout<<"There are no StarLink Satellites to collect."<<endl;
-	}
+	Satellite* curr = first;
+	Satellite* prev = NULL;
 	
 	//make 1 Satellite
 	this->first = p;
-	first->prevS = null;
-	
+	first-> prevS = NULL;
+
 	//prototype 59 Satellites using prototype and iterator 
-	Satellite* curr = first;
-	Satellite* prev = null;
-	
+	curr = first;
 	for (int n=0;n<60;n++)
 	{
-		curr->nextS = p->clone();
-
+		curr->nextS = p->Clone();
+ 
 		prev = curr;
 		curr = curr->nextS;
-		curr->prevS = prev;
+
+		curr->prevS= prev;
 
 	}
 	
@@ -37,7 +38,11 @@ void satellitesMaker::CollectNextCluster()
 	this->empty = true;
 }
 
-void satellitesMaker::isEmpty() 
+bool satellitesMaker::isEmpty() 
 {
-	return this->empty;
+	if(first == NULL)
+	{
+		return true;
+	}
+	return false;
 }

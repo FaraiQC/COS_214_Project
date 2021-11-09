@@ -1,38 +1,48 @@
 #ifndef SATELLITE_H
 #define SATELLITE_H
-#include "SatelliteMediator.h"
 #include "Antenna.h"
+#include "SatelliteMediator.h"
 #include <iostream>
+#include <vector>
+
+class SatelliteMediator;
+
 using namespace std;
 
 class Satellite {
 
 private:
 	double distance;
-	antenna : vector<Antenna*>;
-	SatelliteMediator mediator;
-	Satellite* nextS = NULL;
-	Satellite* prevS = NULL;
+	vector<Antenna*> antenna;
+	SatelliteMediator* mediator;
+
 
 public:
 	~Satellite();
 
 	Satellite();
 
-	virtual Satellite* Clone() = 0;
+	Satellite* nextS ;
+	Satellite* prevS ;
+
+	virtual Satellite* Clone();
 
 	Satellite* nextSatellite();
 
 	Satellite* prevSatellite();
 
-	void attach(Antenna antenna);
+	void attach(Antenna* a);
 
-	void detach(Antenna antenna);
+	void detach(Antenna* a);
 
 	void notifyAntenna();
 
-	virtual double getDistance() = 0;
+	virtual double getDistance();
+
+	double getDist();
 	
+	void setDist(double d);
+
 	void SatellitesMoved() ;
 };
 
