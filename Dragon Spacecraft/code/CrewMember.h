@@ -1,5 +1,8 @@
 #ifndef CREWMEMBER_H
 #define CREWMEMBER_H
+#include <string>
+
+using namespace std;
 
 class CrewMember {
 
