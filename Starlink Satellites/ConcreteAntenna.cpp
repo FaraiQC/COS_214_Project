@@ -7,11 +7,11 @@ void ConcreteAntenna::update()
 
 ConcreteAntenna::ConcreteAntenna() 
 {
-
+   cout << "All Antenna's Radio Signals are initially False" << endl;
+  radioSignal = false;
 }
 
 ConcreteAntenna::~ConcreteAntenna() 
 {
-  cout << "All Radio Signals are initially False" << endl;
-  radioSignal = False;
+ 
 }
