@@ -1,26 +1,17 @@
 #ifndef MARK2PARACHUTE_H
 #define MARK2PARACHUTE_H
+#include "Parachute.h"
 
-class Mark2Parachute : Parachute {
+class Mark2Parachute :public Parachute {
+	private:
+		int stoppingPower;
 
-private:
-	int stoppingPower
-
-public:
-	Mark2Parachute();
-
-	void ~Mark2Parachute();
-
-	void deploy();
-
-	/**
-	 * will create a random int between 0 and 10 if less than 5 unsuccessful
-	 */
-	int calculateSuccessRate();
-	 void setStoppingPower(int stoppingPower);
-
-	 int getStoppingPower();
-
+	public:
+		Mark2Parachute();
+		~Mark2Parachute();
+		void deploy();
+		int calculateSuccessRate();
+		void setStoppingPower(int stoppingPower);
+		int getStoppingPower();
 };
-
 #endif

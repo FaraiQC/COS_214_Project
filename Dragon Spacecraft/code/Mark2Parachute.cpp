@@ -1,6 +1,10 @@
 #include "Mark2Parachute.h"
 #include <stdlib.h>
 #include <ctime>
+#include <iostream>
+
+using namespace std;
+
 Mark2Parachute::Mark2Parachute() {
 	
 }
