@@ -1,6 +1,7 @@
 #ifndef CONCRETEANTENNA_H
 #define CONCRETEANTENNA_H
 #include "Antenna.h"
+#include "ConcreteAntenna.h"
 #include <iostream>
 using namespace std;
 
