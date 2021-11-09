@@ -14,6 +14,7 @@ int main()
 {
     SatellitesMaker* sat = new SatellitesMaker();
     Satellite* s =  new Satellite();
+    SatelliteMediator* sM = new SatelliteMediator();
 
     cout<<"Satellites waiting to be collected.\n";
     sat->CollectNextCluster();
@@ -22,7 +23,7 @@ int main()
     cout<<"Starlink Satelites have been released in the desired orbit!\n";
     
     s->notifyAntenna();
-    
+    sM->notify(); // Allowing communication for Satellites to spread equally.
 
 
 
