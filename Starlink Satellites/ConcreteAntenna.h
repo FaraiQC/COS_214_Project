@@ -8,7 +8,7 @@ class ConcreteAntenna : public Antenna {
 
 private:
 	bool radioSignal;
-	ConcreteSatellite subject;
+	ConcreteSatellite* subject;
 
 public:
 	void update();
