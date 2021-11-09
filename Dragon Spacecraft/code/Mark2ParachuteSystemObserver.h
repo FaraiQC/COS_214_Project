@@ -1,7 +1,10 @@
 #ifndef MARK2PARACHUTESYSTEMOBSERVER_H
 #define MARK2PARACHUTESYSTEMOBSERVER_H
+#include "DragonSpacecraft.h"
+#include "CrewDragonSpacecraft.h"
+#include "ParachuteSystemObserver.h"
 
-class Mark2ParachuteSystemObserver : ParachuteSystemObserver {
+class Mark2ParachuteSystemObserver :public ParachuteSystemObserver {
 
 private:
 	int* observerCurrentHight;
@@ -10,7 +13,6 @@ private:
 
 public:
 	void update();
-
 	void operation();
 };
 
