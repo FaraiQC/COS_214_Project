@@ -12,7 +12,7 @@ public:
 	void deploy();
 
 	/**
-	 * will always return 1
+	 * will always return 10
 	 */
 	int calculateSuccessRate();
 };

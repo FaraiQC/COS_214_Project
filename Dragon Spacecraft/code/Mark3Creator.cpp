@@ -3,10 +3,10 @@
 
 using namespace std;
 
-Parachute* Mark3Creator::createParachute() {
+Mark3Creator::Mark3Creator() {
 	cout<<"Ready to create Mark3 Parachutes."<<endl;
 }
-
-Mark3Creator::Mark3Creator() {
+Parachute* Mark3Creator::createParachute() {
 	return new Mark3Parachute();
 }
+

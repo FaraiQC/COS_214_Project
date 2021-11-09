@@ -4,7 +4,7 @@
 class ParachuteCreator {
 	public:
 		ParachuteCreator();
-		Parachute* createParachute();
+		virtual Parachute* createParachute()=0;
 };
 
 #endif

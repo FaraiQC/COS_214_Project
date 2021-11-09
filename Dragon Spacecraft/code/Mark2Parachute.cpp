@@ -1,16 +1,15 @@
 #include "Mark2Parachute.h"
-
+#include <stdlib.h>
+#include <ctime>
 Mark2Parachute::Mark2Parachute() {
-	// TODO - implement Mark2Parachute::Mark2Parachute
-	throw "Not yet implemented";
+	
 }
 
 void Mark2Parachute::deploy() {
-	// TODO - implement Mark2Parachute::deploy
-	throw "Not yet implemented";
+	cout<<"Now deploying Mark2Parachute."<<endl;
 }
 
 int Mark2Parachute::calculateSuccessRate() {
-	// TODO - implement Mark2Parachute::calculateSuccessRate
-	throw "Not yet implemented";
+	int SuccessRate= 0 + (rand() % 10);
+	return SuccessRate;
 }
