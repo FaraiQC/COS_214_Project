@@ -4,19 +4,16 @@
 class Parachute {
 
 private:
-	int successRate;
-	int stoppingPower;
+	
 
 public:
 	Parachute();
 
-	void setStoppingPower(int stoppingPower);
+	
 
-	int getStoppingPower();
+	virtual void deploy()=0;
 
-	void deploy();
-
-	int calculateSuccessRate();
+	virtual int calculateSuccessRate()=0;
 };
 
 #endif

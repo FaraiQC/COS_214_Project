@@ -11,3 +11,12 @@ void Mark3Parachute::deploy() {
 int Mark3Parachute::calculateSuccessRate() {
 	return 10;
 }
+void Mark3Parachute::setStoppingPower(int stoppingPower)
+{
+	this->stoppingPower=stoppingPower;
+}
+
+int Mark3Parachute::getStoppingPower()
+{
+	return stoppingPower;
+}
