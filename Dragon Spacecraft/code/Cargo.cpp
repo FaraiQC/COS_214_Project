@@ -1,8 +1,7 @@
 #include "Cargo.h"
 
 Cargo::Cargo() {
-	// TODO - implement Cargo::Cargo
-	throw "Not yet implemented";
+	
 }
 
 string Cargo::getDescription() {
@@ -10,8 +9,7 @@ string Cargo::getDescription() {
 }
 
 string Cargo::getName() {
-	// TODO - implement Cargo::getName
-	throw "Not yet implemented";
+	return this->nameOfCargo;
 }
 
 void Cargo::setDescription(string Name) {
@@ -19,10 +17,8 @@ void Cargo::setDescription(string Name) {
 }
 
 void Cargo::setName(string name) {
-	// TODO - implement Cargo::setName
-	throw "Not yet implemented";
+	this->nameOfCargo = name;
 }
-
 
 
 void Cargo::setWeight(double a){
@@ -30,7 +26,7 @@ void Cargo::setWeight(double a){
 }
 
 double Cargo::getWeight(){
-
+	return this->weight;
 }
 
 
