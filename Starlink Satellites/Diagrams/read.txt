@@ -1,8 +1,0 @@
-Diagrams available for Starlink starllites:
-
-- UML diagram
-- Sequence diagram
-- Communications diagram
-- State diagram
-- Activity diagram
-- Object diagram
