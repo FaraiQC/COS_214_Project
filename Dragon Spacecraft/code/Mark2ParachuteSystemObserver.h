@@ -1,8 +1,7 @@
 #ifndef MARK2PARACHUTESYSTEMOBSERVER_H
 #define MARK2PARACHUTESYSTEMOBSERVER_H
-#include "DragonSpacecraft.h"
-#include "CrewDragonSpacecraft.h"
-#include "ParachuteSystemObserver.h"
+#include "Spacecraft.h"
+
 
 class Mark2ParachuteSystemObserver :public ParachuteSystemObserver {
 	private:
@@ -11,7 +10,9 @@ class Mark2ParachuteSystemObserver :public ParachuteSystemObserver {
 		Spacecraft * Dragon_Or_Crew_subj;
     
 	public:
+		Mark2ParachuteSystemObserver(Spacecraft * Dragon_Or_Crew_subj);
 		void update();
+		void print();
 		
 };
 #endif
