@@ -84,3 +84,5 @@ void Spacecraft::detach(Thruster* thruster) {
 	remove(thrustersList.begin(), thrustersList.end(), thruster);
 }
 
+int Spacecraft::getCurrtHight(){}
+void Spacecraft::setCurrtHight(int currtHight){}

@@ -19,5 +19,8 @@ public:
 	double currentWeight();
 	void loadCargo(Cargo* cargo);
 	void removeCargo(Cargo* cargo);
+	
+	int getCurrtHight();
+	void setCurrtHight(int currtHight);
 };
 #endif

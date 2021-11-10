@@ -25,6 +25,6 @@ int CrewDragonSpacecraft::getCurrtHight_crewDragon() {
 	return this->currtHight_crewDragon;
 }
 
-void CrewDragonSpacecraft::setCurrtHight_crewDragon(int currtHight_crewDragon) {
-	this->currtHight_crewDragon = currtHight_crewDragon;
+void CrewDragonSpacecraft::setCurrtHight_crewDragon(int currtHight) {
+	this->currtHight_crewDragon = currtHight;
 }

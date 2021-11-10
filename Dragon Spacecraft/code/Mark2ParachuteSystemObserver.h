@@ -6,12 +6,12 @@
 
 class Mark2ParachuteSystemObserver :public ParachuteSystemObserver {
 	private:
-		int* observerCurrentHight;
-		DragonSpacecraft* Dragon_subj;
-		CrewDragonSpacecraft* CrewDragon_subj;
-
+		int observerCurrentHight;
+		
+		Spacecraft * Dragon_Or_Crew_subj;
+    
 	public:
 		void update();
-		void operation();
+		
 };
 #endif

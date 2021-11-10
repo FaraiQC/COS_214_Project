@@ -1,10 +1,10 @@
 #ifndef MARK3PARACHUTESYSTEMOBSERVER_H
 #define MARK3PARACHUTESYSTEMOBSERVER_H
-
-class Mark3ParachuteSystemObserver : ParachuteSystemObserver {
+#include "ParachuteSystemObserver.h"
+class Mark3ParachuteSystemObserver :public  ParachuteSystemObserver {
 
 private:
-	int* observerCurrentHight;
+	int observerCurrentHight;
 	DragonSpacecraft* Dragon_subj;
 	CrewDragonSpacecraft* CrewDragon_subj;
 

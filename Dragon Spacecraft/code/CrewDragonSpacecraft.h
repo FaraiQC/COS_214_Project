@@ -16,8 +16,8 @@ public:
 	~CrewDragonSpacecraft();
 	void setCurrentLocation(string location);
 	double currentWeight();
-	int getCurrtHight_crewDragon();
-	void setCurrtHight_crewDragon(int currtHight_crewDragon);
+	int getCurrtHight();
+	void setCurrtHight(int currtHight);
 
 
 };

@@ -27,8 +27,17 @@ void DragonSpacecraft::removeCargo(Cargo* cargo) {
 	remove(spacecraftCargo.begin(), spacecraftCargo.end(), cargo);
 	// for(Cargo* item: cargoList){							//do not delete though
 	// 	if(item == cargo){
-	// 		cargoList.erase(i);
+	// 		cargolist.erase(i);
 	// 	}
 	// 	i++;
 	// }
+}
+
+
+int CrewDragonSpacecraft::getCurrtHight() {
+	return this->currtHight_crewDragon;
+}
+
+void CrewDragonSpacecraft::setCurrtHight_crewDragon(int currtHight) {
+	this->currtHight_crewDragon = currtHight;
 }

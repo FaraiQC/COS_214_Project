@@ -40,6 +40,9 @@ class Spacecraft {
 		void attach(Thruster* thruster);
 		void detach(Thruster* thruster);
 
+		virtual int getCurrtHight();
+		virtual void setCurrtHight(int currtHight);
+
 
 };
 #endif
