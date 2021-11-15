@@ -2,6 +2,11 @@
 #define SIMULATION_H
 #include <vector>
 
+
+#include "../StarlinkSatellites/Satellite.h"
+#include "../DragonSpacecraft/code/Spacecraft.h"
+#include "../FalconRockets/Rocket.h"
+
 class Simulation {
 
 private:
