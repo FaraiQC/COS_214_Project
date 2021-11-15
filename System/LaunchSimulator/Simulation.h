@@ -19,7 +19,8 @@ private:
 	Satellite* sats;
 	Spacecraft* spaceC;
 	Rocket* rkt;
-
+	
+	static int falconIndex= 0;
 
 public:
 	Simulation();
