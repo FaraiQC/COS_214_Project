@@ -2,10 +2,10 @@
 **Code breakers**
 
 # Contributors
-- Farai Chivunga
-- Kudakwashe Chivunga
 - Musa Mabasa
-- Simphiwe Ndlovu
 - Awelani
-- Thabo Maduna
-- Alpha
+- Farai Chivunga Github.com/FaraiQC
+- Kudakwashe Chivunga <Github.com/Kuda214>
+- Simphiwe Ndlovu <Github.com/SimphiweNdlovu>
+- Thabo Maduna <Github.com/MadunaThabo>
+- Alpha <Github.com/N4T1V3>
