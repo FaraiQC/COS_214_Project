@@ -1,4 +1,5 @@
 # COS_214_Project
+[Google doc](https://docs.google.com/document/d/1gs0NNO9YN0JF_Gwg1Z9vqOSuz4UBR-yM_8e0tlxygJ8/edit?usp=sharing)
 **Code breakers**
 
 ## How to run
