@@ -1,8 +1,7 @@
 #include "Simulation.h"
 
 Simulation::Simulation() {
-	// TODO - implement Simulation::Simulation
-	throw "Not yet implemented";
+	
 }
 
 Simulation::~Simulation() {
@@ -11,8 +10,9 @@ Simulation::~Simulation() {
 }
 
 void Simulation::testSimulation() {
-	// TODO - implement Simulation::testSimulation
-	throw "Not yet implemented";
+	this->satellites = sats->testSatellites();
+	this->spacecrafts = spaceC->testSpacecrafts();
+	this->falcons = rkt->testRockets();
 }
 
 void Simulation::assembleRocket() {
