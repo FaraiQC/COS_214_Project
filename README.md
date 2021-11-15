@@ -1,6 +1,15 @@
 # COS_214_Project
 **Code breakers**
 
+## How to run
+- Locate yourself to the System folder
+- Run the makefile with the following commands:
+```bash
+make
+
+make run
+```
+
 ## Contributors
 - [Farai Chivunga](https://github.com/FaraiQC)
 - [Kudakwashe Chivunga](https://github.com/Kuda214)
