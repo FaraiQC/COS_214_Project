@@ -14,6 +14,12 @@ private:
 	vector<Spacecrafts*> spacecrafts;
 	vector<Falcon*> falcon;
 	vector<Falcon*> FinalSimulations;
+	
+	//pointers
+	Satellite* sats;
+	Spacecraft* spaceC;
+	Rocket* rkt;
+
 
 public:
 	Simulation();
