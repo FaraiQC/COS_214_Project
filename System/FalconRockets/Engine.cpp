@@ -37,11 +37,16 @@ void Engine::turnOn() {
 
 void Engine::turnOff() {
 
-   
+    if (on) {
+        cout << id << " is turning off... " << endl;
+        on = false;
+    } else {
+        cout << id << " is already off!" << endl;
+    }
 }
 
 void Engine::setState(bool state) {
-    
+    on = state;
 }
 
 Engine::~Engine() = default;
