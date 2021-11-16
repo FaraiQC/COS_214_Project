@@ -10,7 +10,7 @@ string Engine::getId() {
 }
 
 void Engine::setId(string id) {
-    
+    this->id = id;
 }
 
 string Engine::getPropellant() {
