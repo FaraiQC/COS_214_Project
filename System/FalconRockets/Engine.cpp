@@ -26,7 +26,12 @@ bool Engine::getState() {
 }
 
 void Engine::turnOn() {
-
+    if (!on) {
+        cout << id << " is turning on... " << endl;
+        on = true;
+    } else {
+        cout << id << " is already on!" << endl;
+    }
     
 }
 
