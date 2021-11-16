@@ -22,7 +22,7 @@ void Engine::setPropellant(string prop) {
 }
 
 bool Engine::getState() {
-   
+   return false;
 }
 
 void Engine::turnOn() {
