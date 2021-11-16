@@ -1,18 +1,23 @@
 #include "Simulation.h"
+#include <iostream>
+
+using namespace std;
 
 Simulation::Simulation() {
-	// TODO - implement Simulation::Simulation
-	throw "Not yet implemented";
+	sats = new Satellite();
+	spaceC = new Spacecraft();
+	rkts = new Rocket();
 }
 
 Simulation::~Simulation() {
-	// TODO - implement Simulation::~Simulation
-	throw "Not yet implemented";
+	
 }
 
 void Simulation::testSimulation() {
-	// TODO - implement Simulation::testSimulation
-	throw "Not yet implemented";
+	
+	this->satellites = sats->testSatellites();
+	this->spacecrafts = spaceC->testSpacecrafts();
+	this->falcons = rkt->testRockets();
 }
 
 void Simulation::assembleRocket() {
