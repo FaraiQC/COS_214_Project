@@ -14,7 +14,7 @@ void Engine::setId(string id) {
 }
 
 string Engine::getPropellant() {
-    
+    return propellant;
 }
 
 void Engine::setPropellant(string prop) {
