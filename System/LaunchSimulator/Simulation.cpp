@@ -1,31 +1,33 @@
 #include "Simulation.h"
 
-Simulation::Simulation() {
+Simulation::Simulation() 
+{
 	
 }
 
-Simulation::~Simulation() {
-	// TODO - implement Simulation::~Simulation
-	throw "Not yet implemented";
+Simulation::~Simulation() 
+{
+	
 }
 
-void Simulation::testSimulation() {
+void Simulation::testSimulation() 
+{
 	this->satellites = sats->testSatellites();
 	this->spacecrafts = spaceC->testSpacecrafts();
 	this->falcons = rkt->testRockets();
 }
 
-void Simulation::assembleRocket() {
-	// TODO - implement Simulation::assembleRocket
-	throw "Not yet implemented";
+void Simulation::assembleRocket() 
+{
+	
 }
 
-void Simulation::Launch() {
-	// TODO - implement Simulation::Launch
-	throw "Not yet implemented";
+void Simulation::Launch() 
+{
+	
 }
 
-void Simulation::Launch(int int_t) {
-	// TODO - implement Simulation::Launch
-	throw "Not yet implemented";
+void Simulation::Launch(int int_t) 
+{
+	
 }
