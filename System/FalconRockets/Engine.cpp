@@ -18,7 +18,7 @@ string Engine::getPropellant() {
 }
 
 void Engine::setPropellant(string prop) {
-    
+    propellant = prop;
 }
 
 bool Engine::getState() {
