@@ -1,11 +1,12 @@
 #include "Engine.h"
 
 Engine::Engine(string EngineId, int maxThrust, string propellant) {
-    
+    id = EngineId;
+    thrustMax = maxThrust;
 }
 
 string Engine::getId() {
-    
+    return id;
 }
 
 void Engine::setId(string id) {
