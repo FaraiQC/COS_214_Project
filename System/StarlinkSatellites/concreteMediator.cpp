@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//@brief Spreads the satellites evenly then switches off all of their lasers
 void concreteMediator::notify() 
 {
     /*
