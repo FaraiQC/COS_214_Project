@@ -3,13 +3,14 @@
 
 using namespace std;
 
+//@brief Sets the first pointer (the head of the list of Satellites) to null
 satellitesMaker::satellitesMaker() 
 {
 	// this->first = new Satellite();
 	first = NULL;
-	
 }
 
+//@brief Collects the next cluster of 60 satellites by making one Satellite and cloning 59 of them. The 60 satellites are stored in a linked list with the pointer 'first' as the head of the list
 void satellitesMaker::CollectNextCluster() 
 {
 	//var
@@ -38,6 +39,9 @@ void satellitesMaker::CollectNextCluster()
 	this->empty = true;
 }
 
+//@brief Checks if there was a cluster colected or not
+//@return true if there was no cluster collected
+//@return false if there was a cluster collected
 bool satellitesMaker::isEmpty() 
 {
 	if(first == NULL)
