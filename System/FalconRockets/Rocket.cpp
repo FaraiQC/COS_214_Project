@@ -25,3 +25,11 @@ void Rocket::setAllStages(StageOne *one, InterStage *inter, StageTwo  *two) {
 Rocket::~Rocket() {
     // TODO free all the pointers.
 }
+
+StageTwo* Rocket::getStageTwo() {
+    return stageTwo;
+}
+
+StageOne* Rocket::getStageOne() {
+    return stageOne;
+}

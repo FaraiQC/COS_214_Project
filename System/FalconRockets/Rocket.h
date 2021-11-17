@@ -21,6 +21,10 @@ public:
 
     virtual void setStageTwo(StageTwo *two);
 
+    virtual StageTwo *getStageTwo();
+
+    virtual StageOne *getStageOne();
+
     virtual void setAllStages(StageOne *one, InterStage *interStage, StageTwo *two);
 
     virtual ~Rocket();
