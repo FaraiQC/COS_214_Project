@@ -1,8 +1,8 @@
 #ifndef FALCON_ROCKETS_STAGETWOCREATOR_H
 #define FALCON_ROCKETS_STAGETWOCREATOR_H
 
-#include "StageTwo.h"
 #include "StageFactory.h"
+#include "StageTwo.h"
 
 class StageTwoCreator : public StageFactory {
 private:

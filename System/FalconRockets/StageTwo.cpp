@@ -20,3 +20,6 @@ void StageTwo::setSpaceCraft(Spacecraft *spacecraft) {
 StageTwo::~StageTwo() = default;
 
 
+void StageTwo::activate() {
+
+}

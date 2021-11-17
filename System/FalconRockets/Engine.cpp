@@ -1,28 +1,29 @@
 #include "Engine.h"
 
-Engine::Engine(string EngineId, int maxThrust, string propellant) {
-    id = EngineId;
-    thrustMax = maxThrust;
+Engine::Engine(string EngineId, int maxThrust, string propellants) {
+    this->id = EngineId;
+    this->thrustMax = maxThrust;
+    this->propellant = propellants;
 }
 
 string Engine::getId() {
     return id;
 }
 
-void Engine::setId(string id) {
-    this->id = id;
+void Engine::setId(string i) {
+    this->id = i;
 }
 
 string Engine::getPropellant() {
     return propellant;
 }
 
-void Engine::setPropellant(string prop) {
-    propellant = prop;
+void Engine::setPropellant(string prope) {
+    propellant = prope;
 }
 
 bool Engine::getState() {
-   return false;
+    return false;
 }
 
 void Engine::turnOn() {
@@ -32,7 +33,7 @@ void Engine::turnOn() {
     } else {
         cout << id << " is already on!" << endl;
     }
-    
+
 }
 
 void Engine::turnOff() {

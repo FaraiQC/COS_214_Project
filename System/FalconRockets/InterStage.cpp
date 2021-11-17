@@ -8,4 +8,12 @@ void InterStage::setGridFins(int) {
     numberOfGridFins = 4;
 }
 
+void InterStage::separate() {
+
+}
+
+void InterStage::activate() {
+
+}
+
 InterStage::~InterStage() = default;
