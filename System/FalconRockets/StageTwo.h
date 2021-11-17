@@ -10,11 +10,13 @@ private:
     Spacecraft *capsule;
     vector<Engine *> engines;
 public:
-    StageTwo(string id);
+    explicit StageTwo(string id);
 
     void addEngine(Engine *);
 
-    void setSpaceCraft(Spacecraft * spacecraft);
+    void setSpaceCraft(Spacecraft *spacecraft);
+
+    void activate() override;
 
     void addCargo();
 
