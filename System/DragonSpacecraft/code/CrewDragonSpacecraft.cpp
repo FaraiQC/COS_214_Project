@@ -5,26 +5,61 @@ using namespace std;
 
 CrewDragonSpacecraft::CrewDragonSpacecraft() {
 	cout<<"CrewDragonSpacecraft has been created"<<endl;
+	setCurrentLocation("Earth");
+	NumCrewMember=0;
+	setIsCrewDragon(true);
 }
 
-
-
 double CrewDragonSpacecraft::currentWeight() {
-	
 	double weight=0;
-	for(Cargo* item: spacecraftCargo){
+	for(CrewMember* item: spacecraftCrew){
 		weight += item->getWeight();
 	}
-	for(CrewMember* item: spacecraftCrew){
+	for(Cargo* item: getCargoList()){
 		weight += item->getWeight();
 	}
 	return weight;
 }
 
-int CrewDragonSpacecraft::getCurrtHight_crewDragon() {
-	return this->currtHight_crewDragon;
+int CrewDragonSpacecraft::getCurrentHeight() {
+	return this->currentHeight;
 }
 
-void CrewDragonSpacecraft::setCurrtHight_crewDragon(int currtHight) {
-	this->currtHight_crewDragon = currtHight;
+void CrewDragonSpacecraft::setCurrentHeight(int currtHight) {
+	this->currentHeight = currtHight;
+}
+
+void CrewDragonSpacecraft::enterCrewMember(CrewMember* member){
+	spacecraftCrew.push_back(member);
+	cout<<member->getName()<<" has borded the spacecraft"<<endl;
+	NumCrewMember++;
+}
+
+void CrewDragonSpacecraft::removeCrewMember(int index){
+	spacecraftCrew.erase(spacecraftCrew.begin()+index-1);
+	NumCrewMember--;
+}
+
+void CrewDragonSpacecraft::crewInfo(){
+	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
+	cout<<"\t\t\tCrew Information:"<<endl;
+	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
+	double w = 0;
+	int i=0;
+	for(CrewMember* item: spacecraftCrew){
+		cout<<i<<item->getName()<<" weight: "<<item->getWeight()<<" kg"<<endl;
+		w += item->getWeight();
+		i++;
+	}
+	cout<<endl;
+	cout<<"Total crew weight is: "<<w<<endl;
+	cout<<endl;
+}
+int CrewDragonSpacecraft::getTotalNumCrewMember()
+{
+	return NumCrewMember;
+}
+
+vector<CrewMember*> CrewDragonSpacecraft::getCrewList(){
+	return spacecraftCrew;
 }

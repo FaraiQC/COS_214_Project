@@ -8,19 +8,15 @@
 using namespace std;
 
 class DragonSpacecraft :public Spacecraft {
-
-private:
-	vector<Cargo*> spacecraftCargo;
-	int* currentHight_Dragon;
-
-public:
-	DragonSpacecraft();
-	~DragonSpacecraft();
-	double currentWeight();
-	void loadCargo(Cargo* cargo);
-	void removeCargo(Cargo* cargo);
-	
-	int getCurrtHight();
-	void setCurrtHight(int currtHight);
+	private:
+		int currentHeight;
+	public:
+		DragonSpacecraft();
+		~DragonSpacecraft();
+		double currentWeight();
+		void loadCargo(Cargo* cargo);
+		void removeCargo(int index);
+		int getCurrentHeight();
+		void setCurrentHeight(int currtHight);
 };
 #endif

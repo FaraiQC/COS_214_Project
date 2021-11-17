@@ -1,8 +1,11 @@
 #include "Parachute.h"
 
 Parachute::Parachute() {
-	// TODO - implement Parachute::Parachute
-	throw "Not yet implemented";
+
+}
+
+Parachute::Parachute(string id){
+	setId(id);
 }
 
 void Parachute::setStoppingPower(int stoppingPower) {
@@ -13,12 +16,13 @@ int Parachute::getStoppingPower() {
 	return this->stoppingPower;
 }
 
-void Parachute::deploy() {
-	// TODO - implement Parachute::deploy
-	throw "Not yet implemented";
+void Parachute::setId(string id){
+	this->id = id;
 }
 
-int Parachute::calculateSuccessRate() {
-	// TODO - implement Parachute::calculateSuccessRate
-	throw "Not yet implemented";
+string Parachute::getId(){
+	return this->id;
 }
+
+void Parachute::SetMark2isCreatedChecker(int chech){this->check=check;}
+int Parachute::GetMark2isCreatedChecker(){return check;}

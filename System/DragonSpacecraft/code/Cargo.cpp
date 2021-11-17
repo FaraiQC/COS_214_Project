@@ -4,6 +4,11 @@ Cargo::Cargo() {
 	
 }
 
+Cargo::Cargo(string nameOfCargo, double weight){
+	setName(nameOfCargo);
+	setWeight(weight);
+}
+
 string Cargo::getDescription() {
 	return this->description;
 }
@@ -21,8 +26,8 @@ void Cargo::setName(string name) {
 }
 
 
-void Cargo::setWeight(double a){
-	this->weight = a;
+void Cargo::setWeight(double weight){
+	this->weight = weight;
 }
 
 double Cargo::getWeight(){

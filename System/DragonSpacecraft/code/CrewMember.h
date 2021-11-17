@@ -5,18 +5,18 @@
 using namespace std;
 
 class CrewMember {
+	private:
+		string name;
+		double weight;
 
-private:
-	string name;
-	double weight;
-
-public:
-	CrewMember();
-	~CrewMember();
-	void setName(string name);
-	void setWeight(double weight);
-	string getName();
-	double getWeight();
+	public:
+		CrewMember();
+		CrewMember(string, double);
+		~CrewMember();
+		void setName(string name);
+		void setWeight(double weight);
+		string getName();
+		double getWeight();
 };
 
 #endif

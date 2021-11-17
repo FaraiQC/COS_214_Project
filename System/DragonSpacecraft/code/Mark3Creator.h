@@ -3,10 +3,13 @@
 #include "Parachute.h"
 #include "Mark3Parachute.h"
 #include "ParachuteCreator.h"
+#include <string>
+
+using namespace std;
 
 class Mark3Creator :public ParachuteCreator {
 	public:
-		Parachute* createParachute();
+		Parachute* createParachute(string);
 		Mark3Creator();
 };
 #endif
