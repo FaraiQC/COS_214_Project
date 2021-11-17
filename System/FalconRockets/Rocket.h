@@ -8,12 +8,17 @@
 
 class Rocket {
 private:
+    string id;
     StageOne *stageOne;
     InterStage *interStage;
     StageTwo *stageTwo;
-    RocketState rocketState;
+    RocketState* rocketState;
 public:
     Rocket();
+
+    void setName(string id);
+
+    string getName();
 
     virtual void setStageOne(StageOne *one);
 
@@ -23,7 +28,11 @@ public:
 
     virtual StageTwo *getStageTwo();
 
+    virtual bool launch();
+
     virtual StageOne *getStageOne();
+
+    virtual InterStage* getInterStage();
 
     virtual void setAllStages(StageOne *one, InterStage *interStage, StageTwo *two);
 

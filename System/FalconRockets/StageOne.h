@@ -9,10 +9,15 @@ private:
 public:
     explicit StageOne(string id);
 
+    void activate() override;
+
+    void deactivate() override;
+
     void addEngine(Engine *engine);
 
     ~StageOne() override;
 
+    void land();
 };
 
 

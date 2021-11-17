@@ -18,6 +18,8 @@ public:
 
     void activate() override;
 
+    void deactivate() override;
+
     void addCargo();
 
     ~StageTwo() override;

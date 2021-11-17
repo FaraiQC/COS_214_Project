@@ -1,6 +1,15 @@
 #include <iostream>
+#include "FalconNineBuilder.h"
+#include "FalconHeavyBuilder.h"
+#include "RocketBuilderDirector.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
+
+    RocketBuilderDirector builderDirector;
+    FalconNineBuilder falconNineBuilder;
+    builderDirector.setBuilder(&falconNineBuilder);
+    builderDirector.buildFalconNine("FLCHVY01");
+    cout << falconNineBuilder.getRocket()->getName() << endl;
     return 0;
 }

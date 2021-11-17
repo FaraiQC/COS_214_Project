@@ -8,4 +8,8 @@ string Stage::getName() {
     return name;
 }
 
+void Stage::deactivate() {
+
+}
+
 Stage::~Stage() = default;

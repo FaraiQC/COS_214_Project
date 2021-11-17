@@ -10,6 +10,8 @@ private:
 public:
     FalconHeavyBuilder();
 
+    void addBoosters();
+
     void addElectronics() override;
 
     void addEngines() override;

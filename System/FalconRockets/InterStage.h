@@ -10,8 +10,11 @@ public:
     InterStage(string name, int numberOfFins);
 
     void setGridFins(int);
+
     void separate();
+
     void activate() override;
+
     ~InterStage() override;
 };
 
