@@ -1,17 +1,17 @@
 #ifndef SUPERDRACO_H
 #define SUPERDRACO_H
+#include "Thruster.h"
+#include <string>
 
-class SuperDraco : Thruster {
+using namespace std;
 
-
-public:
-	SuperDraco();
-
-	void ~superDraco();
-
-	void shutDown();
-
-	void fireUp();
+class SuperDraco :public Thruster {
+	public:
+		SuperDraco();
+		SuperDraco(string id);
+		~SuperDraco();
+		void shutDown();
+		void fireUp();
 };
 
 #endif

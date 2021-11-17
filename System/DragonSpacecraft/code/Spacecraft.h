@@ -15,6 +15,9 @@ class Spacecraft {
 		vector<Parachute*> parachuteList;
 		vector<Thruster*> thrustersList;
 		vector<Cargo*> cargoList;
+
+
+
 		double maxWeightToEarth;
 		double maxWeightToOrbit;
 		string currentLocation;
@@ -22,27 +25,45 @@ class Spacecraft {
 		int CurrentHightFromGround;
 		vector<ParachuteSystemObserver*> parachute_obsecerList;
 		int reused;	
+		int parachuteChecker;
+		int ThrusterChecker;
+		int checkSpacecraft;
+		bool IsCrewDragon;
+		
 
 	public:
 		Spacecraft();
 		virtual double currentWeight()=0;
 		void setCurrentLocation(string location);
 		string getCurrentLocation();
-		void setDestination(int destination);
+		void setDestination(string destination);
 		double getWeightToOrbit();
-		void setWeightToOrbit(double weight);
+		void setWeightToOrbit(double weight);	//we have to delete this
 		double getWeightToEarth();
 		virtual void goToDestination();
 		void notify();
 		void attach(ParachuteSystemObserver* obj);
 		void detach(ParachuteSystemObserver* obj);
 		void missionComplete();
-		void attach(Thruster* thruster);
-		void detach(Thruster* thruster);
-
+		void attachThruster(Thruster* thruster);
+		void detachThruster();
+		void attachCargo(Cargo* cargo);
+		void detachCargo(int index);
+		void attachParachute(Parachute* parachute);
+		void detachParachute();
 		virtual int getCurrtHight();
-		virtual void setCurrtHight(int currtHight);
-
-
+		virtual void setCurrtHight(int currenttHeight);
+		void print();
+		double TotalPowerOfThrusters();
+		virtual void enterCrewMember(CrewMember*);
+		virtual void removeCrewMember(int);
+		virtual void crewInfo();
+		virtual	int getTotalNumCrewMember();
+		bool IsSpcacecraftInOptimum();
+		void launch();
+		vector<Cargo*> getCargoList();
+		virtual vector<CrewMember*> getCrewList();
+		bool isCrewDragon();
+		void setIsCrewDragon(bool IsCrewDragon);
 };
 #endif

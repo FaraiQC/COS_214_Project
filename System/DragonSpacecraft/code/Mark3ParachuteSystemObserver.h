@@ -3,18 +3,18 @@
 #include "ParachuteSystemObserver.h"
 #include "Spacecraft.h"
 #include "Parachute.h"
+#include "Mark3Parachute.h"
 
 class Mark3ParachuteSystemObserver :public  ParachuteSystemObserver {
+	private:
+		int observerCurrentHight;
+		Spacecraft * Dragon_Or_Crew_subj;
+		Parachute* theParachute;
 
-private:
-	int observerCurrentHight;
-	Spacecraft * Dragon_Or_Crew_subj;
-	Parachute* theParachute;
-
-public:
-	Mark3ParachuteSystemObserver(Spacecraft * Dragon_Or_Crew_subj);
-	void update();
-	void print();
+	public:
+		Mark3ParachuteSystemObserver(Spacecraft * Dragon_Or_Crew_subj);
+		void update();
+		void print();
 
 };
 

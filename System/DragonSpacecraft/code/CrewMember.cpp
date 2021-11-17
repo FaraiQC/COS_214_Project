@@ -7,6 +7,11 @@ CrewMember::CrewMember() {
 	
 }
 
+CrewMember::CrewMember(string name, double weight) {
+	setName(name);
+	setWeight(weight);
+}
+
 void CrewMember::setName(string name) {
 	this->name=name;	
 }

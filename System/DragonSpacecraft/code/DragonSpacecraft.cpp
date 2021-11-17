@@ -5,39 +5,30 @@ using namespace std;
 
 DragonSpacecraft::DragonSpacecraft() {
 	cout<<"The Dragon spacecraft has been created"<<endl;
+	setCurrentLocation("Earth");
+	setIsCrewDragon(false);
 }
-
-
 
 double DragonSpacecraft::currentWeight() {
 	double weight=0;
-	for(Cargo* item: spacecraftCargo){
+	for(Cargo* item: getCargoList()){
 		weight += item->getWeight();
 	}
 	return weight;
 }
 
-
 void DragonSpacecraft::loadCargo(Cargo* cargo) {
-	this->spacecraftCargo.push_back(cargo);
+	this->getCargoList().push_back(cargo);
 }
 
-
-void DragonSpacecraft::removeCargo(Cargo* cargo) {
-	remove(spacecraftCargo.begin(), spacecraftCargo.end(), cargo);
-	// for(Cargo* item: cargoList){							//do not delete though
-	// 	if(item == cargo){
-	// 		cargolist.erase(i);
-	// 	}
-	// 	i++;
-	// }
+void DragonSpacecraft::removeCargo(int index) {
+getCargoList().erase(getCargoList().begin()+index-1);
 }
 
-
-int CrewDragonSpacecraft::getCurrtHight() {
-	return this->currtHight_crewDragon;
+int DragonSpacecraft::getCurrentHeight(){
+	return this->currentHeight;
 }
 
-void CrewDragonSpacecraft::setCurrtHight_crewDragon(int currtHight) {
-	this->currtHight_crewDragon = currtHight;
+void DragonSpacecraft::setCurrentHeight(int currtHight) {
+	this->currentHeight = currtHight;
 }

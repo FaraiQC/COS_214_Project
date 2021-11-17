@@ -1,22 +1,22 @@
-#include "SuperDraco.h"
+#include "Draco.h"
 #include <iostream>
 
 using namespace std;
 
-SuperDraco::SuperDraco() {
+Draco::Draco() {
 	turnOff();
-	this->setPower(90);
-	SetDracoisCreatedChecker(1);
+	this->setPower(80);
+	SetDracoisCreatedChecker(0);
 }
 
-SuperDraco::SuperDraco(string id) {
-	this->setPower(90);
-	SetDracoisCreatedChecker(1);
+Draco::Draco(string id) {
+	SetDracoisCreatedChecker(0);
+	this->setPower(80);
 	this->setId(id);
 	turnOff();
 }
 
-void SuperDraco::fireUp() {
+void Draco::fireUp() {
 	if(isOn() == true){
 		cout<<getId()<<" turned on, firing up!"<<endl;
 	}
@@ -25,8 +25,7 @@ void SuperDraco::fireUp() {
 	}	
 }
 
-void SuperDraco::shutDown() {
+void Draco::shutDown() {
 	this->turnOff();
 	cout<<getId()<<" has been shut down"<<endl;
 }
-
