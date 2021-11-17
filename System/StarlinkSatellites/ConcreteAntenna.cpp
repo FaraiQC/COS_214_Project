@@ -13,7 +13,9 @@ ConcreteAntenna::ConcreteAntenna()
   radioSignal = false;
 }
 
+
+//@brief Sets radio Signal to false
 ConcreteAntenna::~ConcreteAntenna() 
 {
- 
+  radioSignal = false;
 }
