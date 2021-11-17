@@ -36,7 +36,7 @@ void CrewDragonSpacecraft::enterCrewMember(CrewMember* member){
 }
 
 void CrewDragonSpacecraft::removeCrewMember(int index){
-	spacecraftCrew.erase(spacecraftCrew.begin()+index-1);
+	spacecraftCrew.erase(spacecraftCrew.begin()+index);
 	NumCrewMember--;
 }
 
@@ -47,7 +47,7 @@ void CrewDragonSpacecraft::crewInfo(){
 	double w = 0;
 	int i=0;
 	for(CrewMember* item: spacecraftCrew){
-		cout<<i<<item->getName()<<" weight: "<<item->getWeight()<<" kg"<<endl;
+		cout<<i<<". "<<item->getName()<<" weight: "<<item->getWeight()<<" kg"<<endl;
 		w += item->getWeight();
 		i++;
 	}

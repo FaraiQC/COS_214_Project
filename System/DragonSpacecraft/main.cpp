@@ -30,9 +30,13 @@
 using namespace std;
 
 int main(){
+    vector<Spacecraft*> a;
     TestSpacecraft* test =new TestSpacecraft();
-    test->initSpacecraft();
-
+    a = test->initSpacecraft();
+    cout<<"The Spacecrafts returned"<<endl;
+    for(Spacecraft* item: a){
+        item->print();
+    }
     // Spacecraft* spacecraft = new DragonSpacecraft();
     // Cargo* cargo1 = new Cargo("Condo", 55.5);
     // Cargo* cargo2 = new Cargo("Money", 55.8);

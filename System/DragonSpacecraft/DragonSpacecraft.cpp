@@ -22,7 +22,7 @@ void DragonSpacecraft::loadCargo(Cargo* cargo) {
 }
 
 void DragonSpacecraft::removeCargo(int index) {
-getCargoList().erase(getCargoList().begin()+index-1);
+getCargoList().erase(getCargoList().begin()+index);
 }
 
 int DragonSpacecraft::getCurrentHeight(){

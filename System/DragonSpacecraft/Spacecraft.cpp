@@ -73,7 +73,7 @@ void Spacecraft::attachCargo(Cargo* obj) {
 
 
 void Spacecraft::detachCargo(int index) {
-	cargoList.erase(cargoList.begin()+index-1);
+	cargoList.erase(cargoList.begin()+index);
 }
 
 
@@ -168,7 +168,7 @@ void Spacecraft::crewInfo(){
 }
 int Spacecraft::getTotalNumCrewMember()
 {
-
+	
 }
 
 bool Spacecraft::IsSpcacecraftInOptimum(){
@@ -181,7 +181,7 @@ bool Spacecraft::IsSpcacecraftInOptimum(){
 	cout<<"Parachute: ";
 	if(parachuteChecker==0 ) //IF 0 is Mark 3... then pass
 	{
-		cout<<"Pass."<<endl;
+		cout<<"Pass.\n"<<endl;
 		isOptimum++;
 	}else
 	{
@@ -290,11 +290,11 @@ bool Spacecraft::IsSpcacecraftInOptimum(){
 
 	if(isOptimum==4)
 	{
-		cout<<"\t\t\tSpacecraft is optimum."<<endl;
+		cout<<"\t\t\t!!!!Spacecraft is optimum!!!!\n\n"<<endl;
 		return true;
 	}
 	
-		cout<<"\t\t\tSpacecraft is not optimum."<<endl;
+		cout<<"\t\t\t!!!!Spacecraft is not optimum!!!!\n\n"<<endl;
 
 	return false;
 }
@@ -312,7 +312,7 @@ void Spacecraft::removeCrewMember(int a){
 }
 
 vector<CrewMember*>Spacecraft:: getCrewList(){
-
+	
 }
 bool Spacecraft::isCrewDragon()
 {
