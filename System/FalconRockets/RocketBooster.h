@@ -3,15 +3,14 @@
 
 #include "Engine.h"
 #include "vector"
-
-class EngineFactory {
-};
+#include "MerlinCreator.h"
 
 class RocketBooster : public Engine {
 private :
     vector<Engine *> engines;
+    int numEngines;
 public:
-    RocketBooster(string id, int maxThrust, string propellant, int NumberOfEngines);
+    explicit RocketBooster(string id,  int NumberOfEngines = 9);
 
     void add(Engine *);
 

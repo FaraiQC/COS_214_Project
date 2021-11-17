@@ -1,8 +1,10 @@
 #include "RocketBooster.h"
 
-RocketBooster::RocketBooster(string id, int maxThrust, string propellant, int NumberOfEngines) : Engine(id, maxThrust,propellant) {
+RocketBooster::RocketBooster(string id, int NumberOfEngines) : Engine(id, 845, "PX/L1") {
+    numEngines = NumberOfEngines;
+    MerlinCreator merlinCreator;
     for (int i = 0; i < NumberOfEngines; ++i) {
-        // TODO: Initialise the engines vector with # engines specified.
+        add(merlinCreator.createEngine());
     }
 }
 
@@ -19,6 +21,7 @@ vector<Engine *> RocketBooster::getEngines() {
 }
 
 void RocketBooster::turnOn() {
+    cout << "Turning all " << num
     for (auto &engine : engines)
         engine->turnOn();
 }
