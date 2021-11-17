@@ -1,5 +1,6 @@
 #ifndef FALCON_ROCKETS_STAGE_H
 #define FALCON_ROCKETS_STAGE_H
+
 #include "Engine.h"
 #include "vector"
 
@@ -10,7 +11,9 @@ private:
 public:
     explicit Stage(string name);
 
-    string  getName();
+    string getName();
+
+    virtual void deactivate();
 
     virtual void activate() = 0;
 

@@ -6,10 +6,13 @@
 
 class InterStageCreator : public StageFactory {
 private:
+    int numberOfFins;
 public:
     InterStageCreator();
 
     Stage *createStage(string name) override;
+
+    void setGridFins(int numberOfFins);
 
     ~InterStageCreator() override;
 };

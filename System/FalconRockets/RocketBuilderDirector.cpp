@@ -8,22 +8,34 @@ void RocketBuilderDirector::setBuilder(RocketBuilder *b) {
     this->builder = b;
 }
 
-FalconNine RocketBuilderDirector::buildFalconNine() {
+void RocketBuilderDirector::buildFalconNine(string id) {
+    if (!dynamic_cast<FalconNineBuilder *>(builder)) {
+        cout << " The current builder is not for falcon heavy, set correct builder." << endl;
+        return;
+    }
+
     builder->addElectronics();
-    builder->addEngines();
-    builder->addInterStage();
     builder->addStageOne();
     builder->addStageTwo();
-    return FalconNine();
+    builder->addEngines();
+    builder->addInterStage();
+
+    dynamic_cast<FalconNineBuilder *>(builder)->getRocket()->setName(id);
 }
 
-FalconHeavy RocketBuilderDirector::buildFalconHeavy() {
+void RocketBuilderDirector::buildFalconHeavy(string id) {
+    if (!dynamic_cast<FalconHeavyBuilder *>(builder)) {
+        cout << " The current builder is not for falcon heavy, set correct builder." << endl;
+        return;
+    }
+
     builder->addElectronics();
-    builder->addEngines();
-    builder->addInterStage();
     builder->addStageOne();
     builder->addStageTwo();
-    return FalconHeavy();
+    builder->addEngines();
+    builder->addInterStage();
+
+    dynamic_cast<FalconHeavyBuilder *>(builder)->getRocket()->setName(id);
 }
 
 

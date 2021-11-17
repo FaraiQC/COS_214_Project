@@ -13,9 +13,9 @@ public:
 
     void setBuilder(RocketBuilder *builder);
 
-    FalconNine buildFalconNine();
+    void buildFalconNine( string id);
 
-    FalconHeavy buildFalconHeavy();
+    void buildFalconHeavy(string id);
 
     ~RocketBuilderDirector();
 };

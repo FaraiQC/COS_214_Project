@@ -5,6 +5,7 @@
 #include "StageOne.h"
 
 class StageOneCreator : public StageFactory {
+public:
     StageOneCreator();
 
     Stage *createStage(string id) override;

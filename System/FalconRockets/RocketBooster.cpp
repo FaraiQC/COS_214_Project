@@ -21,12 +21,13 @@ vector<Engine *> RocketBooster::getEngines() {
 }
 
 void RocketBooster::turnOn() {
-    cout << "Turning all " << num
+    cout << "Turning all Booster engines" << endl;
     for (auto &engine : engines)
         engine->turnOn();
 }
 
 void RocketBooster::turnOff() {
+    cout << "Turning all booster engines" << endl;
     for (auto &engine : engines)
         engine->turnOff();
 }
