@@ -9,7 +9,8 @@ SatelliteMediator::~SatelliteMediator()
 {
 
 }
-void SatelliteMediator :: notify()
+
+/*void SatelliteMediator :: notify()
 {
     
-}
+}*/
