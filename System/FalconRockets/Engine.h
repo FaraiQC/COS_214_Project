@@ -20,7 +20,7 @@ public:
 
     string getPropellant();
 
-    bool getState();
+    static bool getState();
 
     void setState(bool);
 
