@@ -1,7 +1,7 @@
 #ifndef FALCON_ROCKETS_ROCKETBUILDERDIRECTOR_H
 #define FALCON_ROCKETS_ROCKETBUILDERDIRECTOR_H
 
-#include "FalconNineBuilder.h";
+#include "FalconNineBuilder.h"
 #include "FalconHeavyBuilder.h"
 
 
