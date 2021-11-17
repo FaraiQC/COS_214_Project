@@ -32,7 +32,9 @@ public:
 
     virtual void turnOff();
     
-    virtual string getState();
+    virtual string getReadyState();
+    
+    virtual void setReadyState(EngineOptimisation* e);
     
     virtual void checkState();
 
