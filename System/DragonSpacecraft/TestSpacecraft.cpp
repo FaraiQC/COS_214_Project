@@ -80,7 +80,7 @@ void TestSpacecraft::tweakSpacecraft(Spacecraft* spacecraft){
     }
     else if(retweakOption == 1){
         bool retweakCargoOption;
-        cout<<"What do you want to do to cargo?\n (0. Add more cargo\t 1.Remove some cargo"<<endl;
+        cout<<"What do you want to do to cargo?\n 0. Add more cargo\t 1.Remove some cargo"<<endl;
         cin>>retweakCargoOption;
         if(retweakCargoOption==0){
             while(true){
