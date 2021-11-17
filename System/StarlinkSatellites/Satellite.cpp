@@ -3,11 +3,15 @@
 
 using namespace std;
 
+
+//@brief Destructor
 Satellite :: ~Satellite() 
 {
 
 }
 
+
+//@brief Sets null and zero values
 Satellite :: Satellite() 
 {
 	nextS = NULL;
@@ -16,25 +20,38 @@ Satellite :: Satellite()
 	this-> distance = 0.0;
 }
 
+
+//@brief Returns nextS
 Satellite* Satellite :: nextSatellite() 
 {
 	return nextS;
 }
+
+
+//@brief Clones the satellite
 Satellite* Satellite :: Clone() 
 {
 	return new Satellite();
 }
 
+
+//@brief Returns prevS
 Satellite* Satellite :: prevSatellite() 
 {
 	return prevS;
 }
 
+
+//@brief Attaches an Antenna to an antenna vector
+//@param a is the Antenna that you want to attach to the antenna vector
 void Satellite :: attach(Antenna* a) 
 {
 	antenna.push_back(a);
 }
 
+
+//@brief Detaches an Antenna from the antenna vector
+//@param a is the Antenna that you want to detach from the antenna vector
 void Satellite :: detach(Antenna* a) 
 {
 	bool found = false;
@@ -50,6 +67,8 @@ void Satellite :: detach(Antenna* a)
 	}
 }
 
+
+//@brief Updates all the Antennae and switches on all their radio signals
 void Satellite :: notifyAntenna() 
 {
 	vector<Antenna*>::iterator it = antenna.begin();
@@ -61,6 +80,8 @@ void Satellite :: notifyAntenna()
 
 }
 
+
+//@brief Notifies the mediator when  at least one satellite moves out of position. The mediator repositions the satellites so that they are in the correct positions and are spread out evenly. Then it switches off all the satellites lasers
 void Satellite :: SatellitesMoved()
 {
 	cout<<"One or more satellites have moved, Notifying the system!"<<endl;
@@ -68,16 +89,23 @@ void Satellite :: SatellitesMoved()
 	
 }
 
+
+//@brief returns distance
 double Satellite :: getDistance()
 {
 	return this->distance;
 }
 
+
+//@brief returns distance
 double Satellite :: getDist()
 {
 	return this->distance;
 }
 
+
+//@brief Sets the distance
+//@param d is the distance that is to be set
 void Satellite ::  setDist(double d)
 {
 	this->distance = d;
