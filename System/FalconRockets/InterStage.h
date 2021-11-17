@@ -11,7 +11,7 @@ public:
 
     void setGridFins(int);
     void separate();
-    void activate();
+    void activate() override;
     ~InterStage() override;
 };
 
