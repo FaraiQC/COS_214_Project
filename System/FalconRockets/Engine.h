@@ -2,6 +2,7 @@
 #define FALCON_ROCKETS_ENGINE_H
 
 #include "iostream"
+#include "EngineOptimisation.h"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ private:
     bool on;
     int thrustMax;
     string propellant;
+    EngineOptimisation* readyState;
 public:
     explicit Engine(string Id, int maxThrust, string propellant);
 
@@ -29,6 +31,10 @@ public:
     virtual void turnOn();
 
     virtual void turnOff();
+    
+    virtual string getState();
+    
+    virtual void checkState();
 
     virtual ~Engine();
 };
