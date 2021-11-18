@@ -3,32 +3,50 @@
 
 using namespace std;
 
-DragonSpacecraft::DragonSpacecraft() {
+//@brief Constructor Creates a DragonSpacecraft on earth
+DragonSpacecraft::DragonSpacecraft() 
+{
 	cout<<"The Dragon spacecraft has been created"<<endl;
 	setCurrentLocation("Earth");
 	setIsCrewDragon(false);
 }
 
-double DragonSpacecraft::currentWeight() {
+//@brief Calculates the total weight of the Cargo in the Spacecraft
+//@return returns the calculated weight of the cargo
+double DragonSpacecraft::currentWeight() 
+{
 	double weight=0;
-	for(Cargo* item: getCargoList()){
+	for(Cargo* item: getCargoList())
+	{
 		weight += item->getWeight();
 	}
 	return weight;
 }
 
-void DragonSpacecraft::loadCargo(Cargo* cargo) {
+//@brief Adds cargo to the Spacecraft by adding it in the CargoList vector
+//@param cargo is the Cargo that must be added to the Spacecraft
+void DragonSpacecraft::loadCargo(Cargo* cargo) 
+{
 	this->getCargoList().push_back(cargo);
 }
 
-void DragonSpacecraft::removeCargo(int index) {
-getCargoList().erase(getCargoList().begin()+index-1);
+//@brief Removes a Cargo with a specific indecs from the Spacecraft by erasing it from the CargoList vector at that position
+//@param index is the index at which the cargo will be removed from the CargoList vector
+void DragonSpacecraft::removeCargo(int index) 
+{
+	getCargoList().erase(getCargoList().begin()+index-1);
 }
 
-int DragonSpacecraft::getCurrentHeight(){
+//@brief gets the current height of the spacecraft
+//@return returns the currentHeight of the Spacecraft
+int DragonSpacecraft::getCurrentHeight()
+{
 	return this->currentHeight;
 }
 
-void DragonSpacecraft::setCurrentHeight(int currtHight) {
+//@brief sets the current height of the Spacecraft
+//@param currtHight is the currentHeight of the Spacecraft
+void DragonSpacecraft::setCurrentHeight(int currtHight)
+{
 	this->currentHeight = currtHight;
 }
