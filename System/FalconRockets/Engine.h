@@ -3,7 +3,7 @@
 
 #include "iostream"
 #include "EngineOptimisation.h"
-class EngineObserver;
+#include <vector>
 
 using namespace std;
 
@@ -14,6 +14,7 @@ private:
     int thrustMax;
     string propellant;
     EngineOptimisation* readyState;
+
 public:
     explicit Engine(string Id, int maxThrust, string propellant);
 
@@ -32,12 +33,14 @@ public:
     virtual void turnOn();
 
     virtual void turnOff();
-    
-    virtual void attach(EngineObserver* e);
-    
-    virtual void detach();
-    
-    virtual void notify();
+
+    virtual void setReadyState(EngineOptimisation* e) = 0;
+
+    virtual void changeReadyState();
+
+    virtual void handleReadyState();
+
+    virtual string getReadyState();
    
     virtual ~Engine();
 };
