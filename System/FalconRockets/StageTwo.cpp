@@ -1,25 +1,24 @@
 #include "StageTwo.h"
 #include "thread"
 #include "chrono"
+#include <iostream>
+#include <sstream>
+#include <unistd.h>
+#include <cstdlib>
+#include <ctime>
+#include <stdio.h>
 
 StageTwo::StageTwo(string id) : Stage(id) {
 
 }
 
-void StageTwo::addEngine(Engine *engine) {
-    engines[0] = engine;
-}
 
-void StageTwo::addCargo() {
-    // TODO: Add Cargo type to the
-}
-
-void StageTwo::attachSpaceCraft(Spacecraft *spacecraft) {
+void StageTwo::attachSpacecraft(Spacecraft *spacecraft) {
     this->capsule = spacecraft;
 }
 
-void StageTwo::attachSatalite(Satalite *satalite) {
-    this->satalite = satalite;
+void StageTwo::attachSatellite(Satellite *satellite) {
+    this->satellite = satellite;
 }
 
 void StageTwo::activate() {

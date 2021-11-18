@@ -2,24 +2,26 @@
 #define FALCON_ROCKETS_STAGETWO_H
 
 #include "Stage.h"
-#include "SpaceCraft.h"
-#include "Satalite.h"
+#include "../DragonSpacecraft/Spacecraft.h"
+#include "../StarlinkSatellites/Satellite.h"
 #include "VacuumEngine.h"
+#include "EngineNotOptimum.h"
+#include "EngineOptimum.h"
 
 class StageTwo : public Stage {
 private:
     int numEngines;
     Spacecraft *capsule;
-    Satalite* satalite;
+    Satellite* satellite;
     vector<Engine *> engines;
 public:
     explicit StageTwo(string id);
 
     void addEngine();
 
-    void attachSpaceCraft(SpaceCraft* spaceCraft);
+    void attachSpacecraft(Spacecraft* spaceCraft);
 
-    void attachSatalite(Satalite* satalite);
+    void attachSatellite(Satellite* satellite);
 
     void activate() override;
 
