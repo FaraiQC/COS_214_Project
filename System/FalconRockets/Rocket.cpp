@@ -38,6 +38,11 @@ InterStage *Rocket::getInterStage() {
     return interStage;
 }
 
+bool Rocket::test()
+{
+    return stageOne->testEngines();
+}
+
 bool Rocket::launch() {
     cout << "Getting ready to launch..." << endl;
     rocketState->execute(stageOne, interStage, stageTwo);

@@ -18,7 +18,7 @@ public:
 
     void addEngine();
 
-    void testEngines();
+    bool testEngines();
 
     int setNum(int s);
 
