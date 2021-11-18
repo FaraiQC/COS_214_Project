@@ -15,4 +15,24 @@ void MerlinCore::turnOff() {
     Engine::turnOff();
 }
 
+string MerlinCore::getReadyState()
+{
+    return readyState->getState();
+}
+
+void MerlinCore::setReadyState(EngineOptimisation* e)
+{
+    readyState=e;
+}
+
+void MerlinCore::checkState()
+{
+    readyState->checkState();
+}
+
+void MerlinCore::notify()
+{
+    checkState();
+}
+
 MerlinCore::~MerlinCore() = default;
