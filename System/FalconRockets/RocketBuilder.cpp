@@ -1,19 +1,39 @@
 #include "RocketBuilder.h"
 
-RocketBuilder::RocketBuilder() {
-
+/**
+ * @brief Construct a new Rocket Builder:: Rocket Builder object
+ * 
+ */
+RocketBuilder::RocketBuilder()
+{
 }
 
-void RocketBuilder::addStageOne() {
-
+/**
+ * @brief add Stage one to the rocket
+ * 
+ */
+void RocketBuilder::addStageOne()
+{
 }
 
-void RocketBuilder::addStageTwo() {
-
+/**
+ * @brief add Stage two to the rocket 
+ * 
+ */
+void RocketBuilder::addStageTwo()
+{
 }
 
-void RocketBuilder::addInterStage() {
-
+/**
+ * @brief add Interstage to the rocket
+ * 
+ */
+void RocketBuilder::addInterStage()
+{
 }
 
+/**
+ * @brief Destroy the Rocket Builder:: Rocket Builder object
+ * 
+ */
 RocketBuilder::~RocketBuilder() = default;
