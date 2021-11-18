@@ -3,6 +3,7 @@
 
 using namespace std;
 
+//@brief Constructor creates a CrewDragonSpaceCraft on Earth with no crew members
 CrewDragonSpacecraft::CrewDragonSpacecraft() {
 	cout<<"CrewDragonSpacecraft has been created"<<endl;
 	setCurrentLocation("Earth");
@@ -10,37 +11,56 @@ CrewDragonSpacecraft::CrewDragonSpacecraft() {
 	setIsCrewDragon(true);
 }
 
-double CrewDragonSpacecraft::currentWeight() {
+//@brief Calculates the total weight of the Crew and the Cargo
+//@return returns the calculated weight
+double CrewDragonSpacecraft::currentWeight() 
+{
 	double weight=0;
-	for(CrewMember* item: spacecraftCrew){
+	for(CrewMember* item: spacecraftCrew)
+	{
 		weight += item->getWeight();
 	}
-	for(Cargo* item: getCargoList()){
+	for(Cargo* item: getCargoList())
+	{
 		weight += item->getWeight();
 	}
 	return weight;
 }
 
-int CrewDragonSpacecraft::getCurrentHeight() {
+//@brief gets the current Height of the Spacecraft
+//@return returns the current height of the Spacecraft
+int CrewDragonSpacecraft::getCurrentHeight() 
+{
 	return this->currentHeight;
 }
 
-void CrewDragonSpacecraft::setCurrentHeight(int currtHight) {
+//@brief Sets the current height of the Spacecraft
+//@param currtHight is the currentHeight of the Spacecraft
+void CrewDragonSpacecraft::setCurrentHeight(int currtHight) 
+{
 	this->currentHeight = currtHight;
 }
 
-void CrewDragonSpacecraft::enterCrewMember(CrewMember* member){
+//@brief Adds crew members to the spacecraftCrew vector
+//@param member is the CrewMember to be added to the spacecraftCrew
+void CrewDragonSpacecraft::enterCrewMember(CrewMember* member)
+{
 	spacecraftCrew.push_back(member);
 	cout<<member->getName()<<" has borded the spacecraft"<<endl;
 	NumCrewMember++;
 }
 
-void CrewDragonSpacecraft::removeCrewMember(int index){
+//@brief removes a crew member that is at a specific position in the spacecraftCrew vector
+//@param index is the position in the spacecraftCrew vector where a CrewMember will be removed
+void CrewDragonSpacecraft::removeCrewMember(int index)
+{
 	spacecraftCrew.erase(spacecraftCrew.begin()+index-1);
 	NumCrewMember--;
 }
 
-void CrewDragonSpacecraft::crewInfo(){
+//@brief Displays the crew's weight in kilograms
+void CrewDragonSpacecraft::crewInfo()
+{
 	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
 	cout<<"\t\t\tCrew Information:"<<endl;
 	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
@@ -55,11 +75,17 @@ void CrewDragonSpacecraft::crewInfo(){
 	cout<<"Total crew weight is: "<<w<<endl;
 	cout<<endl;
 }
+
+//@brief gets the number of crew members
+//@return returns NumCrewMember
 int CrewDragonSpacecraft::getTotalNumCrewMember()
 {
 	return NumCrewMember;
 }
 
-vector<CrewMember*> CrewDragonSpacecraft::getCrewList(){
+//@brief Gets the list of Crew members
+//@return returns spacecraftCrew
+vector<CrewMember*> CrewDragonSpacecraft::getCrewList()
+{
 	return spacecraftCrew;
 }
