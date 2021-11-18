@@ -1,6 +1,7 @@
 #include "ParachuteCreator.h"
 
-
-ParachuteCreator::ParachuteCreator(){
+//@briefConstructor
+ParachuteCreator::ParachuteCreator()
+{
 
 }
