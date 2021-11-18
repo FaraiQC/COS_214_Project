@@ -3,7 +3,7 @@
 #include "TestRockets.h"
 
 int main() {
-    TestRockets* testRockets;
+    TestRockets* testRockets = new TestRockets();
     testRockets->testRockets();
     
     return 0;

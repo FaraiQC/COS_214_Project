@@ -10,10 +10,10 @@ vector<Rocket*> TestRockets::testRockets()
     while(true)
     {
         int choice;
-        cout<<"Select a rocket that you want to simulate(0: Falcon9 or 1: FalconHeavy or 3: to cancel): ";
+        cout<<"Select a rocket that you want to simulate(1: Falcon9 or 2: FalconHeavy or 3: to cancel): ";
         cin>>choice;
 
-        if(choice==0)
+        if(choice==1)
         {
             RocketBuilderDirector builderDirector;
             FalconNineBuilder falconNineBuilder;
@@ -22,11 +22,11 @@ vector<Rocket*> TestRockets::testRockets()
             cout <<"Falcon9 ID: " << falconNineBuilder.getRocket()->getName() << endl;
             cout<<endl;
             if(falconNineBuilder.getRocket()->test()==true)
-            {
+            {   
                 rocketList.push_back(falconNineBuilder.getRocket());
             }
         }
-        else if(choice==1)
+        else if(choice==2)
         {
             RocketBuilderDirector builderDirector;
             FalconHeavyBuilder falconHeavyBuilder;
@@ -39,10 +39,16 @@ vector<Rocket*> TestRockets::testRockets()
                 rocketList.push_back(falconHeavyBuilder.getRocket());
             }
         }
-        else{
+        else if(choice==3)
+        {
             break;
         }
+        else{
+            cout<<"Invalid coice!!!"<<endl;
+            cout<<endl;
+        }
     }
+    return rocketList;
 }
 
 void TestRockets::beforeLaunch()
