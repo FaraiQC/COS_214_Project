@@ -1,7 +1,8 @@
 #include "Rocket.h"
 
-Rocket::Rocket() {
 
+Rocket::Rocket() {
+    rocketState = new LaunchState();
 }
 
 void Rocket::setStageOne(StageOne *one) {
@@ -40,8 +41,11 @@ InterStage *Rocket::getInterStage() {
 
 bool Rocket::launch() {
     cout << "Getting ready to launch..." << endl;
-    rocketState->execute(stageOne, interStage, stageTwo);
-    return false;
+    while (rocketState) {
+        rocketState->execute(stageOne, interStage, stageTwo);
+        rocketState = rocketState->getNextState();
+    }
+    return true;
 }
 
 void Rocket::setName(string name) {

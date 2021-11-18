@@ -4,7 +4,7 @@
 #include "StageOne.h"
 #include "InterStage.h"
 #include "StageTwo.h"
-#include "RocketState.h"
+#include "LaunchState.h"
 
 class Rocket {
 private:
@@ -12,7 +12,7 @@ private:
     StageOne *stageOne;
     InterStage *interStage;
     StageTwo *stageTwo;
-    RocketState* rocketState;
+    RocketState *rocketState;
 public:
     Rocket();
 
@@ -32,7 +32,7 @@ public:
 
     virtual StageOne *getStageOne();
 
-    virtual InterStage* getInterStage();
+    virtual InterStage *getInterStage();
 
     virtual void setAllStages(StageOne *one, InterStage *interStage, StageTwo *two);
 
