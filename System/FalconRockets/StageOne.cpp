@@ -1,27 +1,17 @@
 #include "StageOne.h"
 #include "thread"
 #include "chrono"
-#include <sstream>
 #include <unistd.h>
 #include <cstdlib>
 #include <ctime>
 #include <stdio.h>
+#include <iostream>
 
 StageOne::StageOne(string id) : Stage(id) {
 }
 
-void StageOne::addEngine() {
-    for(int i=0;i<numEngines;i++)
-    {
-        string id="CoreEngine-";
-        string num;
-        stringstream ss;
-        ss<<i;
-        ss>>num;
-        id+=num;
-        Engine *engine = new MerlinCore(id);
-        engines.push_back(engine);
-    }
+void StageOne::addEngine(Engine* engine) {
+   engines.push_back(engine);
 }
 
 void StageOne::activate() {

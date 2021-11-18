@@ -16,7 +16,7 @@ public:
 
     void deactivate() override;
 
-    void addEngine();
+    void addEngine(Engine* engine);
 
     bool testEngines();
 

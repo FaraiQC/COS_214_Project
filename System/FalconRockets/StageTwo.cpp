@@ -36,13 +36,6 @@ void StageTwo::deactivate() {
 }
 
 void StageTwo::addEngine() {
-        string id="VacuumEngine-";
-        string num;
-        stringstream ss;
-        ss<<1;
-        ss>>num;
-        id+=num;
-        Engine *engine = new VacuumEngine(id);
         engines.push_back(engine);
 }
 

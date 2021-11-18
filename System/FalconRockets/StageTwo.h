@@ -17,7 +17,7 @@ private:
 public:
     explicit StageTwo(string id);
 
-    void addEngine();
+    void addEngine(Engine* engine);
 
     void attachSpacecraft(Spacecraft* spaceCraft);
 
