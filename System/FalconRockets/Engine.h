@@ -3,6 +3,7 @@
 
 #include "iostream"
 #include "EngineOptimisation.h"
+class EngineObserver;
 
 using namespace std;
 
@@ -32,9 +33,11 @@ public:
 
     virtual void turnOff();
     
-    virtual string getReadyState();
+    virtual void attach(EngineObserver* e);
     
-    virtual void setReadyState(EngineOptimisation* e);
+    virtual void detach();
+    
+    virtual void notify();
     
     virtual void checkState();
 
