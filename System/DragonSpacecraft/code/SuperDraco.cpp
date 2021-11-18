@@ -3,29 +3,40 @@
 
 using namespace std;
 
-SuperDraco::SuperDraco() {
+//@brief Constructor creates a SuperDraco with a power of 90 that is switched off
+SuperDraco::SuperDraco() 
+{
 	turnOff();
 	this->setPower(90);
 	SetDracoisCreatedChecker(1);
 }
 
-SuperDraco::SuperDraco(string id) {
+//@brief Creates a SuperDraco with a specific ID that has a power of 90 and is switched off
+//@param id is the id of the newly created SuperDraco
+SuperDraco::SuperDraco(string id) 
+{
 	this->setPower(90);
 	SetDracoisCreatedChecker(1);
 	this->setId(id);
 	turnOff();
 }
 
-void SuperDraco::fireUp() {
-	if(isOn() == true){
+//@brief Switches on the SuperDraco
+void SuperDraco::fireUp() 
+{
+	if(isOn() == true)
+	{
 		cout<<getId()<<" turned on, firing up!"<<endl;
 	}
-	else{
+	else
+	{
 		cout<<getId()<<" is not turned on yet, please turn it on"<<endl;
 	}	
 }
 
-void SuperDraco::shutDown() {
+//@brief Switches off the SuperDraco
+void SuperDraco::shutDown() 
+{
 	this->turnOff();
 	cout<<getId()<<" has been shut down"<<endl;
 }
