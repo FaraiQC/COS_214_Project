@@ -14,4 +14,19 @@ void VacuumEngine::turnOff() {
     Engine::turnOff();
 }
 
+string Engine::getReadyState()
+{
+    return readyState->getState();
+}
+
+void Engine::setReadyState(EngineOptimisation* e)
+{
+    readyState=e;
+}
+
+void Engine::checkState()
+{
+    readyState->checkState();
+}
+
 VacuumEngine::~VacuumEngine() = default;
