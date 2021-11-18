@@ -2,6 +2,7 @@
 #define FALCON_ROCKETS_VACUUMENGINE_H
 
 #include "Engine.h"
+#include "EngineOptimisation.h"
 
 class VacuumEngine : public Engine {
 public:
@@ -14,6 +15,8 @@ public:
     virtual string getReadyState();
     
     virtual void setReadyState(EngineOptimisation* e);
+    
+    virtual void checkState();
 
     ~VacuumEngine() override;
 };
