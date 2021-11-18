@@ -38,9 +38,7 @@ public:
     virtual void detach();
     
     virtual void notify();
-    
-    virtual void checkState();
-
+   
     virtual ~Engine();
 };
 
