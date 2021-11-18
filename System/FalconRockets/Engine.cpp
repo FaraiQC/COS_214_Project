@@ -60,6 +60,11 @@ void Engine::setReadyState(EngineOptimisation* e)
     readyState=e;
 }
 
+void Engine::checkState()
+{
+    readyState->checkState();
+}
+
 
 Engine::~Engine() = default;
 
