@@ -4,20 +4,24 @@
 using namespace std;
 
 Simulation::Simulation() {
-	sats = new Satellite();
-	spaceC = new Spacecraft();
-	rkts = new Rocket();
+	sats = new TestSatellites();
+	// spaceC = new Spacecraft();
+	// rkts = new Rocket();
 }
 
 Simulation::~Simulation() {
-	
+
 }
 
 void Simulation::testSimulation() {
+
+
+	// this->falcons     = rkt->testRockets();
+	this->satellites  = sats->testSatellites();
+	// this->spacecrafts = spaceC->testSpacecrafts();
+
 	
-	this->satellites = sats->testSatellites();
-	this->spacecrafts = spaceC->testSpacecrafts();
-	this->falcons = rkt->testRockets();
+
 }
 
 void Simulation::assembleRocket() {
@@ -26,11 +30,20 @@ void Simulation::assembleRocket() {
 }
 
 void Simulation::Launch() {
-	// TODO - implement Simulation::Launch
-	throw "Not yet implemented";
+	
+	TestSatellites* tSatellites = new TestSatellites();
+
+    cout<<"\n===================================================== \n";
+    cout<<"                    Actual Launch\n";
+    cout<<"=======================================================\n\n";
+
+    tSatellites->BeforeLaunch();
+    cout<<"\n";
+    tSatellites->InDesiredOrbit();
+    tSatellites->SatellitesAuntentication();
 }
 
-void Simulation::Launch(int int_t) {
-	// TODO - implement Simulation::Launch
-	throw "Not yet implemented";
+void Simulation::Launch(int i) {
+	
+	
 }
