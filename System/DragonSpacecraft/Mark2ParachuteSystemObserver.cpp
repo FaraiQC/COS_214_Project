@@ -12,20 +12,13 @@ Mark2ParachuteSystemObserver::Mark2ParachuteSystemObserver(Spacecraft * Dragon_O
 void Mark2ParachuteSystemObserver::update() {
 	if(Dragon_Or_Crew_subj !=NULL)
 	{	
-		if(Dragon_Or_Crew_subj->getCurrtHight()==6)//6 km
-		{
-			observerCurrentHight=6;
-		}
-		else
-		{
-			observerCurrentHight=Dragon_Or_Crew_subj->getCurrtHight();
-		}
+		observerCurrentHight=Dragon_Or_Crew_subj->getCurrentHeight();
 	}	
 }
 
 void Mark2ParachuteSystemObserver::print()
 {
-	if(observerCurrentHight==6)// 6 km
+	if(observerCurrentHight<=6)// 6 km
 	{
 		theParachute->deploy();
 		//part of Unit Testing

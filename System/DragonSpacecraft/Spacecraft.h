@@ -5,9 +5,13 @@
 #include "Parachute.h"
 #include "Thruster.h"
 #include "ParachuteSystemObserver.h"
+// #include "Mark3ParachuteSystemObserver.h"
+// #include "Mark2ParachuteSystemObserver.h"
 #include "Cargo.h"
 #include "CrewMember.h"
 #include <algorithm>
+#include <unistd.h>         //for sleep
+// #include "LaunchSpacecraft.h"
 
 class Spacecraft {
 	private:
@@ -15,6 +19,7 @@ class Spacecraft {
 		vector<Parachute*> parachuteList;
 		vector<Thruster*> thrustersList;
 		vector<Cargo*> cargoList;
+		// LaunchSpacecraft* launch;
 
 
 
@@ -33,10 +38,11 @@ class Spacecraft {
 
 	public:
 		Spacecraft();
-		virtual double currentWeight()=0;
+		virtual double getCurrentWeight()=0;
 		void setCurrentLocation(string location);
 		string getCurrentLocation();
 		void setDestination(string destination);
+		string getDestination();
 		double getWeightToOrbit();
 		void setWeightToOrbit(double weight);	//we have to delete this
 		double getWeightToEarth();
@@ -51,8 +57,8 @@ class Spacecraft {
 		void detachCargo(int index);
 		void attachParachute(Parachute* parachute);
 		void detachParachute();
-		virtual int getCurrtHight();
-		virtual void setCurrtHight(int currenttHeight);
+		virtual double getCurrentHeight();
+		virtual void setCurrentHeight(double currenttHeight);
 		void print();
 		double TotalPowerOfThrusters();
 		virtual void enterCrewMember(CrewMember*);

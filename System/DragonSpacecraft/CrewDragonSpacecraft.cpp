@@ -10,7 +10,7 @@ CrewDragonSpacecraft::CrewDragonSpacecraft() {
 	setIsCrewDragon(true);
 }
 
-double CrewDragonSpacecraft::currentWeight() {
+double CrewDragonSpacecraft::getCurrentWeight() {
 	double weight=0;
 	for(CrewMember* item: spacecraftCrew){
 		weight += item->getWeight();
@@ -21,12 +21,12 @@ double CrewDragonSpacecraft::currentWeight() {
 	return weight;
 }
 
-int CrewDragonSpacecraft::getCurrentHeight() {
+double CrewDragonSpacecraft::getCurrentHeight() {
 	return this->currentHeight;
 }
 
-void CrewDragonSpacecraft::setCurrentHeight(int currtHight) {
-	this->currentHeight = currtHight;
+void CrewDragonSpacecraft::setCurrentHeight(double currentHeight) {
+	this->currentHeight = currentHeight;
 }
 
 void CrewDragonSpacecraft::enterCrewMember(CrewMember* member){

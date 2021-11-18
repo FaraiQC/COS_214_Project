@@ -9,14 +9,14 @@ using namespace std;
 
 class DragonSpacecraft :public Spacecraft {
 	private:
-		int currentHeight;
+		double currentHeight;
 	public:
 		DragonSpacecraft();
 		~DragonSpacecraft();
-		double currentWeight();
+		double getCurrentWeight();
 		void loadCargo(Cargo* cargo);
 		void removeCargo(int index);
-		int getCurrentHeight();
-		void setCurrentHeight(int currtHight);
+		double getCurrentHeight();
+		void setCurrentHeight(double currentHeight);
 };
 #endif

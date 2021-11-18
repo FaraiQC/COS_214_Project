@@ -138,7 +138,7 @@ void TestSpacecraft::tweakSpacecraft(Spacecraft* spacecraft){
         else{
             while(true){
                 cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-                cout<<"\t\t\tCrew Information:"<<endl;
+                cout<<"\t\t\tCargo Information:"<<endl;
                 cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
                 double w = 0;
                 int i=0;

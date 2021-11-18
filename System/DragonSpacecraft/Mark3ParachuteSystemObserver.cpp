@@ -12,21 +12,14 @@ Mark3ParachuteSystemObserver::Mark3ParachuteSystemObserver(Spacecraft * Dragon_O
 
 void Mark3ParachuteSystemObserver::update() {
 	if(Dragon_Or_Crew_subj !=NULL)
-	{	
-		if(Dragon_Or_Crew_subj->getCurrtHight()==6)//6 km
-		{
-			observerCurrentHight=6;
-		}
-		else
-		{
-			observerCurrentHight=Dragon_Or_Crew_subj->getCurrtHight();
-		}
+	{
+		observerCurrentHight=Dragon_Or_Crew_subj->getCurrentHeight();
 	}	
 }
 
 void Mark3ParachuteSystemObserver::print()
 {
-	if(observerCurrentHight==6)// 6 km
+	if(observerCurrentHight<=6)// 6 km
 	{
 		theParachute->deploy();
 
