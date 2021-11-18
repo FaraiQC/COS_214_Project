@@ -10,6 +10,10 @@ public:
     void turnOn() override;
 
     void turnOff() override;
+    
+    virtual string getReadyState();
+    
+    virtual void setReadyState(EngineOptimisation* e);
 
     ~VacuumEngine() override;
 };
