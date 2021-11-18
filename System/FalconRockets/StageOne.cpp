@@ -37,19 +37,25 @@ void StageOne::deactivate() {
 
 bool StageOne::testEngines()
 {
-    cout<<"Initiating static fire test..."<<endl;
+    cout<<"----------------------------------------------------------------------------"<<endl;
+    cout<<"\t\t\tInitiating static fire test..."<<endl;
+    cout<<"----------------------------------------------------------------------------"<<endl;
     sleep(1);
     for(int i=0;i<numEngines;i++)
     {
         engines[i]->turnOn();
+        sleep(1);
     }
-    cout<<"All engines have been initiated..."<<endl;
+    cout<<"----------------------------------------------------------------------------"<<endl;
+    cout<<"\t\t\tAll engines have been initiated..."<<endl;
+    cout<<"----------------------------------------------------------------------------"<<endl;
     cout<<endl;
     
     srand(time(0));
     for(int i=0;i<numEngines;i++)
     {
         int rand;
+        
         rand= (std::rand()%10)+1;
         if(rand%2==0)
         {
@@ -68,10 +74,21 @@ bool StageOne::testEngines()
 
     if(determineOptimisation()==true)
     {
+        cout<<"----------------------------------------------------------------------------"<<endl;
         cout<<"All engines are optimum and have passed the test, proceed to launch..."<<endl;
+        cout<<"----------------------------------------------------------------------------"<<endl;
+        return true;
     }
     else{
-        cout<<"Enigines have failed the test, tweaking engines..."<<endl;
+        
+        cout<<"----------------------------------------------------------------------------"<<endl;
+        cout<<"\t\tEnigines have failed the test, tweaking engines..."<<endl;
+        cout<<"----------------------------------------------------------------------------"<<endl;
+        for(int i=0;i<3;i++)
+        {
+            cout<<"teaking..."<<endl;
+            sleep(1);
+        }
 
         srand(time(0));
 
@@ -86,7 +103,9 @@ bool StageOne::testEngines()
             sleep(2.5);
             cout<<endl;
             printEngines();
-            cout<<"All engines are optimum and are ready to launch..."<<endl;
+            cout<<"----------------------------------------------------------------------------"<<endl;
+            cout<<"\t\tAll engines are optimum and are ready to launch..."<<endl;
+            cout<<"----------------------------------------------------------------------------"<<endl;
             return true;
         }
         else
@@ -94,7 +113,10 @@ bool StageOne::testEngines()
             sleep(2.5);
             cout<<endl;
             printEngines();
+            
+            cout<<"----------------------------------------------------------------------------"<<endl;
             cout<<"Not all engines are optimum and have failed the test, rocket cannot be launched..."<<endl;
+            cout<<"----------------------------------------------------------------------------"<<endl;
             return false;
         }
 
@@ -110,8 +132,7 @@ void StageOne::printEngines()
     {
         
         cout<<engines[i]->getId()<<" is ";
-        engines[i]->changeReadyState();
-        cout<<endl;
+        engines[i]->notify();
         sleep(1);
     }
 }
@@ -128,7 +149,7 @@ bool StageOne::determineOptimisation()
     return true;
 }
 
-int StageOne::setNum(int s)
+void StageOne::setNum(int s)
 {
     numEngines=s;
 }

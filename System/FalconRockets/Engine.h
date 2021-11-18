@@ -41,6 +41,8 @@ public:
     virtual void handleReadyState();
 
     virtual string getReadyState();
+
+    virtual void notify() =0;
    
     virtual ~Engine();
 };

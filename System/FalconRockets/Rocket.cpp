@@ -40,7 +40,11 @@ InterStage *Rocket::getInterStage() {
 
 bool Rocket::test()
 {
-    return stageOne->testEngines();
+    if(stageOne->testEngines()==true && stageTwo->testEngine()==true)
+    {
+        return true;
+    }
+    return false;
 }
 
 bool Rocket::launch() {

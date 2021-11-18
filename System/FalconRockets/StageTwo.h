@@ -2,7 +2,7 @@
 #define FALCON_ROCKETS_STAGETWO_H
 
 #include "Stage.h"
-#include "../DragonSpacecraft/Spacecraft.h"
+#include "../DragonSpacecraft/code/Spacecraft.h"
 #include "../StarlinkSatellites/Satellite.h"
 #include "VacuumEngine.h"
 #include "EngineNotOptimum.h"
@@ -23,13 +23,17 @@ public:
 
     void attachSatellite(Satellite* satellite);
 
+    void detachSpacecraft();
+
+    void detachSatellite();
+
     void activate() override;
 
     void deactivate() override;
 
-    void testEngines();
+    bool testEngine();
 
-    int setNum(int s);
+    void setNum(int s);
 
     void printEngines();
 

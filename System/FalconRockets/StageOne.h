@@ -20,7 +20,7 @@ public:
 
     bool testEngines();
 
-    int setNum(int s);
+    void setNum(int s);
 
     void printEngines();
 

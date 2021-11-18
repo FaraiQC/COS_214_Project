@@ -6,6 +6,7 @@
 #include "RocketBooster.h"
 #include "StageOneCreator.h"
 #include "VacuumCreator.h"
+#include <sstream>
 
 FalconHeavyBuilder::FalconHeavyBuilder() {
     FalconHeavyCreator shellCreator;
@@ -24,15 +25,43 @@ void FalconHeavyBuilder::addEngines() {
         return;
     }
 
+    falconHeavy->getStageOne()->setNum(27);
+    falconHeavy->getStageTwo()->setNum(1);
     MerlinCreator merlinCreator;
-    for (int i = 0; i < 9; ++i) {
-        falconHeavy->getStageOne()->addEngine(merlinCreator.createEngine());
+    for (int i = 0; i < 27; ++i) {
+        
+        Engine* engine = merlinCreator.createEngine();
+        string id="ENG-";
+        string num;
+        string num2;
+        stringstream ss;
+        stringstream str;
+        if(i<9)
+        {
+            int j=0;
+            int val = i+1;
+            ss<<j;
+            ss>>num;
+            str<<val;
+            str>>num2;
+            num+=num2;
+            id+=num;
+        }
+        else
+        {
+            ss<<i+1;
+            ss>>num;
+            id+=num;
+        }
+        engine->setId(id);
+        falconHeavy->getStageOne()->addEngine(engine);
     }
 
     addBoosters();
-
     VacuumCreator vacuumCreator;
-    falconHeavy->getStageTwo()->addEngine(vacuumCreator.createEngine());
+    Engine* engine2 = vacuumCreator.createEngine();
+    engine2->setId("VAC-01");
+    falconHeavy->getStageTwo()->addEngine(engine2);
 }
 
 void FalconHeavyBuilder::addBoosters() {
