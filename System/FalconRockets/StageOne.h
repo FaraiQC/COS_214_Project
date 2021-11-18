@@ -1,6 +1,9 @@
 #ifndef FALCON_ROCKETS_STAGEONE_H
 #define FALCON_ROCKETS_STAGEONE_H
 #include "Stage.h"
+#include "MerlinCore.h"
+#include "EngineNotOptimum.h"
+#include "EngineOptimum.h"
 
 class StageOne : public Stage {
 private:
@@ -13,7 +16,15 @@ public:
 
     void deactivate() override;
 
-    void addEngine(Engine *engine);
+    void addEngine();
+
+    void testEngines();
+
+    int setNum(int s);
+
+    void printEngines();
+
+    bool determineOptimisation();
 
     ~StageOne() override;
 
