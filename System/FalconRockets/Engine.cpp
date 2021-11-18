@@ -50,6 +50,22 @@ void Engine::setState(bool state) {
     on = state;
 }
 
+void Engine::changeReadyState()
+{
+    readyState=readyState->changeState();
+}
+
+void Engine::handleReadyState()
+{
+    readyState->handleState();
+}
+
+string Engine::getReadyState()
+{
+    return readyState->getState();
+}
+
+
 Engine::~Engine() = default;
 
 
