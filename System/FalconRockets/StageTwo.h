@@ -2,7 +2,9 @@
 #define FALCON_ROCKETS_STAGETWO_H
 
 #include "Stage.h"
-#include "Spacecraft.h"
+#include "../DragonSpacecraft/code/Spacecraft.h"
+//#include "Spacecraft.h"
+
 
 class StageTwo : public Stage {
 private:

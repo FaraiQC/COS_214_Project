@@ -2,6 +2,7 @@
 #include "thread"
 #include "chrono"
 
+
 StageTwo::StageTwo(string id) : Stage(id) {
 
 }
