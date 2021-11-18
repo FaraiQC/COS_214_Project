@@ -11,5 +11,6 @@ int main() {
     builderDirector.setBuilder(&falconNineBuilder);
     builderDirector.buildFalconNine("FLCHVY01");
     cout << falconNineBuilder.getRocket()->getName() << endl;
+    falconNineBuilder.getRocket()->launch();
     return 0;
 }
