@@ -5,6 +5,9 @@
 #include "EngineOptimisation.h"
 
 class VacuumEngine : public Engine {
+private:
+    EngineOptimisation* readyState;
+
 public:
     explicit VacuumEngine(string EngineId);
 
@@ -12,11 +15,13 @@ public:
 
     void turnOff() override;
     
-    virtual string getReadyState();
+    string getReadyState();
     
-    virtual void setReadyState(EngineOptimisation* e);
+    void setReadyState(EngineOptimisation* e);
     
-    virtual void checkState();
+    void checkState();
+
+    void notify();
 
     ~VacuumEngine() override;
 };
