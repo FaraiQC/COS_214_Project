@@ -3,6 +3,10 @@
 
 #include "Stage.h"
 #include "../DragonSpacecraft/code/Spacecraft.h"
+#include "../StarlinkSatellites/Satellite.h"
+#include "VacuumEngine.h"
+#include "EngineNotOptimum.h"
+#include "EngineOptimum.h"
 
 //#include "Spacecraft.h"
 
@@ -11,19 +15,32 @@ class StageTwo : public Stage {
 private:
     int numEngines;
     Spacecraft *capsule;
+    Satellite* satellite;
     vector<Engine *> engines;
 public:
     explicit StageTwo(string id);
 
-    void addEngine(Engine *);
+    void addEngine(Engine* engine);
 
-    void setSpaceCraft(Spacecraft *spacecraft);
+    void attachSpacecraft(Spacecraft* spaceCraft);
+
+    void attachSatellite(Satellite* satellite);
+
+    void detachSpacecraft();
+
+    void detachSatellite();
 
     void activate() override;
 
     void deactivate() override;
 
-    void addCargo();
+    bool testEngine();
+
+    void setNum(int s);
+
+    void printEngines();
+
+    bool determineOptimisation();
 
     ~StageTwo() override;
 };

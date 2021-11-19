@@ -5,6 +5,8 @@
 #include "MerlinCreator.h"
 #include "InterStageCreator.h"
 #include "VacuumCreator.h"
+#include <sstream>
+
 /**
  * @brief Construct a new Falcon Nine Builder:: Falcon Nine Builder object
  * 
@@ -36,12 +38,33 @@ void FalconNineBuilder::addEngines() {
         return;
     }
 
+    falconNine->getStageOne()->setNum(9);
+    falconNine->getStageTwo()->setNum(1);
     MerlinCreator merlinCreator;
     for (int i = 0; i < 9; ++i) {
-        falconNine->getStageOne()->addEngine(merlinCreator.createEngine());
+        Engine* engine = merlinCreator.createEngine();
+         string id="ENG-";
+        string num;
+        string num2;
+        stringstream ss;
+        stringstream str;
+        
+        int j=0;
+        int val = i+1;
+        ss<<j;
+        ss>>num;
+        str<<val;
+        str>>num2;
+        num+=num2;
+        id+=num;
+        
+        engine->setId(id);
+        falconNine->getStageOne()->addEngine(engine);
     }
     VacuumCreator vacuumCreator;
-    falconNine->getStageTwo()->addEngine(vacuumCreator.createEngine());
+    Engine* engine2 = vacuumCreator.createEngine();
+    engine2->setId("VAC-01");
+    falconNine->getStageTwo()->addEngine(engine2);
 }
 
 /**

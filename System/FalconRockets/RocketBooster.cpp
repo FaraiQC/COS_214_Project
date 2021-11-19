@@ -33,4 +33,14 @@ void RocketBooster::turnOff() {
 }
 
 
+void RocketBooster::setReadyState(EngineOptimisation* e)
+{
+}
+
+void RocketBooster::notify()
+{
+    
+}
+
+
 RocketBooster::~RocketBooster() = default;

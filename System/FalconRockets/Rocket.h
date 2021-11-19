@@ -28,6 +28,8 @@ public:
 
     virtual StageTwo *getStageTwo();
 
+    virtual bool test();
+
     virtual bool launch();
 
     virtual StageOne *getStageOne();

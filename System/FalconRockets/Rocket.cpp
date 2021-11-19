@@ -83,6 +83,15 @@ InterStage *Rocket::getInterStage() {
     return interStage;
 }
 
+bool Rocket::test()
+{
+    if(stageOne->testEngines()==true && stageTwo->testEngine()==true)
+    {
+        return true;
+    }
+    return false;
+}
+
 /**
  * @brief launch the rocket
  * 

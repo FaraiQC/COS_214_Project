@@ -1,9 +1,11 @@
 #include <iostream>
-#include "FalconNineBuilder.h"
-#include "FalconHeavyBuilder.h"
-#include "RocketBuilderDirector.h"
+#include <vector>
+#include "TestRockets.h"
 
 int main() {
+    TestRockets* testRockets = new TestRockets();
+    testRockets->testRockets();
+    
 
 
     RocketBuilderDirector builderDirector;

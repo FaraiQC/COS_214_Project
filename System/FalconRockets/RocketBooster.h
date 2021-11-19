@@ -22,6 +22,10 @@ public:
 
     vector<Engine *> getEngines();
 
+    void setReadyState(EngineOptimisation* e) ;
+
+    void notify();
+
     ~RocketBooster() override;
 };
 
