@@ -9,7 +9,7 @@ DragonSpacecraft::DragonSpacecraft() {
 	setIsCrewDragon(false);
 }
 
-double DragonSpacecraft::currentWeight() {
+double DragonSpacecraft::getCurrentWeight() {
 	double weight=0;
 	for(Cargo* item: getCargoList()){
 		weight += item->getWeight();
@@ -22,13 +22,13 @@ void DragonSpacecraft::loadCargo(Cargo* cargo) {
 }
 
 void DragonSpacecraft::removeCargo(int index) {
-getCargoList().erase(getCargoList().begin()+index-1);
+getCargoList().erase(getCargoList().begin()+index);
 }
 
-int DragonSpacecraft::getCurrentHeight(){
+double DragonSpacecraft::getCurrentHeight(){
 	return this->currentHeight;
 }
 
-void DragonSpacecraft::setCurrentHeight(int currtHight) {
-	this->currentHeight = currtHight;
+void DragonSpacecraft::setCurrentHeight(double currentHeight) {
+	this->currentHeight = currentHeight;
 }

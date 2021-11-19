@@ -37,34 +37,34 @@ void TestSpacecraft::tweakSpacecraft(Spacecraft* spacecraft){
         cin>>cMembertweakOption;
         if(cMembertweakOption == 0){
             spacecraft = new CrewDragonSpacecraft();
-                    int counterCrew=0;
-                    bool wantCrew=true;
-                    while(true){
-                        
-                        
-                        if(counterCrew==0)
-                        {
-                            cout<<"\nAdding crew members."<<endl;
-                            counterCrew++;
-                        }
-                            string memberName;
-                            double memberWeight;
-                            cout<<"\nEnter name of crew member."<<endl;
-                            cin>>memberName;
-                            cout<<"Enter weight of crew member"<<endl;
-                            cin>>memberWeight;
-                            while(memberWeight<0){
-                                cout<<"Please enter valid weight"<<endl;
-                                cin>>memberWeight;
-                            }
-                            spacecraft->enterCrewMember(new CrewMember(memberName, memberWeight));
-                        
-                    cout<<"Do you want to enter another member? (0:no 1:yes)"<<endl;
-                        cin>>wantCrew;
-                        if(wantCrew == 0){
-                            break;
-                        }
-                    }
+            int counterCrew=0;
+            bool wantCrew=true;
+            while(true){
+                if(counterCrew==0){
+                    cout<<"\nAdding crew members."<<endl;
+                    counterCrew++;
+                }
+                string memberName;
+                double memberWeight;
+                cout<<"\nEnter name of crew member."<<endl;
+                cin>>memberName;
+                cout<<"Enter weight of crew member"<<endl;
+                cin>>memberWeight;
+                while(memberWeight<0){
+                    cout<<"Please enter valid weight"<<endl;
+                    cin>>memberWeight;
+                }
+                spacecraft->enterCrewMember(new CrewMember(memberName, memberWeight));
+                
+                cout<<"Do you want to enter another member? (0:no 1:yes)"<<endl;
+                cin>>wantCrew;
+                if(wantCrew == 0){
+                    break;
+                }
+            }
+
+            spacecraft->print();
+            test(spacecraft);
         }
         else{
             int memberIndex;
@@ -75,18 +75,19 @@ void TestSpacecraft::tweakSpacecraft(Spacecraft* spacecraft){
                 cin>>memberIndex;
             }
             spacecraft->removeCrewMember(memberIndex);
+            spacecraft->crewInfo();
         }
     }
     else if(retweakOption == 1){
         bool retweakCargoOption;
-        cout<<"What do you want to do to cargo?\n (0. Add more cargo\t 1.Remove some cargo"<<endl;
+        cout<<"What do you want to do to cargo?\n 0. Add more cargo\t 1.Remove some cargo"<<endl;
         cin>>retweakCargoOption;
         if(retweakCargoOption==0){
             while(true){
                 int cargoOption = 0;
                 cout<<"\nNow please select the cargo to be loaded on the spacecraft.\n 0.Food Supplies\t 1.Spacecraft Equipment tools"<<endl;
                 cin>>cargoOption;
-                int p = 0;
+                int p = spacecraft->getCargoList().size();
                 int cargoWeight =0;
                 if(cargoOption > 1 || cargoOption < 0){
                     while(cargoOption>1 || cargoOption<0){
@@ -108,8 +109,6 @@ void TestSpacecraft::tweakSpacecraft(Spacecraft* spacecraft){
                             cin>>cargoWeight;
                         }
                     }
-                    //  cargo->setName(name);
-                    //  cargo->setWeight(cargoWeight);
                     spacecraft->attachCargo(new Cargo(name, cargoWeight));
                 }
                 else if(cargoOption == 1){
@@ -125,10 +124,9 @@ void TestSpacecraft::tweakSpacecraft(Spacecraft* spacecraft){
                             cin>>cargoWeight;
                         }
                     }
-                    //cargo->setWeight(cargoWeight);
-                    // spacecraft->attach(new Cargo(name, cargoWeight));
                     spacecraft->attachCargo(new Cargo(name, cargoWeight));
                 }
+                p++;
                 bool doneCargo;
                 cout<<"\nAre you done adding cargo? (1:yes/0:no)"<<endl;
                 cin>>doneCargo;
@@ -140,7 +138,7 @@ void TestSpacecraft::tweakSpacecraft(Spacecraft* spacecraft){
         else{
             while(true){
                 cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-                cout<<"\t\t\tCrew Information:"<<endl;
+                cout<<"\t\t\tCargo Information:"<<endl;
                 cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
                 double w = 0;
                 int i=0;
@@ -169,12 +167,53 @@ void TestSpacecraft::tweakSpacecraft(Spacecraft* spacecraft){
                 }
             }
         }
-    }
+    } 
     else if(retweakOption == 2){
-
+        bool thrusterOptionR;
+        cout<<"Would you like to change your thrusters? (0:No 1:Yes)"<<endl;
+        cin>>thrusterOptionR;
+        if(thrusterOptionR == true){
+            bool thrusterOption;
+            int thrusterPower;
+            cout<<"\nPlease select the type of thrusters you want to use\n0.Draco Thrusters\t 1.SuperDraco Thrusers"<<endl;
+            cin>>thrusterOption;
+            if(thrusterOption == 0){
+                DracoCreator* dracoCreator;
+                for(int i=0;i<16;i++){
+                    spacecraft->attachThruster(dracoCreator->createThruster("Draco"+to_string(i)));
+                }
+            }
+            else if(thrusterOption == 1){
+                SuperDracoCreator* superDracoCreator; 
+                for(int i=0;i<16;i++){
+                    spacecraft->attachThruster(superDracoCreator->createThruster("SuperDraco"+to_string(i)));
+                }
+            }
+            spacecraft->print();
+            test(spacecraft);
+        }
     }
     else{
-
+        bool parachuteOptionR;
+        cout<<"Would you like to change your thrusters? (0:No 1:Yes)"<<endl;
+        cin>>parachuteOptionR;
+        if(parachuteOptionR == true){
+            bool parachuteOption;
+            cout<<"\nPlease select the type of parachute you want to use\n0.Mark2 Parachutes\t 1.Mark3 Parachutes"<<endl;
+            cin>>parachuteOption;
+            if(parachuteOption == 0){
+                Mark2Creator* mark2Creator; 
+                for(int i=0;i<4;i++){
+                    spacecraft->attachParachute(mark2Creator->createParachute("Mark2Parchute"+to_string(i)));
+                }
+            }
+            else if(parachuteOption == 1){
+                Mark3Creator* mark3Creator; 
+                for(int i=0;i<4;i++){
+                    spacecraft->attachParachute(mark3Creator->createParachute("Mark3Parchute"+to_string(i)));
+                }
+            }
+        }
     }
     test(spacecraft);
 }
@@ -282,8 +321,6 @@ vector<Spacecraft*> TestSpacecraft::initSpacecraft(){
                             cin>>cargoWeight;
                         }
                     }
-                    //  cargo->setName(name);
-                    //  cargo->setWeight(cargoWeight);
                     spacecraft->attachCargo(new Cargo(name, cargoWeight));
                 }
                 else if(cargoOption == 1){
@@ -299,10 +336,9 @@ vector<Spacecraft*> TestSpacecraft::initSpacecraft(){
                             cin>>cargoWeight;
                         }
                     }
-                    //cargo->setWeight(cargoWeight);
-                    // spacecraft->attach(new Cargo(name, cargoWeight));
                     spacecraft->attachCargo(new Cargo(name, cargoWeight));
                 }
+                p++;
                 bool doneCargo;
                 cout<<"\nAre you done adding cargo? (1:yes/0:no)"<<endl;
                 cin>>doneCargo;
@@ -315,13 +351,13 @@ vector<Spacecraft*> TestSpacecraft::initSpacecraft(){
             cout<<"\nPlease select the type of parachute you want to use\n0.Mark2 Parachutes\t 1.Mark3 Parachutes"<<endl;
             cin>>parachuteOption;
             if(parachuteOption == 0){
-                Mark2Creator* mark2Creator; // =new Mark2Creator();
+                Mark2Creator* mark2Creator; 
                 for(int i=0;i<4;i++){
                     spacecraft->attachParachute(mark2Creator->createParachute("Mark2Parchute"+to_string(i)));
                 }
             }
             else if(parachuteOption == 1){
-                Mark3Creator* mark3Creator; // =new Mark2Creator();
+                Mark3Creator* mark3Creator; 
                 for(int i=0;i<4;i++){
                     spacecraft->attachParachute(mark3Creator->createParachute("Mark3Parchute"+to_string(i)));
                 }
@@ -338,7 +374,7 @@ vector<Spacecraft*> TestSpacecraft::initSpacecraft(){
                 }
             }
             else if(thrusterOption == 1){
-                SuperDracoCreator* superDracoCreator; // =new Mark2Creator();
+                SuperDracoCreator* superDracoCreator; 
                 for(int i=0;i<16;i++){
                     spacecraft->attachThruster(superDracoCreator->createThruster("SuperDraco"+to_string(i)));
                 }

@@ -17,9 +17,9 @@ class CrewDragonSpacecraft :public Spacecraft {
 		~CrewDragonSpacecraft();
 		void enterCrewMember(CrewMember*);
 		void removeCrewMember(int index);
-		double currentWeight();
-		int getCurrentHeight();
-		void setCurrentHeight(int currtHight);
+		double getCurrentWeight();
+		double getCurrentHeight();
+		void setCurrentHeight(double currentHeight);
 		void crewInfo();
 		int getTotalNumCrewMember();
 		vector<CrewMember*> getCrewList();

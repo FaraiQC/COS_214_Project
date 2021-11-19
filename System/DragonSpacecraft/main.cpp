@@ -30,16 +30,25 @@
 using namespace std;
 
 int main(){
-    TestSpacecraft* test =new TestSpacecraft();
-    test->initSpacecraft();
-
-    // Spacecraft* spacecraft = new DragonSpacecraft();
-    // Cargo* cargo1 = new Cargo("Condo", 55.5);
-    // Cargo* cargo2 = new Cargo("Money", 55.8);
-    // spacecraft->attachCargo(cargo1);
-    // spacecraft->attachCargo(cargo2);
+    // vector<Spacecraft*> a;
+    // TestSpacecraft* test =new TestSpacecraft();
+    // a = test->initSpacecraft();
+    // cout<<"The Spacecrafts returned"<<endl;
+    // for(Spacecraft* item: a){
+    //     item->print();
+    // }
+    Mark2Creator* mark2Creator; 
+    Spacecraft* spacecraft = new DragonSpacecraft();
+     for(int i=0;i<4;i++){
+        spacecraft->attachParachute(mark2Creator->createParachute("Mark2Parchute"+to_string(i)));
+    }
+    Cargo* cargo1 = new Cargo("Condo", 55.5);
+    Cargo* cargo2 = new Cargo("Money", 55.8);
+    spacecraft->attachCargo(cargo1);
+    spacecraft->attachCargo(cargo2);
     // spacecraft->print();
-    // spacecraft->detachCargo(0);
+    // // spacecraft->detachCargo(0);
     // spacecraft->print();
+    spacecraft->launch();
     return 0;
 }

@@ -2,25 +2,27 @@
 #define SIMULATION_H
 #include <vector>
 
+#include "Satellite.h"
+#include "TestSatellites.h"
+// #include "../DragonSpacecraft/code/Spacecraft.h"
+// #include "../FalconRockets/Rocket.h"
 
-#include "../StarlinkSatellites/Satellite.h"
-#include "../DragonSpacecraft/code/Spacecraft.h"
-#include "../FalconRockets/Rocket.h"
 
 class Simulation {
 
 private:
-	vector<Satellite*> satellites;
-	vector<Spacecrafts*> spacecrafts;
-	vector<Falcon*> falcon;
-	vector<Falcon*> FinalSimulations;
-	
+	vector<satellitesMaker*> satellites;
+	// vector<Spacecraft*> spacecrafts;
+	// vector<Rocket*> falcons;
+	// vector<Rocket*> FinalSimulations;
+
 	//pointers
-	Satellite* sats;
-	Spacecraft* spaceC;
-	Rocket* rkt;
-	
-	static int falconIndex= 0;
+	TestSatellites* sats;
+	// TestSpacecraft* spaceC;
+	// TestRockets* rkt;
+
+	int falconIndex = 0;
+
 
 public:
 	Simulation();

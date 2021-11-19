@@ -5,7 +5,9 @@
 
 class FalconNine : public Rocket {
 public:
+    FalconNine();
 
+    ~FalconNine() override;
 };
 
 

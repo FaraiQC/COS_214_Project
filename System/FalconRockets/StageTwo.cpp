@@ -8,6 +8,7 @@
 #include <ctime>
 #include <stdio.h>
 
+
 StageTwo::StageTwo(string id) : Stage(id) {
 
 }
@@ -15,6 +16,8 @@ StageTwo::StageTwo(string id) : Stage(id) {
 
 void StageTwo::attachSpacecraft(Spacecraft *spacecraft) {
     this->capsule = spacecraft;
+void StageTwo::addEngine(Engine *engine) {
+    engines.push_back(engine);
 }
 
 void StageTwo::attachSatellite(Satellite *satellite) {
@@ -34,12 +37,25 @@ void StageTwo::detachSatellite()
 }
 
 void StageTwo::activate() {
-    cout << "Stage two is now taking off" << endl;
+    cout << endl;
     engines[0]->turnOn();
-    for (int i = 3; i > 0; --i) {
-        cout << '*';
+    cout << "Stage two is now taking off ";
+    for (int i = 5; i > 0; --i) {
+        cout << "! ";
         this_thread::sleep_for(chrono::seconds(1));
     }
+
+    cout << "\nSpacecraft has reached desired orbit." << endl;
+    this_thread::sleep_for(chrono::seconds(2));
+    deactivate();
+
+    cout << "Stage Two is now separating from Dragon Spacecraft ";
+    for (int i = 5; i > 0; --i) {
+        cout << "<--> ";
+        this_thread::sleep_for(chrono::seconds(1));
+    }
+    cout << "\nDragon has now separated from Stage Two" << endl;
+
 }
 
 void StageTwo::deactivate() {

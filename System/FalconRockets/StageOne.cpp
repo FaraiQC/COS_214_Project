@@ -15,13 +15,24 @@ void StageOne::addEngine(Engine* engine) {
 }
 
 void StageOne::activate() {
+    for (Engine *e : engines) {
+        e->turnOn();
+    }
+
     cout << "Launching in:\n";
+
     for (int i = 10; i > 0; --i) {
         cout << i << std::endl;
         this_thread::sleep_for(chrono::seconds(1));
     }
-    std::cout << "Lift off!!!!!!!!!!!!!\n";
-    this_thread::sleep_for(chrono::seconds(5));
+    std::cout << "Lift off ";
+    for (int i = 0; i < 5; ++i) {
+        cout << " ! ";
+        this_thread::sleep_for(chrono::seconds(1));
+    }
+
+    cout << endl;
+
 }
 
 void StageOne::land() {
