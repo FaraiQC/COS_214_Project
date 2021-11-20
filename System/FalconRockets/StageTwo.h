@@ -2,7 +2,7 @@
 #define FALCON_ROCKETS_STAGETWO_H
 
 #include "Stage.h"
-#include "../DragonSpacecraft/code/Spacecraft.h"
+#include "../DragonSpacecraft/Spacecraft.h"
 #include "../StarlinkSatellites/Satellite.h"
 #include "VacuumEngine.h"
 #include "EngineNotOptimum.h"

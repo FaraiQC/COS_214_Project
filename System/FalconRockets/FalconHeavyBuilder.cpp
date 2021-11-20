@@ -71,18 +71,18 @@ void FalconHeavyBuilder::addEngines()
         }
         engine->setId(id);
         falconHeavy->getStageOne()->addEngine(engine);
-    for (int i = 0; i < 9; ++i)
-    {
-        falconHeavy->getStageOne()->addEngine(merlinCreator.createEngine());
+        for (int i = 0; i < 9; ++i)
+        {
+            falconHeavy->getStageOne()->addEngine(merlinCreator.createEngine());
+        }
+
+        addBoosters();
+        VacuumCreator vacuumCreator;
+        Engine* engine2 = vacuumCreator.createEngine();
+        engine2->setId("VAC-01");
+        falconHeavy->getStageTwo()->addEngine(engine2);
     }
-
-    addBoosters();
-    VacuumCreator vacuumCreator;
-    Engine* engine2 = vacuumCreator.createEngine();
-    engine2->setId("VAC-01");
-    falconHeavy->getStageTwo()->addEngine(engine2);
 }
-
 
 /**
  * @brief Add booster for to falcon heavy (two of them)
