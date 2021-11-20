@@ -7,13 +7,27 @@
 #include <stdio.h>
 #include <iostream>
 
+/**
+ * @brief Construct a new Stage One:: Stage One object
+ * 
+ * @param id 
+ */
 StageOne::StageOne(string id) : Stage(id) {
 }
 
+/**
+ * @brief appends an engine to the list of engines
+ * 
+ * @param engine engine to append
+ */
 void StageOne::addEngine(Engine* engine) {
    engines.push_back(engine);
 }
 
+/**
+ * @brief handles the rockets launch 
+ * 
+ */
 void StageOne::activate() {
     for (Engine *e : engines) {
         e->turnOn();
@@ -35,10 +49,18 @@ void StageOne::activate() {
 
 }
 
+/**
+ * @brief handles the landing of stage one
+ * 
+ */
 void StageOne::land() {
 
 }
 
+/**
+ * @brief turns off all the engines 
+ * 
+ */
 void StageOne::deactivate() {
     cout << " Engines are turning off..." << endl;
     for (int i = 0; i < engines.size(); ++i) {
@@ -46,6 +68,12 @@ void StageOne::deactivate() {
     }
 }
 
+/**
+ * @brief static fire testing
+ * 
+ * @return true 
+ * @return false 
+ */
 bool StageOne::testEngines()
 {
     cout<<"----------------------------------------------------------------------------"<<endl;
@@ -137,6 +165,10 @@ bool StageOne::testEngines()
 
 }
 
+/**
+ * @brief prints all the engine names
+ * 
+ */
 void StageOne::printEngines()
 {
     for(int i=0;i<numEngines;i++)
@@ -148,6 +180,12 @@ void StageOne::printEngines()
     }
 }
 
+/**
+ * @brief determines engines optimisation
+ * 
+ * @return true 
+ * @return false 
+ */
 bool StageOne::determineOptimisation()
 {
     for(int i=0;i<numEngines;i++)
@@ -160,9 +198,18 @@ bool StageOne::determineOptimisation()
     return true;
 }
 
+/**
+ * @brief setter for number of engines
+ * 
+ * @param s 
+ */
 void StageOne::setNum(int s)
 {
     numEngines=s;
 }
 
+/**
+ * @brief Destroy the Stage One:: Stage One object
+ * 
+ */
 StageOne::~StageOne() = default;

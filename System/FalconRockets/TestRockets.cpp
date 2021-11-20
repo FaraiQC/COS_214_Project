@@ -1,10 +1,19 @@
 #include "TestRockets.h"
 
+/**
+ * @brief Construct a new Test Rockets:: Test Rockets object
+ * 
+ */
 TestRockets::TestRockets()
 {
 
 }
 
+/**
+ * @brief Test rockets
+ * 
+ * @return vector<Rocket*> 
+ */
 vector<Rocket*> TestRockets::testRockets()
 {
     while(true)
@@ -51,25 +60,45 @@ vector<Rocket*> TestRockets::testRockets()
     return rocketList;
 }
 
+/**
+ * @brief 
+ * 
+ */
 void TestRockets::beforeLaunch()
 {
 
 }
 
+/**
+ * @brief 
+ * 
+ */
 void TestRockets::AfterLaunch()
 {
 
 }
 
+/**
+ * @brief 
+ * 
+ */
 void TestRockets::ReleaseSpaceCraft()
 {
 
 }
 
+/**
+ * @brief 
+ * 
+ */
 void TestRockets::ReleaseSatellites()
 {
     
 }
 
+/**
+ * @brief Destroy the Test Rockets:: Test Rockets object
+ * 
+ */
 TestRockets::~TestRockets()
 {}
