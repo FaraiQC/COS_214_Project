@@ -29,7 +29,7 @@ void InterStage::separate() {
     cout << "Separation Stage has begun: " << endl;
     cout << "Stage One and Stage Two are now separating ";
     for (int i = 5; i > 0; --i) {
-        cout << "<-> ";
+        cout << "<-> " << endl;
         this_thread::sleep_for(chrono::seconds(1));
     }
     cout << "\nStage One and Stage Two are now detached.\nFirst Stage is now returning back to earth." << endl;
