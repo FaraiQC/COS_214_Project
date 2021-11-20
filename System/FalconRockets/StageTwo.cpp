@@ -8,37 +8,70 @@
 #include <ctime>
 #include <stdio.h>
 
+
+/**
+ * @brief Construct a new Stage Two:: Stage Two object
+ * 
+ * @param id the id of the stage.
+ */
 StageTwo::StageTwo(string id) : Stage(id)
 {
 }
 
+/**
+ * @brief "attaches" the spacecraft to stage two.
+ * 
+ * @param spacecraft 
+ */
 void StageTwo::attachSpacecraft(Spacecraft *spacecraft)
 {
     this->capsule = spacecraft;
 }
 
+/**
+ * @brief appends engine to the list of engines.
+ * 
+ * @param engine engine pointer
+ */
 void StageTwo::addEngine(Engine *engine)
 {
     engines.push_back(engine);
 }
 
+/**
+ * @brief attach the satellite to stage two.
+ * 
+ * @param satellite 
+ */
 void StageTwo::attachSatellite(Satellite *satellite)
 {
     this->satellite = satellite;
 }
 
+/**
+ * @brief detach spacecracft to stage two.
+ * 
+ */
 void StageTwo::detachSpacecraft()
 {
     cout << "Spacecraft is detaching from rocket.." << endl;
     capsule = NULL;
 }
 
+/**
+ * @brief detach satelite from the stage
+ * 
+ */
 void StageTwo::detachSatellite()
 {
     cout << "Satellites are detaching from the rocket and are reacing orbit..." << endl;
     satellite = NULL;
 }
 
+/**
+ * @brief "launch stage two to desired orbit then release spacecraft"
+ * 
+ */
 void StageTwo::activate()
 {
     cout << endl;
@@ -66,12 +99,23 @@ void StageTwo::activate()
     // This is where we are going to call the Spacecraft launch function since stage two & spacecraft have separated.
 }
 
+/**
+ * @brief turns off all the engines.
+ * 
+ */
 void StageTwo::deactivate()
 {
-    cout << "Stage Two Engines will now turn Off" << endl;
+    cout << "Stage Two Engine will now turn Off" << endl;
     engines[0]->turnOff();
 }
 
+
+/**
+ * @brief test all engines to check if the are in optimum state.
+ * 
+ * @return true 
+ * @return false 
+ */
 bool StageTwo::testEngine()
 {
     cout << endl;
@@ -159,6 +203,12 @@ bool StageTwo::testEngine()
     }
 }
 
+/**
+ * @brief determines engines optimisation
+ * 
+ * @return true 
+ * @return false 
+ */
 bool StageTwo::determineOptimisation()
 {
     for (int i = 0; i < numEngines; i++)
@@ -171,9 +221,14 @@ bool StageTwo::determineOptimisation()
     return true;
 }
 
+
+/**
+ * @brief prints all the engines in the stage.
+ * 
+ */
 void StageTwo::printEngines()
 {
-    for (int i = 0; i < numEngines; i++)
+    for (int i = 0; i < engines.size(); i++)
     {
 
         cout << engines[i]->getId() << " is ";
@@ -183,9 +238,18 @@ void StageTwo::printEngines()
     }
 }
 
+/**
+ * @brief set number of engines
+ * 
+ * @param s is number of engines
+ */
 void StageTwo::setNum(int s)
 {
     numEngines = s;
 }
 
+/**
+ * @brief Destroy the Stage Two:: Stage Two object
+ * 
+ */
 StageTwo::~StageTwo() = default;
