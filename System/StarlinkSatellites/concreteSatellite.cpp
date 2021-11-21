@@ -4,7 +4,7 @@
 using namespace std;
 
 //@brief Sets radio Signal to true (switching it on)
-concreteSatellite::concreteSatellite() 
+concreteSatellite::concreteSatellite()  : Satellite()
 {
 	this->setSignal();
 }
@@ -25,7 +25,8 @@ Satellite* concreteSatellite::Clone()
 //@brief returns the current state of the satelliteSignal
 //@return returns the current state of the satelliteSignal
 bool concreteSatellite::getSignal() 
-{
+{	
+	// setSignal();
 	return this->satelliteSignal;
 }
 
