@@ -5,7 +5,6 @@ using namespace std;
 
 satellitesMaker::satellitesMaker() 
 {
-	// this->first = new Satellite();
 	first = NULL;
 	
 }
@@ -64,7 +63,6 @@ void satellitesMaker :: satellitesBeforeLaunch()
 
 Satellite* satellitesMaker :: getFirst()
 {
-	// CollectNextCluster();
 	return first;
 }
 
