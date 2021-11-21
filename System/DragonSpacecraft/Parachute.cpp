@@ -1,8 +1,7 @@
 #include "Parachute.h"
-
-//@brief Constructor
+//@brief Constructor sets default parachute type to mark2(0)
 Parachute::Parachute() {
-
+	check=0;
 }
 
 //@brief Sets the id of the Parachute
@@ -37,9 +36,13 @@ string Parachute::getId(){
 
 //@brief Confirms that Mark2 Parachute was created
 //@param check is 0 when there was no parachute created, and 1 when there was a parachute created
-void Parachute::SetMark2isCreatedChecker(int chech){this->check=check;}
+void Parachute::SetMark2isCreatedChecker(int check){
+	this->check=check;
+}
 
-//@brief Checks if there was a parachute created
-//@return returns 0 when there was no Parachute created
-//@return returns 1 when there was a Parachute created
-int Parachute::GetMark2isCreatedChecker(){return check;}
+//@brief Checks if there was a Mark2parachute created
+//@return returns 0 when there is a Mark3Parachute created
+//@return returns 1 when there is a Mark3Parachute created
+int Parachute::GetMark2isCreatedChecker(){
+	return check;
+}
