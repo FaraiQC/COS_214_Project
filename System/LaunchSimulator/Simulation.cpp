@@ -29,6 +29,14 @@ void Simulation::reset()
 	FinalSimulations.clear();
 }
 
+void Simulation::updateFalcon_ONCE()
+{
+	vector<Rocket*> temp = rkt->testRockets();
+	this->falcons.push_back(temp.at(count++)); 
+	this->falcons.push_back(temp.at(count++));
+}
+
+
 void Simulation::testSimulation() {
 	// this->falcons     = rkt->testRockets();
 	this->satellites  = sats->testSatellites();
