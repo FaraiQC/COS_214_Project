@@ -1,5 +1,4 @@
 #include "concreteMediator.h"
-// #include "SatelliteMediator.cpp"
 #include <iostream>
 #include <string>
 
