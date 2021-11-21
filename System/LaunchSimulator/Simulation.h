@@ -8,6 +8,7 @@
 #include "TestRockets.h"
 #include "TestSpacecraft.h"
 
+
 class Simulation {
 
 private:
@@ -31,13 +32,17 @@ public:
 
 	~Simulation();
 
-	void testSimulation();
+	void TestSimulation();
 
-	void assembleRocket();
+	void AssembleRocket();
 
 	void Launch();
 
 	void Launch(int int_t);
+
+	void reset();
+	
+	void updateFalcon_ONCE();
 };
 
 #endif
