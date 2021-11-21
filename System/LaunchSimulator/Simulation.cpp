@@ -107,21 +107,36 @@ void Simulation::Launch() {
 
 
 
-void Simulation::Launch() {
-	
-	TestSatellites* tSatellites = new TestSatellites();
+void Simulation::Launch(int k) {
 
-    cout<<"\n=====================================================\n";
-    cout<<"                    Actual Launch\n";
-    cout<<"=======================================================\n\n";
+	if(k < FinalSimulations.size() && k >= 0)
+	{
+		cout<<"=========================================================================.\n";
+        cout<<"                       Actual Simulation: "<< k + 1 << "          \n" ;
+		cout<<"==========================================================================\n\n";
+		if(FinalSimulations.at(k)->getStageTwo()->HasSatellites()){
+				rkt->BeforeLaunch();
+				FinalSimulations.at(k)->getStageTwo()->getSatellites()->BeforeLaunch();
+				FinalSimulations.at(k)->launch();
+				FinalSimulations.at(k)->getStageTwo()->getSatellites()->launch();
+			}
+		else{
+			rkt->BeforeLaunch();
+			FinalSimulations.at(k)->launch();
+			FinalSimulations.at(k)->getStageTwo()->getSpacecraft()->launch();
+		}
 
-    tSatellites->BeforeLaunch();
-    cout<<"\n";
-    tSatellites->InDesiredOrbit();
-    tSatellites->SatellitesAuntentication();
+		k++;
+	}
+
+	if(k > FinalSimulations.size() || k < 0)
+	{
+		std::cout
+			<< "OUT OF BOUNDS\n\tSAVED NUMBER OF SIMULATIONS: " 
+			<< FinalSimulations.size()
+			<< std::endl;
+
+		return;
+	}
 }
 
-void Simulation::Launch(int i) {
-	
-	
-}
