@@ -2,11 +2,11 @@
 #define SIMULATION_H
 #include <vector>
 
-#include "Satellite.h"
 #include "TestSatellites.h"
-// #include "../DragonSpacecraft/code/Spacecraft.h"
-// #include "../FalconRockets/Rocket.h"
-
+#include "../DragonSpacecraft/Spacecraft.h"
+#include "../FalconRockets/Rocket.h"
+#include "TestRockets.h"
+#include "TestSpacecraft.h"
 
 class Simulation {
 
