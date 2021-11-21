@@ -41,6 +41,9 @@ public:
 
 	double getDist();
 	
+	void setDist(double d);
+
+	void satellitesMoved() ;
 };
 
 #endif
