@@ -1,4 +1,5 @@
 #include "Simulation.h"
+#include "sstream"
 #include <iostream>
 
 using namespace std;
@@ -13,7 +14,7 @@ Simulation::Simulation() {
 }
 
 Simulation::~Simulation() {
-	reset();//clear the simulation before going out of scope
+ 	reset();//clear the simulation before going out of scope
 }
 
 void Simulation::reset()
@@ -35,7 +36,6 @@ void Simulation::updateFalcon_ONCE()
 	this->falcons.push_back(temp.at(count++)); 
 	this->falcons.push_back(temp.at(count++));
 }
-
 
 void Simulation::TestSimulation() {
 
@@ -100,28 +100,42 @@ void Simulation::TestSimulation() {
 }
 
 
+
 void Simulation::Launch() {
 	for(int i = _list; i < FinalSimulations.size(); i++, _list++)
 		Launch(i);
 }
 
+void Simulation::Launch(int k) {
 
+	if(k < FinalSimulations.size() && k >= 0)
+	{
+		cout<<"=========================================================================.\n";
+        cout<<"                       Actual Simulation: "<< k + 1 << "          \n" ;
+		cout<<"==========================================================================\n\n";
+		if(FinalSimulations.at(k)->getStageTwo()->HasSatellites()){
+				rkt->BeforeLaunch();
+				FinalSimulations.at(k)->getStageTwo()->getSatellites()->BeforeLaunch();
+				FinalSimulations.at(k)->launch();
+				FinalSimulations.at(k)->getStageTwo()->getSatellites()->launch();
+			}
+		else{
+			rkt->BeforeLaunch();
+			FinalSimulations.at(k)->launch();
+			FinalSimulations.at(k)->getStageTwo()->getSpacecraft()->launch();
+		}
 
-void Simulation::Launch() {
-	
-	TestSatellites* tSatellites = new TestSatellites();
+		k++;
+	}
 
-    cout<<"\n=====================================================\n";
-    cout<<"                    Actual Launch\n";
-    cout<<"=======================================================\n\n";
+	if(k > FinalSimulations.size() || k < 0)
+	{
+		std::cout
+			<< "OUT OF BOUNDS\n\tSAVED NUMBER OF SIMULATIONS: " 
+			<< FinalSimulations.size()
+			<< std::endl;
 
-    tSatellites->BeforeLaunch();
-    cout<<"\n";
-    tSatellites->InDesiredOrbit();
-    tSatellites->SatellitesAuntentication();
+		return;
+	}
 }
 
-void Simulation::Launch(int i) {
-	
-	
-}
