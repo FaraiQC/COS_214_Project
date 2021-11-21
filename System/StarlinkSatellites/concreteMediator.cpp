@@ -11,11 +11,14 @@ void concreteMediator::notify()
     cout<<"Satellite's lasers have been turned Off.\n";
 }
 
+
+//@brief constructor
 concreteMediator :: concreteMediator() : SatelliteMediator()
 {
 
 }
 
+//@brief Destructor
 concreteMediator :: ~concreteMediator()
 {
     
