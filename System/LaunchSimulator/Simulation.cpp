@@ -16,6 +16,19 @@ Simulation::~Simulation() {
 	reset();//clear the simulation before going out of scope
 }
 
+void Simulation::reset()
+{
+	delete sats;
+	delete spaceC;
+	delete rkt;
+
+	falconIndex = 0;
+	satellites.clear();
+	spacecrafts.clear();
+	falcons.clear();
+	FinalSimulations.clear();
+}
+
 void Simulation::testSimulation() {
 	// this->falcons     = rkt->testRockets();
 	this->satellites  = sats->testSatellites();
