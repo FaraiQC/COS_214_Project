@@ -7,7 +7,7 @@ This project was done for a module called Software Modelling (COS 214). This pro
 We broke the Spacex and Starlink simulation into 4 subsystems, namely Falcon rockets, Dragon spacecraft, Starlink Satellites and Launch simulator. We combined the first three subsystems in the last subsystem  “Launch Simulator”. A breakdown of these subsystems is listed in the project report [PROJECT REPORT](https://docs.google.com/document/d/1gs0NNO9YN0JF_Gwg1Z9vqOSuz4UBR-yM_8e0tlxygJ8/edit?usp=sharing).
 
 ## How to run
-- Locate yourself to the System folder
+- Locate yourself to the System folder that is in the root directory
 - Run the makefile with the following commands:
 ```bash
 make
