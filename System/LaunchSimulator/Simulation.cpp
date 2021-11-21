@@ -100,10 +100,12 @@ void Simulation::TestSimulation() {
 }
 
 
-void Simulation::assembleRocket() {
-	// TODO - implement Simulation::assembleRocket
-	throw "Not yet implemented";
+void Simulation::Launch() {
+	for(int i = _list; i < FinalSimulations.size(); i++, _list++)
+		Launch(i);
 }
+
+
 
 void Simulation::Launch() {
 	
