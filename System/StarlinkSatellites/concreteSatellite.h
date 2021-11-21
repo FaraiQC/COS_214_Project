@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 
+
 class concreteSatellite : public Satellite
 {
 
@@ -21,6 +22,7 @@ class concreteSatellite : public Satellite
 		void setSignal();
 
 		double getDistance();
+		
 };
 
 #endif
