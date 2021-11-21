@@ -14,6 +14,6 @@ class Mark2Parachute :public Parachute {
 		Mark2Parachute(string);
 		~Mark2Parachute();
 		void deploy();
-	
+		
 };
 #endif

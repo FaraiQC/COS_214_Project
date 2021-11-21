@@ -39,3 +39,4 @@ string CrewMember::getName() {
 double CrewMember::getWeight() {
 	return this->weight;
 }
+

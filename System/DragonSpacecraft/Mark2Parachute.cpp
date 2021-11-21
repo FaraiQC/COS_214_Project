@@ -14,7 +14,7 @@ Mark2Parachute::Mark2Parachute() {
 //@param name is the ID of the Parachute
 Mark2Parachute::Mark2Parachute(string name) {
 	setId(name);
-	SetMark2isCreatedChecker(1);
+	SetMark2isCreatedChecker(0);
 }
 
 //@brief Displays that Mark2Parachute is now being deployed

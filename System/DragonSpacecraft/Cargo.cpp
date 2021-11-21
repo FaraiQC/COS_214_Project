@@ -48,3 +48,5 @@ void Cargo::setWeight(double weight){
 double Cargo::getWeight(){
 	return this->weight;
 }
+
+

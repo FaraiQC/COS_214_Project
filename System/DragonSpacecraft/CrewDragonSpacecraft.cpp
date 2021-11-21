@@ -36,6 +36,7 @@ void CrewDragonSpacecraft::setCurrentHeight(double currentHeight) {
 	this->currentHeight = currentHeight;
 }
 
+
 //@brief Adds crew members to the spacecraftCrew vector
 //@param member is the CrewMember to be added to the spacecraftCrew
 void CrewDragonSpacecraft::enterCrewMember(CrewMember* member){
