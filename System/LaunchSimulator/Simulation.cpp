@@ -13,7 +13,7 @@ Simulation::Simulation() {
 }
 
 Simulation::~Simulation() {
-
+	reset();//clear the simulation before going out of scope
 }
 
 void Simulation::testSimulation() {
