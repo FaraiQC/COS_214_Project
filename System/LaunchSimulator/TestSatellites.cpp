@@ -1,11 +1,11 @@
 #include "TestSatellites.h"
 #include <iostream>
 #include <string>
-#include "concreteMediator.h"
-#include "ConcreteAntenna.h"
-#include "Antenna.h"
+#include "../StarlinkSatellites/concreteMediator.h"
+#include "../StarlinkSatellites/ConcreteAntenna.h"
+#include "../StarlinkSatellites/Antenna.h"
+#include "../StarlinkSatellites/SatelliteMediator.h"
 #include "unistd.h"
-#include "SatelliteMediator.h"
 #include <time.h>  
 
 using namespace std;
@@ -114,8 +114,6 @@ vector<satellitesMaker*> TestSatellites:: testSatellites()
 	
 	satsMaker.push_back(newCluster);
 	return  satsMaker;
-
-
 }
 
 TestSatellites::~TestSatellites() {
@@ -127,6 +125,7 @@ void TestSatellites::BeforeLaunch() {
 
 	cout<<"All Satellite's lasers are initially set to Off.\n";
 	cout << "All Antenna's and Satellite's Radio Signals are initially False" << endl;
+	
 
 	sat->satellitesBeforeLaunch();
 
@@ -144,13 +143,13 @@ void TestSatellites::InDesiredOrbit() {
 	random = rand()%6 + 1;
 
 	cout<<"Starlink Satelites have been released in the desired orbit!\n";
-
+	sleep(1);
 //Once in desired orbit
 	cout<<"Notifying Antennas!\n";
     s->notifyAntenna();
 	sM->notify(); 
 	cout<<"\n";
-
+	sleep(2);
 	cout<<random<<"0000 new Antennas have attempted to connect with the Satellites.\n";
 	for(int k=0; k<random; k++)
 	{
@@ -176,7 +175,7 @@ void TestSatellites :: SatellitesAuntentication()
 	//A satellite moves from original position
     cout<<"Satellite Hit! Laser for this satellite is On\n";
     s->satellitesMoved();
-
+	sleep(2);
 //1 Antenna's radio signal went off
     cout<<"Antenna's radio signals turned off, Notifying System!\n";
     a->update();
@@ -185,7 +184,7 @@ void TestSatellites :: SatellitesAuntentication()
 	random1 = rand()%3 + 1;
 
 	cout<<"\n";
-
+	sleep(1);
 	cout<<random1<<"0000 new Antennas have attempted to connect with the Satellites.\n";
 	for(int k=0; k<random1; k++)
 	{
@@ -198,6 +197,16 @@ void TestSatellites :: SatellitesAuntentication()
 	cout<<"\n\n";
 
 	// cout<<"More and more Antenna requests to communicate with the Satellites are coming through.\n\n";
-
+	sleep(1);
 	cout<<"All Satellites are in place and are functioning well!\n";
+}
+
+
+void TestSatellites :: launch()
+{
+	TestSatellites* tSatellites = new TestSatellites();
+
+    cout<<"\n";
+    tSatellites->InDesiredOrbit();
+    tSatellites->SatellitesAuntentication();
 }
