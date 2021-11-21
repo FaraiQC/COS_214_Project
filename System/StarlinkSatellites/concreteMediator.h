@@ -10,6 +10,10 @@ public:
 	Satellite** satelliteList;
 
 	void notify();
+
+	concreteMediator();
+
+	~concreteMediator();
 };
 
 #endif
