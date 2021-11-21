@@ -5,12 +5,28 @@ using namespace std;
 
 Simulation::Simulation() {
 	sats = new TestSatellites();
-	// spaceC = new Spacecraft();
-	// rkts = new Rocket();
+	spaceC = new TestSpacecraft();
+	rkt = new TestRockets();
+	_list = 0;
+	falconIndex = 0;
+	count=0;
 }
 
 Simulation::~Simulation() {
+	reset();//clear the simulation before going out of scope
+}
 
+void Simulation::reset()
+{
+	delete sats;
+	delete spaceC;
+	delete rkt;
+
+	falconIndex = 0;
+	satellites.clear();
+	spacecrafts.clear();
+	falcons.clear();
+	FinalSimulations.clear();
 }
 
 void Simulation::testSimulation() {
