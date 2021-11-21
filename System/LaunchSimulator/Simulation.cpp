@@ -29,11 +29,76 @@ void Simulation::reset()
 	FinalSimulations.clear();
 }
 
-void Simulation::testSimulation() {
-	// this->falcons     = rkt->testRockets();
-	this->satellites  = sats->testSatellites();
-	// this->spacecrafts = spaceC->testSpacecrafts();
+void Simulation::updateFalcon_ONCE()
+{
+	vector<Rocket*> temp = rkt->testRockets();
+	this->falcons.push_back(temp.at(count++)); 
+	this->falcons.push_back(temp.at(count++));
 }
+
+
+void Simulation::TestSimulation() {
+
+	int OneOrTwo;
+
+	updateFalcon_ONCE();
+	
+	std::cout << "falcons address: " << &falcons << std::endl;
+	
+	std::cout << "Falcon size: "<< falcons.size()<<std::endl;
+
+
+	cout<<"Select Payload: Starlink Satellites/Dragon Spacecraft? (1/2) : \n";
+            string strInput = "";
+            while (true){
+                getline(cin, strInput);
+                 stringstream myStream(strInput);
+                if ( (myStream >> OneOrTwo) ){
+                        if(OneOrTwo >=1 && OneOrTwo <=2){
+                            break;
+                        }
+						else
+                    		cout << "Invalid input, please try again" << endl;
+                    }
+                   
+            }       
+
+	if(OneOrTwo == 1)
+	{
+		
+		this->satellites  = sats->testSatellites();
+
+		rkt->setTypeRocket("Falcon9");
+		
+		/**
+		*	Since we add two falcons at a time, size()-2 returns Falcon 9
+		*/
+		falcons.at(falcons.size()-2)->getStageTwo()->attachSatellite(sats);
+
+		FinalSimulations.push_back(falcons.at(falcons.size()-2));
+
+		cout<<"\n********Test simulation PASSED and saved to batch.*****************\n";
+			
+	}
+	else
+	{		
+		this->spacecrafts = spaceC->initSpacecraft();
+		
+		
+		rkt->setTypeRocket("Falcon Heavy");
+		// rkt->attachSpaceCraft(spacecrafts.at(0));
+
+		/**
+		*	Since we add two falcons at a time, size()-1 returns FalconHeavy
+		*/
+		falcons.at(falcons.size()-1)->getStageTwo()->attachSpacecraft(spacecrafts.at(0));
+
+		FinalSimulations.push_back(falcons.at(falcons.size()-1));
+
+		cout<<"\n********Test simulation PASSED and saved to batch.*****************\n";
+	} 
+}
+
 
 void Simulation::assembleRocket() {
 	// TODO - implement Simulation::assembleRocket
