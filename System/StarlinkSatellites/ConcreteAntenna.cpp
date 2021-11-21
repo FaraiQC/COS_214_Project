@@ -1,5 +1,6 @@
 #include "ConcreteAntenna.h"
 
+
 //@brief Sets radio Signal to equal the subjects signal
 void ConcreteAntenna::update() 
 {
@@ -7,9 +8,8 @@ void ConcreteAntenna::update()
 }
 
 //@brief Sets radio Signal to false
-ConcreteAntenna::ConcreteAntenna() 
+ConcreteAntenna::ConcreteAntenna() : Antenna()
 {
-  cout << "All Antenna's Radio Signals are initially False" << endl;
   radioSignal = false;
 }
 
