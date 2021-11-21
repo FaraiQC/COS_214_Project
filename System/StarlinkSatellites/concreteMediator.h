@@ -1,19 +1,19 @@
-#ifndef CONCRETEMEDIATOR_H
-#define CONCRETEMEDIATOR_H
-#include "SatelliteMediator.h"
+#ifndef SATELLITEMEDIATOR_H
+#define SATELLITEMEDIATOR_H
+#include "Satellite.h"
 #include <iostream>
+
 using namespace std;
 
-class concreteMediator : public SatelliteMediator {
+class SatelliteMediator {
+
 
 public:
-	Satellite** satelliteList;
+	virtual void notify() = 0;
 
-	void notify();
+	SatelliteMediator();
 
-	concreteMediator();
-
-	~concreteMediator();
+	~SatelliteMediator();
 };
 
 #endif
