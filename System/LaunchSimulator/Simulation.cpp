@@ -1,4 +1,6 @@
 #include "Simulation.h"
+// #include "TestSatellites.cpp"
+#include "sstream"
 #include <iostream>
 
 using namespace std;
@@ -13,7 +15,7 @@ Simulation::Simulation() {
 }
 
 Simulation::~Simulation() {
-	reset();//clear the simulation before going out of scope
+ 	reset();//clear the simulation before going out of scope
 }
 
 void Simulation::reset()
@@ -35,7 +37,6 @@ void Simulation::updateFalcon_ONCE()
 	this->falcons.push_back(temp.at(count++)); 
 	this->falcons.push_back(temp.at(count++));
 }
-
 
 void Simulation::TestSimulation() {
 
@@ -100,12 +101,11 @@ void Simulation::TestSimulation() {
 }
 
 
+
 void Simulation::Launch() {
 	for(int i = _list; i < FinalSimulations.size(); i++, _list++)
 		Launch(i);
 }
-
-
 
 void Simulation::Launch(int k) {
 
