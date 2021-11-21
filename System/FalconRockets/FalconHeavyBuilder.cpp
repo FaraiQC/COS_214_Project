@@ -33,6 +33,7 @@ void FalconHeavyBuilder::addElectronics()
  */
 void FalconHeavyBuilder::addEngines()
 {
+
     cout << "Adding falcon heavy engines" << endl;
 
     if (falconHeavy->getStageOne() == nullptr || falconHeavy->getStageTwo() == nullptr)
@@ -40,48 +41,45 @@ void FalconHeavyBuilder::addEngines()
         cout << "Error: cannot add engines before stage one and two are both installed." << endl;
         return;
     }
-
+    falconHeavy->getStageOne()->setType("FalconHeavy");
     falconHeavy->getStageOne()->setNum(27);
     falconHeavy->getStageTwo()->setNum(1);
     MerlinCreator merlinCreator;
-    for (int i = 0; i < 27; ++i) {
-        
-        Engine* engine = merlinCreator.createEngine();
-        string id="ENG-";
+    for (int i = 0; i < 27; ++i)
+    {
+
+        Engine *engine = merlinCreator.createEngine();
+        string id = "ENG-";
         string num;
         string num2;
         stringstream ss;
         stringstream str;
-        if(i<9)
+        if (i < 9)
         {
-            int j=0;
-            int val = i+1;
-            ss<<j;
-            ss>>num;
-            str<<val;
-            str>>num2;
-            num+=num2;
-            id+=num;
+            int j = 0;
+            int val = i + 1;
+            ss << j;
+            ss >> num;
+            str << val;
+            str >> num2;
+            num += num2;
+            id += num;
         }
         else
         {
-            ss<<i+1;
-            ss>>num;
-            id+=num;
+            ss << i + 1;
+            ss >> num;
+            id += num;
         }
         engine->setId(id);
         falconHeavy->getStageOne()->addEngine(engine);
-        for (int i = 0; i < 9; ++i)
-        {
-            falconHeavy->getStageOne()->addEngine(merlinCreator.createEngine());
-        }
-
-        addBoosters();
-        VacuumCreator vacuumCreator;
-        Engine* engine2 = vacuumCreator.createEngine();
-        engine2->setId("VAC-01");
-        falconHeavy->getStageTwo()->addEngine(engine2);
     }
+
+    addBoosters();
+    VacuumCreator vacuumCreator;
+    Engine *engine2 = vacuumCreator.createEngine();
+    engine2->setId("VAC-01");
+    falconHeavy->getStageTwo()->addEngine(engine2);
 }
 
 /**
@@ -131,7 +129,6 @@ void FalconHeavyBuilder::addStageTwo()
     StageTwoCreator stageTwoCreator;
     falconHeavy->setStageTwo(dynamic_cast<StageTwo *>(stageTwoCreator.createStage("stageTwo")));
 }
-
 
 /**
  * @brief getter for Falcon Heavy object

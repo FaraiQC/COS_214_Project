@@ -37,7 +37,7 @@ void FalconNineBuilder::addEngines() {
         cout << "Error: cannot add engines before stage one and two are both installed." << endl;
         return;
     }
-
+    falconNine->getStageOne()->setType("Falcon9");
     falconNine->getStageOne()->setNum(9);
     falconNine->getStageTwo()->setNum(1);
     MerlinCreator merlinCreator;

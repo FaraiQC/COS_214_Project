@@ -36,7 +36,7 @@ void StageOne::activate() {
     cout << "Launching in:\n";
 
     for (int i = 10; i > 0; --i) {
-        cout << i << std::endl;
+        cout <<"\t\t\t\t"<< i << std::endl;
         this_thread::sleep_for(chrono::seconds(1));
     }
     std::cout << "Lift off ";
@@ -46,7 +46,6 @@ void StageOne::activate() {
     }
 
     cout << endl;
-
 }
 
 /**
@@ -54,7 +53,7 @@ void StageOne::activate() {
  * 
  */
 void StageOne::land() {
-
+    
 }
 
 /**
@@ -78,28 +77,46 @@ bool StageOne::testEngines()
 {
     cout<<"----------------------------------------------------------------------------"<<endl;
     cout<<"\t\t\tInitiating static fire test..."<<endl;
-    cout<<"----------------------------------------------------------------------------"<<endl;
+    cout<<"----------------------------------------------------------------------------"<<endl<<endl;
     sleep(1);
     for(int i=0;i<numEngines;i++)
     {
         engines[i]->turnOn();
-        sleep(1);
+        if(type!="Falcon9")
+        {
+            if(i%5==0)
+            {
+                sleep(1);
+            }
+        }
+        else
+        {
+            sleep(1);
+        }
+        
     }
+
     cout<<"----------------------------------------------------------------------------"<<endl;
-    cout<<"\t\t\tAll engines have been initiated..."<<endl;
-    cout<<"----------------------------------------------------------------------------"<<endl;
-    cout<<endl;
-    
-    srand(time(0));
+    cout<<"\t\t\tAll engines have been initiated"<<endl;
+    cout<<"----------------------------------------------------------------------------"<<endl<<endl;
+
+    int num;
+    if(type=="Falcon9")
+    {
+        num = 10100;
+    }
+    else
+    {
+        num = 30300;
+    }
+
     for(int i=0;i<numEngines;i++)
     {
-        int rand;
-        
-        rand= (std::rand()%10)+1;
-        if(rand%2==0)
+        if(fuel>0 && fuel<=num)
         {
             EngineOptimisation* state = new EngineOptimum();
             engines[i]->setReadyState(state);
+            fuel-=1000;
         }
         else
         {
@@ -115,53 +132,80 @@ bool StageOne::testEngines()
     {
         cout<<"----------------------------------------------------------------------------"<<endl;
         cout<<"All engines are optimum and have passed the test, proceed to launch..."<<endl;
-        cout<<"----------------------------------------------------------------------------"<<endl;
+        cout<<"----------------------------------------------------------------------------"<<endl<<endl;
+        for(int i=0;i<numEngines;i++)
+        {
+            engines[i]->turnOff();
+            
+        }
         return true;
     }
     else{
         
-        cout<<"----------------------------------------------------------------------------"<<endl;
-        cout<<"\t\tEnigines have failed the test, tweaking engines..."<<endl;
-        cout<<"----------------------------------------------------------------------------"<<endl;
-        for(int i=0;i<3;i++)
+        while(true)
         {
-            cout<<"teaking..."<<endl;
-            sleep(1);
-        }
+            if(type =="Falcon9")
+            {
+                cout<<"----------------------------------------------------------------------------"<<endl;
+                cout<<"\t\tEnigines have failed the test."<<endl;
+                cout<<"\t\tFuel amount must range between 9000 Litres - 10100 Litres"<<endl;
+                cout<<"----------------------------------------------------------------------------"<<endl<<endl;
+            }
+            else
+            {
+                cout<<"----------------------------------------------------------------------------"<<endl;
+                cout<<"\t\tEnigines have failed the test."<<endl;
+                cout<<"\t\tFuel amount must range between 27000 Litres - 30300 Litres"<<endl;
+                cout<<"----------------------------------------------------------------------------"<<endl<<endl;
+            }
 
-        srand(time(0));
+            cout<<"Tweak the fuel amount needed for the Falcon core.\n>";
+            cin>>fuel;
+            for(int i=0;i<3;i++)
+            {
+                cout<<"tweaking..."<<endl;
+                sleep(1);
+            }
 
-        int rand=(std::rand()%10)+1;
-        if(rand%2==0)
-        {
             for(int i=0;i<numEngines;i++)
             {
-                EngineOptimisation* state = new EngineOptimum();
-                engines[i]->setReadyState(state);
-            }
-            sleep(2.5);
-            cout<<endl;
-            printEngines();
-            cout<<"----------------------------------------------------------------------------"<<endl;
-            cout<<"\t\tAll engines are optimum and are ready to launch..."<<endl;
-            cout<<"----------------------------------------------------------------------------"<<endl;
-            return true;
-        }
-        else
-        {
-            sleep(2.5);
-            cout<<endl;
-            printEngines();
-            
-            cout<<"----------------------------------------------------------------------------"<<endl;
-            cout<<"Not all engines are optimum and have failed the test, rocket cannot be launched..."<<endl;
-            cout<<"----------------------------------------------------------------------------"<<endl;
-            return false;
-        }
 
-        
-        
-    }
+                if(fuel>0 && fuel<=num)
+                {
+                    EngineOptimisation* state = new EngineOptimum();
+                    engines[i]->setReadyState(state);
+                    fuel-=1000;
+                }
+                else
+                {
+                    EngineOptimisation* state = new EngineNotOptimum();
+                    engines[i]->setReadyState(state);
+                }
+                
+            }
+            printEngines();
+            cout<<endl;
+
+            if(determineOptimisation()==true)
+            {
+                cout<<"----------------------------------------------------------------------------"<<endl;
+                cout<<"All engines are optimum and have passed the test, proceed to stage two testing"<<endl;
+                cout<<"----------------------------------------------------------------------------"<<endl;
+                for(int i=0;i<numEngines;i++)
+                {
+                    engines[i]->turnOff();
+                    
+                }
+                return true;
+            }
+            else{
+
+                continue;
+            }
+
+            
+            }
+        }
 
 }
 
@@ -176,7 +220,17 @@ void StageOne::printEngines()
         
         cout<<engines[i]->getId()<<" is ";
         engines[i]->notify();
-        sleep(1);
+        if(type!="Falcon9")
+        {
+            if(i%5==0)
+            {
+                sleep(1);
+            }
+        }
+        else
+        {
+            sleep(1);
+        }
     }
 }
 
@@ -206,6 +260,37 @@ bool StageOne::determineOptimisation()
 void StageOne::setNum(int s)
 {
     numEngines=s;
+}
+
+/**
+ * @brief setter for fuel amount
+ * 
+ * @param f 
+ */
+void StageOne::setFuel(int f)
+{
+    fuel=f;
+}
+
+
+/**
+ * @brief getter for fuel amount
+ * 
+ * @param f 
+ */
+int StageOne::getFuel()
+{
+    return fuel;
+}
+
+/**
+ * @brief setter for type of rocket
+ * 
+ * @param f 
+ */
+void StageOne::setType(string s)
+{
+    type=s;
 }
 
 /**
