@@ -12,16 +12,18 @@ class Simulation {
 
 private:
 	vector<satellitesMaker*> satellites;
-	// vector<Spacecraft*> spacecrafts;
-	// vector<Rocket*> falcons;
-	// vector<Rocket*> FinalSimulations;
+	vector<Spacecraft*> spacecrafts;
+	vector<Rocket*> falcons;
+	vector<Rocket*> FinalSimulations;
 
 	//pointers
 	TestSatellites* sats;
-	// TestSpacecraft* spaceC;
-	// TestRockets* rkt;
+	TestSpacecraft* spaceC;
+	TestRockets* rkt;
 
-	int falconIndex = 0;
+	int falconIndex;
+	int _list;
+	int count;
 
 
 public:
