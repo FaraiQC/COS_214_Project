@@ -1,10 +1,15 @@
 #ifndef TESTSATELLITES_H
 #define TESTSATELLITES_H
-#include "Satellite.h"
-#include "satellitesMaker.h"
+#include "../StarlinkSatellites/concreteMediator.h"
+#include "../StarlinkSatellites/ConcreteAntenna.h"
+#include "../StarlinkSatellites/Antenna.h"
+#include "../StarlinkSatellites/SatelliteMediator.h"
+#include "../StarlinkSatellites/satellitesMaker.h"
+#include "../StarlinkSatellites/Satellite.h"
 #include <vector>
 
 class TestSatellites {
+
 
 private:
 	Satellite* satellites;
@@ -25,6 +30,8 @@ public:
 	void InDesiredOrbit();
 
 	void SatellitesAuntentication();
+
+	void launch();
 };
 
 #endif
