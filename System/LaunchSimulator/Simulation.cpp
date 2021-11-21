@@ -5,8 +5,11 @@ using namespace std;
 
 Simulation::Simulation() {
 	sats = new TestSatellites();
-	// spaceC = new Spacecraft();
-	// rkts = new Rocket();
+	spaceC = new TestSpacecraft();
+	rkt = new TestRockets();
+	_list = 0;
+	falconIndex = 0;
+	count=0;
 }
 
 Simulation::~Simulation() {
