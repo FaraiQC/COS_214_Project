@@ -5,11 +5,13 @@
 
 using namespace std;
 
+//@brief Destructor
 Satellite :: ~Satellite() 
 {
 
 }
 
+//@brief sets Iterator variables to NULL and create a new instance of mediator
 Satellite :: Satellite() 
 {
 	nextS = NULL;
@@ -20,26 +22,35 @@ Satellite :: Satellite()
 	mediator = new concreteMediator();
 }
 
+//@brief gets the neighbouring satellite of a certain satellite
+//@return the neighbouring Satellite of a given satellite
 Satellite* Satellite :: nextSatellite() 
 {
 	return nextS;
 }
+
+//@brief returns a clone of a Satellite
+//@return a cloned Satellite
 Satellite* Satellite :: Clone() 
 {
 	return new Satellite();
 }
 
+//@brief gets the neighbouring satellite of a certain satellite
+//@return the neighbouring Satellite of a given satellite
 Satellite* Satellite :: prevSatellite() 
 {
 	return prevS;
 }
 
+//@brief adds/attachs a new Antenna to the antenna list (antenna connected to satellites)
 void Satellite :: attach(Antenna* a) 
 {
 	cout<<"10 000 new Antennas have been successfully attached to the Antennas list.\n";
 	antenna.push_back(a);
 }
 
+//@brief removes/dettachs an Antenna to the antenna list (antenna connected to satellites)
 void Satellite :: detach(Antenna* a) 
 {
 	cout<<"100 Antennas have been disconected from the satellites.\n";
@@ -56,6 +67,7 @@ void Satellite :: detach(Antenna* a)
 	}
 }
 
+//@brief switches on radio radio signals to allow commnication between Antennas and satellites, and notifies the Antennas
 void Satellite :: notifyAntenna() 
 {
 	vector<Antenna*>::iterator it = antenna.begin();
@@ -67,6 +79,7 @@ void Satellite :: notifyAntenna()
 
 }
 
+//@brief notifies the system that one or more Satellites have moved out of position
 void Satellite :: satellitesMoved()
 {
 	cout<<"One or more satellites have moved, Notifying the system!"<<endl;
@@ -74,16 +87,21 @@ void Satellite :: satellitesMoved()
 	
 }
 
+//@brief gets the distsance between a satellite and the neighbouring satellites
+//@return the distance between a satellite and the neighbouring satellites
 double Satellite :: getDistance()
 {
 	return this->distance;
 }
 
+//@brief gets the distsance between a satellite and the neighbouring satellites
+//@return the distance between a satellite and the neighbouring satellites
 double Satellite :: getDist()
 {
 	return this->distance;
 }
 
+//@brief sets distance between a satellite and the neighbouring satellites
 void Satellite ::  setDist(double d)
 {
 	this->distance = d;
