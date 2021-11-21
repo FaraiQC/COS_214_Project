@@ -12,7 +12,7 @@ Mark3Parachute::Mark3Parachute() {
 //@param name is the id of the parachute
 Mark3Parachute::Mark3Parachute(string name) {
 	setId(name);
-	SetMark2isCreatedChecker(0);
+	SetMark2isCreatedChecker(1);
 }
 
 //@brief Displays that Mark3Parachute is being deployed
