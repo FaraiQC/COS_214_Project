@@ -1,4 +1,8 @@
 #include "LaunchSimulator/Simulation.h"
+#include "LaunchSimulator/Command.h"
+#include "LaunchSimulator/SimulationInvoker.h"
+#include "LaunchSimulator/TestSimulation.h"
+#include "LaunchSimulator/Launch.h" 
 
 #include "unistd.h"
 
@@ -11,6 +15,10 @@ using namespace std;
     int numOfSavedSimulations = 0;
     int numTestSimulations = 0;
     Simulation* launch = new Simulation();
+    Command* command;
+    SimulationInvoker* invoke;
+    
+
 
 
 
@@ -64,7 +72,9 @@ void Switch(char menuChoice)
                         
                         if(OneOrTwo == '1')
                         {
-                            launch->Launch();
+                            command = new Launch(launch);
+                            invoke =new SimulationInvoker(command);
+                            invoke->Invoke();
 
                             numOfSavedSimulations = 0;
                             sleep(1);
@@ -92,8 +102,9 @@ void Switch(char menuChoice)
                         cout<<"-----------------------------------------------------------------.\n";
                         cout<<"                Test Simulation: "<<(++numTestSimulations)<< " \n";
                         cout<<"------------------------------------------------------------------\n";
-
-                        launch->TestSimulation();
+                        command = new TestSimulation(launch);
+                        invoke = new SimulationInvoker(command);
+                        invoke->Invoke();
                         sleep(1);
                         cout<<"Test Simulation SUCCESS and saved to batch.\n";
                         sleep(1);
