@@ -34,6 +34,7 @@ class Spacecraft {
 		int ThrusterChecker;
 		int checkSpacecraft;
 		bool IsCrewDragon;
+		string theUnloudedloadedStuff;
 		
 
 	public:
@@ -71,5 +72,6 @@ class Spacecraft {
 		virtual vector<CrewMember*> getCrewList();
 		bool isCrewDragon();
 		void setIsCrewDragon(bool IsCrewDragon);
+		void Unloading();
 };
 #endif
