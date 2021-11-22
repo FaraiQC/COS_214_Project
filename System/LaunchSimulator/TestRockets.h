@@ -1,25 +1,47 @@
 #ifndef TESTROCKETS_H
 #define TESTROCKETS_H
+#include <iostream>
+#include "../FalconRockets/FalconNineBuilder.h"
+#include "../FalconRockets/FalconHeavyBuilder.h"
+#include "../FalconRockets/RocketBuilderDirector.h"
+#include "../StarlinkSatellites/satellitesMaker.h"
+#include "../DragonSpacecraft/Spacecraft.h"
+#include "../LaunchSimulator/TestSatellites.h"
+#include <vector>
 
-class TestRockets {
+class TestRockets{
+    private:
+        vector<Rocket*> rocketList;
+        Spacecraft* spacecraft;
+        TestSatellites* satellites;
+        string typeRocket;
 
-private:
-	Rocket* rkt;
+    public:
+        TestRockets();
 
-public:
-	TestRockets();
+        ~TestRockets();
 
-	~TestRockets();
+        bool attachSpaceCraft(Spacecraft*);
 
-	void Before_Launch();
+        bool attachSatellite(TestSatellites*);
 
-	void ReleaseSatellites();
+        vector<Rocket*> testRockets();
 
-	void ReleaseSpacecraft();
+        void BeforeLaunch();
 
-	void AfterLaunch();
+        void ReleaseSatellites();
 
-	void Before_Launch();
+        void ReleaseSpaceCraft();
+
+        void AfterLaunch();
+
+        bool HasSpacecraft();
+
+        bool HasSatellites();
+
+        string TypeRocket();
+
+        void setTypeRocket(string s);
 };
 
 #endif
