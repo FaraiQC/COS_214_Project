@@ -9,6 +9,8 @@ class StageOne : public Stage {
 private:
     int numEngines;
     vector<Engine *> engines;
+    int fuel;
+    string type;
 public:
     explicit StageOne(string id);
 
@@ -27,6 +29,12 @@ public:
     bool determineOptimisation();
 
     ~StageOne() override;
+
+    void setFuel(int f);
+
+    int getFuel();
+
+    void setType(string type);
 
     void land();
 };
