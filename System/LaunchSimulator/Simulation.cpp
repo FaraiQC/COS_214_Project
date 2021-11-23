@@ -61,10 +61,6 @@ void Simulation::TestSimulation() {
 	int OneOrTwo;
 
 	updateFalcon_ONCE();
-	
-	std::cout << "falcons address: " << &falcons << std::endl;
-	
-	std::cout << "Falcon size: "<< falcons.size()<<std::endl;
 
 
 	cout<<"Select Payload: Starlink Satellites/Dragon Spacecraft? (1/2) : \n";
