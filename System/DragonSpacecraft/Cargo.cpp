@@ -1,50 +1,74 @@
 #include "Cargo.h"
 
-//@brief Constructor
+/**
+ * @brief Construct a new Cargo:: Cargo object
+ * 
+ */
 Cargo::Cargo() {
 	
 }
 
-//@brief Sets the name and the weight of the cargo
-//@param Sets the name of the Cargo
-//@param Sets weight of the Cargo
+/**
+ * @brief Construct a new Cargo:: Cargo object
+ * 
+ * @param nameOfCargo 
+ * @param weight 
+ */
 Cargo::Cargo(string nameOfCargo, double weight){
 	setName(nameOfCargo);
 	setWeight(weight);
 }
 
-//@brief gets the description of the Cargo
-//@return returns the description of the Cargo
+/**
+ * @brief getter for the description
+ * 
+ * @return string 
+ */
 string Cargo::getDescription() {
 	return this->description;
 }
 
-//@brief gets the name of the Cargo
-//@return returns the name of the Cargo
+/**
+ * @brief getter for the nameofCargo
+ * 
+ * @return string 
+ */
 string Cargo::getName() {
 	return this->nameOfCargo;
 }
 
-//@brief Sets the description of the Cargo
-//@param Name sets the description of the Cargo
+/**
+ * @brief setter for description
+ * 
+ * @param Name 
+ */
 void Cargo::setDescription(string Name) {
 	this->description = Name;
 }
 
-//@brief Sets the nameOfCargo
-//@param name sets the name of the Cargo
+/**
+ * @brief setter for the nameOfCargo
+ * 
+ * @param name 
+ */
 void Cargo::setName(string name) {
 	this->nameOfCargo = name;
 }
 
-//@brief Sets the weight of the Cargo
-//@param weight sets the weight of the Cargo
+/**
+ * @brief setter for weight
+ * 
+ * @param weight 
+ */
 void Cargo::setWeight(double weight){
 	this->weight = weight;
 }
 
-//@brief gets the weight of the Cargo
-//@return returns the weight of the Cargo
+/**
+ * @brief getter for weight
+ * 
+ * @return double 
+ */
 double Cargo::getWeight(){
 	return this->weight;
 }
