@@ -4,7 +4,11 @@
 
 using namespace std;
 
-//@brief Spreads the satellites evenly then switches off all of their lasers
+
+/**
+ * @brief Notify
+ * 
+ */
 void concreteMediator::notify() 
 {
     cout<<"Configuration done! All Satellites are spread equally.\n";
@@ -13,12 +17,24 @@ void concreteMediator::notify()
 
 
 //@brief constructor
+
+/**
+ * @brief Constructor
+ * 
+ * @return concreteMediator 
+ */
 concreteMediator :: concreteMediator() : SatelliteMediator()
 {
 
 }
 
 //@brief Destructor
+
+/**
+ * @brief Destructor
+ * 
+ * @return concreteMediator 
+ */
 concreteMediator :: ~concreteMediator()
 {
     
