@@ -3,15 +3,21 @@
 
 using namespace std;
 
-//@brief Constructor initialises a Draco switched off with a power of 80, but is not cereated 
+/**
+ * @brief Construct a new Draco:: Draco object
+ * 
+ */
 Draco::Draco() {
 	turnOff();
 	this->setPower(80);
 	SetDracoisCreatedChecker(0);
 }
 
-//@brief Constructor initialises a Draco switched off with a power of 80 and an id, but is not created
-//@param id is the ID of the Draco
+/**
+ * @brief Construct a new Draco:: Draco object
+ * 
+ * @param id 
+ */
 Draco::Draco(string id) {
 	SetDracoisCreatedChecker(0);
 	this->setPower(80);
@@ -19,7 +25,10 @@ Draco::Draco(string id) {
 	turnOff();
 }
 
-//@brief Switches on the Draco
+/**
+ * @brief turns on the draco thruster
+ * 
+ */
 void Draco::fireUp() {
 	if(isOn() == true){
 		cout<<getId()<<" turned on, firing up!"<<endl;
@@ -29,7 +38,10 @@ void Draco::fireUp() {
 	}	
 }
 
-//@brief Shuts down the Draco
+/**
+ * @brief shuts down the draco thruster
+ * 
+ */
 void Draco::shutDown() {
 	this->turnOff();
 	cout<<getId()<<" has been shut down"<<endl;

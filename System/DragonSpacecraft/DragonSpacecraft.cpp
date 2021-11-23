@@ -3,15 +3,21 @@
 
 using namespace std;
 
-//@brief Constructor Creates a DragonSpacecraft on earth
+/**
+ * @brief Construct a new Dragon Spacecraft:: Dragon Spacecraft object
+ * 
+ */
 DragonSpacecraft::DragonSpacecraft() {
 	cout<<"The Dragon spacecraft has been created"<<endl;
 	setCurrentLocation("Earth");
 	setIsCrewDragon(false);
 }
 
-//@brief Calculates the total weight of the Cargo in the Spacecraft
-//@return returns the calculated weight of the cargo
+/**
+ * @brief calculates the current weight
+ * 
+ * @return double 
+ */
 double DragonSpacecraft::getCurrentWeight() {
 	double weight=0;
 	for(Cargo* item: getCargoList()){
@@ -20,14 +26,20 @@ double DragonSpacecraft::getCurrentWeight() {
 	return weight;
 }
 
-//@brief Adds cargo to the Spacecraft by adding it in the CargoList vector
-//@param cargo is the Cargo that must be added to the Spacecraft
+/**
+ * @brief loads the cargo to the list
+ * 
+ * @param cargo 
+ */
 void DragonSpacecraft::loadCargo(Cargo* cargo) {
 	this->getCargoList().push_back(cargo);
 }
 
-//@brief Removes a Cargo with a specific indecs from the Spacecraft by erasing it from the CargoList vector at that position
-//@param index is the index at which the cargo will be removed from the CargoList vector
+/**
+ * @brief removes the cargo from the list
+ * 
+ * @param index 
+ */
 void DragonSpacecraft::removeCargo(int index) {
 getCargoList().erase(getCargoList().begin()+index);
 }
