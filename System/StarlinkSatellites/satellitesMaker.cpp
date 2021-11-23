@@ -73,6 +73,11 @@ Satellite* satellitesMaker :: testCluster()
 	return first;
 }
 
+
+/**
+ * @brief Sets up pre_Lauch conditions and parameters
+ * 
+ */
 void satellitesMaker :: satellitesBeforeLaunch()
 {
 	CollectNextCluster();
@@ -82,12 +87,23 @@ void satellitesMaker :: satellitesBeforeLaunch()
 	}
 }
 
+
+/**
+ * @brief Get the First object
+ * 
+ * @return Satellite* 
+ */
 Satellite* satellitesMaker :: getFirst()
 {
 	// CollectNextCluster();
 	return first;
 }
 
+/**
+ * @brief Set the Fist object
+ * 
+ * @param s 
+ */
 void satellitesMaker :: setFist(Satellite* s)
 {
 	this->first = s;
