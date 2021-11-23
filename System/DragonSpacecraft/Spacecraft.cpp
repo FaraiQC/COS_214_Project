@@ -3,188 +3,373 @@
 #include "sstream"
 using namespace std;
 
-//@brief constructor sets number of times used to 0 and sets default location to Earth
-//@param reused, the number of times spacecraft is used is set to 0
+
+/**
+ * @brief Construct a new Spacecraft:: Spacecraft object
+ * 		  & sets number of times used to 0 and sets default location to Earth
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
  Spacecraft::Spacecraft() {
 	reused = 0;
 	setCurrentLocation("Earth");
 }
 
-//@brief set the location of the spacecraft
-//@param is the current location
+
+/**
+ * @brief Set the location of the spacecraft
+ * 
+ * @param location :- current location
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::setCurrentLocation(string location) {
 	this->currentLocation = location;
 }
 
-//return the currents location of the spacecraft
+
+/**
+ * @brief Returns the currents location of the spacecraft
+ * 
+ * @return string :-currentLocation
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 string Spacecraft::getCurrentLocation() {
 	return this->currentLocation;
 }
 
-//@brief sets the destination of the destination
+
+/**
+ * @brief Sets the destination of the destination
+ * 
+ * @param destination :-destination of the spacecraft
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::setDestination(string destination) {
 	this->destination = destination;
 }
 
-//@return returns the weight carried out of earth
-//@param maxWeightToEarth is the weight of crew and cargo 
+
+/**
+ * @brief Returns weight payload
+ * 
+ * @return double :-maxWeightToOrbit
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 double Spacecraft::getWeightToOrbit() {
 	return maxWeightToEarth;
 }
 
-//@brief sets the weight of the crew members plus the cargo
+
+/**
+ * @brief Sets the weight of the crew members plus the cargo
+ * 
+ * @param weight :-max Weight
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::setWeightToOrbit(double weight) {
 	this->maxWeightToOrbit=weight;
 }
 
-//@brief returns the weight carried from outer space to earth
+
+/**
+ * @brief Gets weight of paylaod
+ * 
+ * @return double :-maxWeightToEarth
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 double Spacecraft::getWeightToEarth() {
 	return this->maxWeightToEarth;
 }
 
-//@brief it prints the spacecraft moving from current location to the destination, after arriving destination becomes the current location
-void Spacecraft::goToDestination() {
-	cout<<"\n\n\t\t\tThe spacecraft leaves "<<this->currentLocation<<" to "<<this->destination<<endl<<endl;
+/**
+ * @brief Prints the Journey checkpoints
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
+void Spacecraft::goToDestination(){
+	std::cout
+		<< "\n\n\t"
+		<< "SPACECRAFT CHECKPOINTS\n"
+		<< "\t\tFROM: "
+		<< this->currentLocation
+		<< "\n\t\tTO: "
+		<< this->destination
+		<< "\n\n\t\t\tProgress: [";
+
 	for(int i=0; i<5;i++){
-		cout<<"\t\t\t\tHEADING TO "<<destination<<endl;
+		std::cout << "=" <<((i+1)/5)*100 << "%";
 		sleep(1);
 	}
-	cout<<"\n\t\t\tThe Spacecraft has arrived at "<<destination<<endl<<endl;
+
+	std::cout << "]"  << " Complete\n" << std::endl;
 	setCurrentLocation(destination);
 }
 
-//@brief it updates the observer class about the height of spacecraft the deployment of the parachute
+
+/**
+ * @brief Updates the observer class about the height of spacecraft the deployment of the parachute
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::notify() {
-	for(int i=0;i<observerList.size();i++)
-	{
+	for(int i=0;i<observerList.size();i++){
 		if(observerList[i] !=NULL)
 			observerList[i]->update();
 	}
 }
 
-//@brief attaches an parachute system observer to the parachute observer list
-//@param observerList is a vector of parachute system observers pointers
+/**
+ * @brief Attaches a parachute system observer to the parachute observer list
+ * 
+ * @param obj :- Observer to be attached
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::attach(ParachuteSystemObserver* obj) {
 	observerList.push_back(obj);
 }
 
-//@brief removes a parachute observer..it searches by a pointer
-//@param index is the index the observer list is searched on
-void Spacecraft::detach(ParachuteSystemObserver* obj) {
+
+/**
+ * @brief Detaches a parachute system observer from the parachute observer list
+ * 
+ * @param obj -: Observer to be detached
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
+void Spacecraft::detach(ParachuteSystemObserver* obj){
 	int index=0;
-	for(int i=0;i<observerList.size();i++)
-	{
+	for(int i=0;i<observerList.size();i++){
 		if(observerList[i] !=NULL)
-		{
 			if(observerList[i]==obj)
-			{
 				index=i;
-			}
-		}
 	}
+
 	//erase the ith element
     observerList.erase(observerList.begin()+index);
 }
 
-//@brief attaches a cargo pointer to the cargo list and prints confirmation
-//@param cargoList is a vector holding pointers to the cargo loaded on the spacecraft
+
+/**
+ * @brief Attaches a cargo object to the cargo list and prints confirmation
+ * 
+ * @param obj :- Cargo to be added
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::attachCargo(Cargo* obj) {
 	cargoList.push_back(obj);
-	cout<<obj->getName()<<" has been added to the list"<<endl;
+
+	std::cout
+		<< "\t"
+		<< "ADDED:\n"
+		<< "\t\t" << obj->getName() << "\n"
+		<< std::endl;
 }
 
-//@brief removes cargo from the spacecraft by index
+
+/**
+ * @brief Removes cargo from the spacecraft by index
+ * 
+ * @param index :- index
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::detachCargo(int index) {
 	cargoList.erase(cargoList.begin()+index);
 }
 
 //@brief confirms the safe return of the spacecraft and increases the number of times the spacecraft has been used
+
+/**
+ * @brief Applaud
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
 void Spacecraft::missionComplete() {
-	cout<<"\t\t\tThe spacecraft has reached earth, successfully."<<endl<<endl;
+	
+	std::cout
+		<< "\n\n\n"
+		<< std::string(70,'=')
+		<< "\t\t\tMISSION COMPLETE\n"
+		<< std::string(70,'=')
+		<< std::endl;
+
 	reused++;
 }
 
-//@brief attaches a thruster to the thrusters list
-//@param thrustersList is a vector list holding pointers to the spacecraft's thrusters
+
+/**
+ * @brief Attaches a thruster to the thrusters list
+ * 
+ * @param thruster :-thruster to be attached
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::attachThruster(Thruster* thruster){
 	this->thrustersList.push_back(thruster);
 }
 
-//@brief removes all the the thrusters in the thrusters list vector
+
+/**
+ * @brief  Removes all the the thrusters in the thrusters list vector
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::detachThruster(){
 	thrustersList.clear();
 }
 
-//@return returns dummy value 0, virtual function
+
+/**
+ * @brief refer to concreteClasses
+ * 
+ * @return double :-height of rocket
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 double Spacecraft::getCurrentHeight(){
 	return 0;
 }
 
-//@brief virtual function
+/**
+ * @brief refer to concreteClasses
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::setCurrentHeight(double currtHight){
 	
 }
 
-//@brief shows all item in the cargo, parachute, hrusters and possibly crew member's vector lists 
-//@param i used as an index
-//@param w is used a the total weight of the cargo loaded on the spacecraft 
+
+/**
+ * @brief Prints Cargo Info
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
 void Spacecraft::print(){
+
+	//Crew Info
 	crewInfo();
 
 	int i = 0;
 	double w = 0;
-	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-	cout<<"\t\t\tCargo Information:"<<endl;
-	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
+
+	sleep(1);
+
+	//Cargo Info
+	std::cout
+		<< "\t"
+		<< "CARGO:"
+		<< std::endl;
+
 	for(Cargo* item: cargoList){
-		cout<<i<<".item "<<item->getName()<<" weighs "<<item->getWeight()<<endl;
+		std::cout
+			<< "\t\t" << i + 1 << ". "
+			<< item->getName() << " | "
+			<< item->getWeight() << std::endl; 
+
 		w +=item->getWeight();
 		i++;
 	}
-	cout<<endl;
-	cout<<"The total amount of weight: "<<w<<"Kg"<<endl;
-	cout<<endl;
+	
+	std::cout
+		<< "\n\tTOTAL WEIGHT ACCUMULATED: " << w << " Kg\n"
+		<< std::endl;
 
-	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-	cout<<"\t\t\tParachute Information:"<<endl;
-	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-	i=0;
+
+	sleep(1);
+
+	//Parachute Info
+	std::cout
+		<< "\t"
+		<< "PARACHUTES:"
+		<< std::endl;
+
+	i = 0;
+
 	for(Parachute* item: parachuteList){
-		cout<<i<<". "<<item->getId()<<endl;
+		std::cout
+			<< "\t\t" << i + 1 << ". "
+			<< item->getId() << std::endl;
+
 		parachuteChecker=item->GetMark2isCreatedChecker();
 		i++;
 	}
-	cout<<endl;
 
-	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-	cout<<"\t\t\tThrusters Information:"<<endl;
-	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-	i=0;
+	sleep(1);
+
+	//Thruster Info
+	std::cout
+		<< "\n\t"
+		<< "THRUSTERS:"
+		<< std::endl;
+	
+	i = 0;
+
 	for(Thruster* item: thrustersList){
-		cout<<i<<". "<<item->getId()<<"Thruster Power: "<<item->getPower()<<" pounds force"<<endl;
+		std::cout
+			<< "\t\t" << i + 1 << ". "
+			<< item->getId() << " | " << item->getPower() << " unit_force"
+			<< std::endl;
+
 		ThrusterChecker=item->GetDracoisCreatedChecker();
 		i++;
 	}
-	cout<<endl;
-	cout<<"Total Thruster Power is: "<<TotalPowerOfThrusters()<<" pounds force"<<endl;
-	cout<<endl;
+
+	std::cout
+		<< "\n\tTOTAL POWER ACCUMULATED: " << TotalPowerOfThrusters() << " unit_force\n"
+		<< std::endl;
+
+	std::cout << std::endl << "\t\t\tCOMPLETE\n\n" << std::endl;
+	sleep(2);
 }
 
-//@brief attaches a parachute pointer to the cargo list and prints confirmation
-//@param parachuteList is a vector holding pointers to the parachute attached on the spacecraft
+/**
+ * @brief Attaches a parachute pointer to the cargo list and prints confirmation
+ * 
+ * @param parachute :-parachute to be attached
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::attachParachute(Parachute* parachute){
 	parachuteList.push_back(parachute);
-	cout<<parachute->getId()<<" Has been added to the spacecraft"<<endl;
+
+	std::cout
+		<< "\n\tPARACHUTE: " << parachute->getId()
+		<< "\n\t\tADDED\n"
+		<< std::endl;
 }
 
-//@brief removes all the the parachutes in the parachute list vector
+
+/**
+ * @brief Removes all the the parachutes in the parachute list vector
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
 void Spacecraft::detachParachute(){
 	parachuteList.clear();
 }
 
-//@brief calculates the total power generated by the thrusters all together
-//@param sum is the sum of the power of all thrusters
-//@return the sum is returned
+
+/**
+ * @brief Calculates the Accumulated power by summing up thruster power of
+ * 		  the currently attached thrusters
+ * 
+ * @return double :-sum
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 double Spacecraft::TotalPowerOfThrusters(){
 	double sum=0;
 	for(Thruster* item: thrustersList){
@@ -193,528 +378,805 @@ double Spacecraft::TotalPowerOfThrusters(){
 	return sum;
 }
 
-//@brief virtual function for showing the crew members is spacecraft is crewDragon type
+
+/**
+ * @brief refer to concreteClasses
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
 void Spacecraft::crewInfo(){
 	
 }
 
-//@brief virtual funcyion calculates how many crew members boarded the spacecraft
+/**
+ * @brief refer to concreteClasses
+ * 
+ * @return int 
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 int Spacecraft::getTotalNumCrewMember()
 {
 	return 0;
 }
 
-//@brief check if all conditions for the spacecraft to lift off are met
-//@return returns true if all the conditions have been met
-//@return returns false if one or more conditions are not met
-//@param isOptimum is used to select diffent tests and check if they pass
+
+/**
+ * @brief Check if all conditions for the spacecraft to lift off are met
+ * 
+ * @return true :-if(all_pass)
+ * @return false :-if(not_all_pass)
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 bool Spacecraft::IsSpcacecraftInOptimum(){
-	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-	cout<<"\t\t\tChecking if the spacecraft is in optimum."<<endl;
-	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-	cout<<endl;
-	
+
+
+	//Spacecraft
+	std::cout
+		<< "\n\tFINAL CHECK"
+		<< std::endl;
+
+
 	int isOptimum=0;
+
+	sleep(2);
+
+	//Parachute
 	for(Parachute* item: parachuteList){
 		parachuteChecker=item->GetMark2isCreatedChecker();	
 	}
-	cout<<"Parachute: ";
-	if(parachuteChecker==1 ) // IF 1 is Mark 3... then pass
-	{
-		cout<<"Pass.\n"<<endl;
+
+	std::cout
+		<< "\t\tPARACHUTES:"
+		<< std::endl;
+
+	if(parachuteChecker==1){ // IF 1 is Mark 3... then pass
+		std::cout
+			<< "\t\t\tPASS\n"
+			<< std::endl;
+
 		isOptimum++;
-	}else
-	{
+	} else {
 		
-		if(getCurrentWeight()<5100 && parachuteChecker==0 ) // IF currentWeight is greatorthan 85% ...you must you use Mark3 parachute
-		{
-			cout<<"Pass."<<endl;
-			cout<<endl;
+		if(getCurrentWeight()<5100 && parachuteChecker==0 ){
+			std::cout
+				<< "\t\t\tPASS\n"
+				<< std::endl;
+
 			isOptimum++;
+		} else {
+			std::cout
+				<< "\t\t\tFAIL\n"
+				<< "\t\tMESSAGE:"
+				<< "\n\t\t\tMark_2 is not compatible with load weight(mass) of +85 percent spacecraft capacity\n"
+				<< "\t\tRECOMMENDATION:"
+				<< "\n\t\t\tReduce load weight(mass) to at most 5100Kg or Use Mark_3\n"
+				<< std::endl;
 		}
-		else{
-			cout<<"Failed!"<<endl;
-			cout<<" Mark2Parachute will not be able to carry a weight that is greator than 85% of the spacecraft weight!"<<endl;
-			cout<<"The solution reduce your weight to be below 5100kg  OR use Mark3Prachute."<<endl;
-			cout<<endl;
-			}
 	}
-	
 
-	cout<<"weight carried to Orbit: ";
+	sleep(2);
+
+	std::cout
+		<< "\t\tTotal Weight(mass) Check:"
+		<< std::endl;
+
 	if(getCurrentWeight()<6000){
-		cout<<"Pass."<<endl;
-		cout<<endl;
+		std::cout
+			<< "\t\t\tPASS\n"
+			<< std::endl;
+
 		isOptimum++;
-	}
-	else
-	{
-		cout<<"Failed!"<<endl; 
-		cout<<"Spacecraft is unable to carry a weight that is above 6000kg."<<endl;
-		cout<<"Solution reduce your weight to be below 6000kg."<<endl;
-		cout<<endl;
+	} else {
+		std::cout
+			<< "\t\t\tFAIL\n"
+			<< "\t\tMESSAGE:"
+			<< "\n\t\t\tSpacecraft is not compatible with load weight(mass) of +6000Kg\n"
+			<< "\t\tRECOMMENDATION:"
+			<< "\n\t\t\tReduce load weight(mass) to at most 6000Kg\n"
+			<< std::endl;
 	}
 
-	cout<<"Spacecraft reusability: ";
-	if(reused<=5)
-	{
-		cout<<"Pass."<<endl;
-		cout<<endl;
+	sleep(2);
+
+	std::cout
+		<< "\t\tReusability:"
+		<< std::endl;
+
+	if(reused<=5){
+		std::cout
+			<< "\t\t\tPASS\n"
+			<< std::endl;
+
 		isOptimum++;
-	}
-	else
-	{
-		cout<<"Failed! Spacecraft can only be reused for 5 time!"<<endl;
-		cout<<"Create a new Spacecraft."<<endl;
-		cout<<endl;
-		
+	} else {
+		std::cout
+			<< "\t\t\tFAIL\n"
+			<< "\t\tMESSAGE:"
+			<< "\n\t\t\tSpacecraft is not reusable more than 5 times\n"
+			<< "\t\tRECOMMENDATION:"
+			<< "\n\t\t\tRefurbish or Use a new one\n"
+			<< std::endl;
 	}
 
-	cout<<"Truster Power: ";
-	if(ThrusterChecker==1 && getCurrentWeight()<=6000)
-	{
-		cout<<"Pass."<<endl;
-		cout<<endl;
+	sleep(2);
+
+	std::cout
+		<< "\t\tThruster Power:"
+		<< std::endl;
+
+	if(ThrusterChecker==1 && getCurrentWeight()<=6000){
+		std::cout
+			<< "\t\t\tPASS\n"
+			<< std::endl;
+
 		isOptimum++;
-	}else if(ThrusterChecker==1 && getCurrentWeight()>6000)
-	{
-		cout<<"Failed! SuperDraco Thrusters can not support weight graitor than 6000k."<<endl;
-		cout<<"Solution detach some weight to the spacecraft."<<endl;
-		cout<<endl;
-	}
-	else{
-			if(getCurrentWeight()<5100)
-			{
-				cout<<"Pass."<<endl;
-				cout<<endl;
-				isOptimum++;
-			}
-			else
-			{
-				cout<<"Failed! Draco Thrusters can not support a weight that is greater than 85% of the spacecraft weight!"<<endl;
-				cout<<"Solution detach some weight to the spacecraft OR use SuperDraco Thrusters."<<endl;
-				cout<<endl;
-			}
+	}else if(ThrusterChecker==1 && getCurrentWeight()>6000){
+		std::cout
+			<< "\t\t\tFAIL\n"
+			<< "\t\tMESSAGE:"
+			<< "\n\t\t\tSuperDrago Thruster does NOT support weight(mass) greater than 6000Kg\n"
+			<< "\t\tRECOMMENDATION:"
+			<< "\n\t\t\tReduce weight(mass) of the load\n"
+			<< std::endl;
+	} else {
+		if(getCurrentWeight()<5100){
+			std::cout
+				<< "\t\t\tPASS\n"
+				<< std::endl;
+
+			isOptimum++;
+		} else {
+			std::cout
+				<< "\t\t\tFAIL\n"
+				<< "\t\tMESSAGE:"
+				<< "\n\t\t\tDraco Thrusters is not compatible with load weight(mass) of +85 percent spacecraft capacity\n"
+				<< "\t\tRECOMMENDATION:"
+				<< "\n\t\t\tReduce weight(mass) of the load or Use SuperDraco Thrusters\n"
+				<< std::endl;
 		}
+	}
 
+	sleep(2);
 
 	if(isCrewDragon()==true)
 	{
-		cout<<"Number of crew mebers: ";
-		if(getTotalNumCrewMember()==0)
-		{
-			cout<<"Failed! CrewDragon must have atleast one member"<<endl;
-			cout<<"Solution please add atleast one crew member."<<endl;
-			cout<<endl;
-		}
-		else if(getTotalNumCrewMember()>7)
-		{
-			cout<<"Failed! CrewDragon members must not be greater than 7 "<<endl;
-			cout<<"Solution please detach atleast one crew member"<<endl;
-			cout<<endl;
-		}
-		else
-		{
-			cout<<"Pass."<<endl;
-			cout<<endl;
+		std::cout
+			<< "\tTYPE:	"
+			<< "CrewDragon Spacecraft\n"
+			<< std::endl;
+
+		std::cout
+			<< "\t\tCrew:"
+			<< std::endl;
+
+		if(getTotalNumCrewMember()==0){
+			std::cout
+				<< "\t\t\tFAIL\n"
+				<< "\t\tMESSAGE:"
+				<< "\n\t\t\tMust have at least one crew member\n"
+				<< "\t\tRECOMMENDATION:"
+				<< "\n\t\t\tAdd crew members\n"
+				<< std::endl;
+		} else if(getTotalNumCrewMember()>7){
+			std::cout
+				<< "\t\t\tFAIL\n"
+				<< "\t\tMESSAGE:"
+				<< "\n\t\t\tMust have at most 7 crew members\n"
+				<< "\t\tRECOMMENDATION:"
+				<< "\n\t\t\tRemove crew members\n"
+				<< std::endl;
+		} else {
+			std::cout
+				<< "\t\t\tPASS\n"
+				<< std::endl;
+
 			isOptimum++;
 		}
-		if(isOptimum==5)
-		{
-			cout<<"\t\t\tSpacecraft is optimum."<<endl;
+
+		sleep(1);
+		std::cout 
+			<< "\tFINAL CHECK RESULTS\n"
+			<< "\t\t\nSpacecraft System and Hardware: ";
+
+		sleep(2);
+
+		if(isOptimum==5){
+			std::cout
+				<< "OPTIMUM"
+				<< "\n\nPLEASE WAIT FOR CONFIGURATION TO COMPLETE"
+				<<std::endl;
+
+			sleep(4);
+			
 			return true;
 		}
-		cout<<"\t\t\tSpacecraft is not optimum."<<endl;
-		return false;
 
+		std::cout
+			<< "NOT OPTIMUM"
+			<<std::endl;
+
+		return false;
 	}
+
+
+	std::cout 
+		<< "\tFINAL CHECK RESULTS\n"
+		<< "\t\t\nSpacecraft System and Hardware: ";
+
+	sleep(2);
+
 
 	if(isOptimum==4)
 	{
-		cout<<"\t\t\t!!!!Spacecraft is optimum!!!!\n\n"<<endl;
+		std::cout
+			<< "OPTIMUM"
+			<< "\n\nPLEASE WAIT FOR CONFIGURATION TO COMPLETE"
+			<<std::endl;
+
+		sleep(4);
+			
 		return true;
 	}
 	
-		cout<<"\t\t\t!!!!Spacecraft is not optimum!!!!\n\n"<<endl;
+	std::cout
+		<< "NOT OPTIMUM"
+		<<std::endl;
 
 	return false;
 }
 
-//@brief returns a vector list of cargo pointers
+
+/**
+ * @brief Get list of cargo items
+ * 
+ * @return vector<Cargo*> :-cargoList
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 vector<Cargo*> Spacecraft::getCargoList(){
 	return cargoList;
 }
 
-//@brief virtual fucnction: attaches a  crew member into the spacecraft
+/**
+ * @brief Refer to concreteClasses
+ * 
+ * @param a 
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::enterCrewMember(CrewMember* a){
 
 }
 
-//@brief detaches a crew member from the crew member vector list
+/**
+ * @brief refer to concreteClasses
+ * 
+ * @param a 
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::removeCrewMember(int a){
 
 }
 
-//@brief return an empty vector list for crew member class pointer
-//@param a is vector list of crew member pointers
+/**
+ * @brief Get the Crew List object
+ * 
+ * @return vector<CrewMember*>Spacecraft:: :-empty list of crew members
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 vector<CrewMember*>Spacecraft:: getCrewList(){
 	vector<CrewMember*> a;
 	return a;
 }
 
-//@brief check is spacecraft is a crew dragon spacecraft
-//@return returns true if the spacecraft is a crew dragonm
-//@return returns fasle if the spacecraft is not crew dragon spacecraft
+
+/**
+ * @brief Checks the type of the spacecraft
+ * 
+ * @return true :- if(isCrewDragon)
+ * @return false :- if(otherwise)
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 bool Spacecraft::isCrewDragon(){
 	return IsCrewDragon;
 }
 
-//@brief sets the isCrewDragon boolean
-//@param isCrewDragon determines is spacecraft is a crew dragon
+
+/**
+ * @brief Sets type of spacecraft
+ * 
+ * @param IsCrewDragon :-determines if it isCrewDragon
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372) 
+ */
 void Spacecraft::setIsCrewDragon(bool IsCrewDragon){
 	this->IsCrewDragon=IsCrewDragon;
 }
 
-//@brief returns the destination of the spacecraft 
+
+/**
+ * @brief Returns destination
+ * 
+ * @return string :-destination
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 string Spacecraft::getDestination(){
 	return destination;
 }
 
-//@brief simulates the launch of the spacecraft from Earth to the destination then back to earth
-void Spacecraft::launch(){	
-	cout<<"Please select the destination of the Spacecraft"<<endl;
+
+/**
+ * @brief Simulates Launch
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
+void Spacecraft::launch(){
 	string dest="ISS";
 	
 	setDestination(dest);
-	cout<<"The destination is set from "<<getCurrentLocation()<<"to "<<dest<<endl;
-	cout<<"Preparing to turn the thrusters on...."<<endl;
-	for(Thruster* item: thrustersList){
-		item->turnOn();
-		cout<<item->getId()<<" is turned on"<<endl;
-		sleep(1);
-	}
-	cout<<"All the thrusters have been turned on...Ready to go to "<<getDestination()<<endl;
+
+	std::cout
+		<< "\n\n\tSPACECRAFT:"
+		<< std::endl;
+
+	sleep(1);
+
+	std::cout
+		<< "\n\t\tThrusters"
+		<< std::endl;
+
+	sleep(1);
 
 	for(Thruster* item: thrustersList){
 		item->turnOn();
+		std::cout
+			<< "\t\t\t"
+			<< item->getId() << " | " << "ON\n";
+	}
+
+	for(Thruster* item: thrustersList){
 		item->fireUp();
 	}
 
 	goToDestination();
+
 	double w = 0;
 	int i=0;
-	cout<<endl;
-	cout<<"Now unloading."<<endl;
-	cout<<theUnloudedloadedStuff<<endl;
+
 	sleep(1);
-	cout<<endl;
 
+	std::cout
+		<< "\n\t\tUnload\n"
+		<< "\t\t\t" << theUnloudedloadedStuff << std::endl;
+
+
+	sleep(4);
+
+	std::cout
+		<< "\n\t\tBack_to_Earth"
+		<< std::endl;
+ 
 	setDestination("Earth");
-	cout<<"The destination is set from "<<getCurrentLocation()<<" to Earth"<<endl;
-	cout<<"Preparing to turn the thrusters on...."<<endl;
-	for(Thruster* item: thrustersList){
-		item->turnOn();
-		cout<<item->getId()<<" is turned on"<<endl;
-		sleep(2);
-	}
-	cout<<"All the thrusters have been turned on...Ready to go to "<<getDestination()<<endl;;
+		
+	sleep(1);
 
 	for(Thruster* item: thrustersList){
 		item->turnOn();
+		std::cout
+			<< "\t\t\t"
+			<< item->getId() << " | " << "ON\n";
+	}
+
+	for(Thruster* item: thrustersList){
 		item->fireUp();
 	}
 
 	goToDestination();
-	
-	cout<<"\nNow entering Earth's atmosphere preparing to deploy parachute...\n"<<endl;
+
+	sleep(5);
+
+	std::cout
+		<< "\n\t\tENTERING EARTH UPPER ATMOSPHERE\n";
+
+
 	double Thecurrent_Height =160;
+
 	while(Thecurrent_Height>0){
 		if(Thecurrent_Height <=6 && Thecurrent_Height>3){
-			cout<<"\t\t\tCurrent height: "<<Thecurrent_Height<<"KM above the surface."<<endl;
+			std::cout
+				<< "\n\t\t\tDeploy Parachutes\n"
+				<< std::endl;
+
 			i=0;
+
 			for(Parachute* item: parachuteList){
-				cout<<"\n\t\t"<<i<<". "<<item->getId()<<"\t\t";
 				item->deploy();
-				cout<<endl;
+				std::cout<<endl;
 				sleep(1);
 				i++;
 			}
 			break;
 		}
 		else
-		{
-			cout<<"\t\t\tCurrent height: "<<Thecurrent_Height<<"KM above the surface."<<endl;
 			sleep(1);
-		}
+
 		Thecurrent_Height-=19.25;
 	}
+
 	missionComplete();
-	
 }
 
-//@brief removes the cargo when reaching the destination and preparing to go back to earth
-//@param strInput is a string input from the user
+
+/**
+ * @brief Removes the cargo when reaching the destination and preparing to go back to earth
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 void Spacecraft::Unloading(){
 	if(isCrewDragon()==true)
 	{
-		cout<<"Now unloading cargo and some members(N.B Overall weight has to be < 800KG)"<<endl;
+		std::cout
+			<< "\nTYPE OF SPACECRAFT: \n\tCrewDragon" << std::endl;
+
+		std::cout
+			<< "\n\tConfirm Unload Options at ISS"
+			<< std::endl;
+
+
 		while(getCurrentWeight()){
-			cout<<"What do you want to unload? \n 0:Cargo\t 1:Crew Member"<<endl;
-						int optionR;
-						string strInput = "";
-                        while (true){
-                            getline(cin, strInput);
-                            stringstream myStream(strInput);
-                            if ( (myStream >> optionR) ){
-                                    if(optionR >=0 && optionR<=1 ){
-                                        break;
-                                    }
-									 else
-                                		cout << "Invalid input, please try again" << endl;
-                                }
-                               
-                        }  
-			if(optionR== 0){
-					while (getCurrentWeight())
-					{
-							cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-							cout<<"\t\t\tCargo Information:"<<endl;
-							cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-							double w = 0;
-							int i=0;
+			std::cout
+				<< "\t\tUnload Options: "
+				<< "\n\t\t\t1. Cargo"
+				<< "\n\t\t\t2. Crew Member"
+				<< "\n\t\t\t\tInput> ";
 
-							for(CrewMember* item: getCrewList()){
-								w += item->getWeight();
-							}
 
-							for(Cargo* item: getCargoList()){
-								cout<<i<<". "<<item->getName()<<" weight: "<<item->getWeight()<<" Kg"<<endl;
-								w += item->getWeight();
-								i++;
-							}
-							cout<<endl;
-							cout<<"Total spacecraft weight is: "<<w<<endl;
-							cout<<endl;
-							
-							int cCargoIndex;
-							cout<<"Please enter the index of the cargo you want to remove"<<endl;
-									string strInput = "";
-									while (true){
-										getline(cin, strInput);
-										stringstream myStream(strInput);
-										if ( (myStream >> cCargoIndex) ){
-												if(cCargoIndex >=0 && cCargoIndex<getCargoList().size() ){
-													break;
-												}
-												else
-													cout << "Invalid input, please try again" << endl;
-											}
-										
-									}  
-							string cargoName;
-							int c=0;
-							for(Cargo* item: getCargoList()){
-								if(item != NULL){
-									if(cCargoIndex==c)
-									{
-										cargoName+=to_string(c)+". "+item->getName()+" weight: "+to_string(item->getWeight()).substr(0,5)+" Kg";
-									}
-									c++;
-								}
+			int optionR;
+			string strInput = "";
 
-							}
-							detachCargo(cCargoIndex);
-							theUnloudedloadedStuff+=" unloading: "+cargoName+"	";
-							int doneRCargo;
-							cout<<"Do you want to remove another cargo load? (0:No 1:Yes)"<<endl;
-							strInput = "";
-									while (true){
-										getline(cin, strInput);
-										stringstream myStream(strInput);
-										if ( (myStream >> doneRCargo) ){
-												if(doneRCargo >=0 && doneRCargo<=1 ){
-													break;
-												}
-												else
-													cout << "Invalid input, please try again" << endl;
-											}
-										
-									}  
-							if(doneRCargo==0){
-								break;
-							}
-									
-									
-					}
-			
-			}
-			else{
-				while(getCurrentWeight())
-				{
-					cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-						cout<<"\t\t\tCrew Information:"<<endl;
-						cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-						int i=0;
-						double w=0;
-						for(CrewMember* item: getCrewList()){
-							cout<<i<<". "<<item->getName()<<" weight: "<<item->getWeight()<<" Kg"<<endl;
-							w += item->getWeight();
-							i++;
-						}
-						
-						for(Cargo* item: getCargoList()){
-							w += item->getWeight();
-						}
-						cout<<endl;
-						cout<<"Total spacecraft weight is: "<<w<<endl;
-						cout<<endl;
+			while (true){
+				getline(cin, strInput);
+				stringstream myStream(strInput);
+				if ( (myStream >> optionR) ){
+					if(optionR >=1 && optionR<=2 ){
+						break;
+					} else
+						std::cout
+							<< "\n\t\t\t !!! Invalid Input !!! \n"
+							<< "\t\t\t Let's go one more time...\n"
+							<< std::endl;
+				}	
+			} 
 
-						int memberIndex;
-						crewInfo();
-						cout<<"Please select the index of the member you want to remove."<<endl;
-						string strInput = "";
-								while (true){
-									getline(cin, strInput);
-									stringstream myStream(strInput);
-									if ( (myStream >> memberIndex) ){
-											if(memberIndex >=0 && memberIndex<=getCrewList().size()-1 ){
-												break;
-											}
-											else
-												cout << "Invalid input, please try again" << endl;
-										}
-									
-								}  
-							string CrewName;
-							int c=0;
-							
-							for(CrewMember* item: getCrewList()){
-								if(memberIndex==c)
-								{
-									CrewName+=to_string(c)+". "+item->getName()+" weight: "+to_string(item->getWeight()).substr(0,4)+" Kg";
-								}
-								c++;
-							}
-						theUnloudedloadedStuff+=" unloading: "+CrewName+"	";
-						removeCrewMember(memberIndex);
-						crewInfo();	
+			if(optionR== 1){
+				std::cout
+					<< "\n\t\tCargo Info"
+					<< std::endl;
 
-						int donemember;
-							cout<<"Do you want to remove another Crew Member? (0:No 1:Yes)"<<endl;
-							strInput = "";
-									while (true){
-										getline(cin, strInput);
-										stringstream myStream(strInput);
-										if ( (myStream >> donemember) ){
-												if(donemember >=0 && donemember<=1 ){
-													break;
-												}
-												else
-													cout << "Invalid input, please try again" << endl;
-											}
-										
-									}  
-							if(donemember==0){
-								break;
-							}
+				while (getCurrentWeight()){
+					
+					double w = 0;
+					int i=0;
+
+					for(CrewMember* item: getCrewList()){
+						w += item->getWeight();
 					}
 
+					for(Cargo* item: getCargoList()){
+						std::cout
+							<< "\t\t\t" << i + 1 << ". "
+							<< item->getName() << " | " << item->getWeight() << "Kg"
+							<< std::endl;
+
+						w += item->getWeight();
+						i++;
+					}
+					
+					
+					std::cout
+						<< "\t\tTOTAL WEIGHT OF SPACECRAFT: "
+						<< w
+						<< "Kg"
+						<< std::endl << std::endl;
+
+					int cCargoIndex;
+
+					std::cout
+						<< "\t\tChoose cargo to unload at ISS by index ref\'ed by above list\n"
+						<< "\t\t\tInput > ";
+
+					string strInput = "";
+					
+					while (true){
+						getline(cin, strInput);
+						stringstream myStream(strInput);
+						if ( (myStream >> cCargoIndex) ){
+							if(cCargoIndex >=1 && cCargoIndex<=getCargoList().size())
+								break;
+							else
+								std::cout
+									<< "\n\t\t\t !!! Invalid Input !!! \n"
+									<< "\t\t\t Let's go one more time...\n"
+									<< "\n\t\t\tInput > ";
+						}
+					} 
+
+					string cargoName;
+					int c=0;
+					for(Cargo* item: getCargoList()){
+						if(item != NULL){
+							if(cCargoIndex==c+1)
+								cargoName+=to_string(c)+". "+item->getName()+" weight: "+to_string(item->getWeight()).substr(0,5)+" Kg";
+							c++;
+						}
+					}
+
+					detachCargo(cCargoIndex);
+					theUnloudedloadedStuff+=" UNLOADING: "+cargoName+" ";
+
+					int doneRCargo;
+					std::cout
+						<<"\n\t\tContinue unload? (0:No | 1:Yes)"
+						<<std::endl;
+
+					strInput = "";
+
+					while (true){
+						getline(cin, strInput);
+						stringstream myStream(strInput);
+						if ( (myStream >> doneRCargo) ){
+							if(doneRCargo >=0 && doneRCargo<=1 )
+								break;
+							else
+								std::cout
+									<< "\n\t\t\t !!! Invalid Input !!! \n"
+									<< "\t\t\t Let's go one more time...\n"
+									<< "\n\t\t\tInput > ";
+						}
+					}
+
+					if(doneRCargo==0){
+						break;
+					}		
 				}
+			} else {
+				std::cout
+					<< "\n\t\tCrew Info"
+					<< std::endl;
+
+				while(getCurrentWeight()){
+					int i=0;
+					double w=0;
+
+					for(CrewMember* item: getCrewList()){
+						std::cout
+							<< "\t\t\t" << i + 1 << ". "
+							<< item->getName() << " | " << item->getWeight() << " Kg"
+							<< std::endl;
+
+						w += item->getWeight();
+						i++;
+					}
+					
+					for(Cargo* item: getCargoList()){
+						w += item->getWeight();
+					}
+					
+					std::cout
+						<< "\t\tTOTAL WEIGHT OF SPACECRAFT: "
+						<< w
+						<< "Kg"
+						<< std::endl << std::endl;
+
+					int memberIndex;
+
+					crewInfo();
+
+					std::cout
+						<< "\t\tChoose crew member to unload at ISS by index ref\'ed by above list\n"
+						<< "\t\t\tInput > ";
+
+					string strInput = "";
+
+					while (true){
+						getline(cin, strInput);
+						stringstream myStream(strInput);
+						if ( (myStream >> memberIndex) ){
+							if(memberIndex >=1 && memberIndex<=getCrewList().size() )
+								break;
+							else
+								std::cout
+									<< "\n\t\t\t !!! Invalid Input !!! \n"
+									<< "\t\t\t Let's go one more time...\n"
+									<< "\n\t\t\tInput > ";
+						}
+					} 
+
+					string CrewName;
+					int c=0;
+					
+					for(CrewMember* item: getCrewList()){
+						if(memberIndex==c)
+						{
+							CrewName+=to_string(c)+". "+item->getName()+" weight: "+to_string(item->getWeight()).substr(0,4)+" Kg";
+						}
+						c++;
+					}
+
+					theUnloudedloadedStuff+=" unloading: "+CrewName+"	";
+					removeCrewMember(memberIndex);
+					crewInfo();	
+
+					int donemember;
+					std::cout
+						<<"\n\t\tContinue unload? (0:No | 1:Yes)"
+						<<std::endl;
+
+					strInput = "";
+
+					while (true){
+						getline(cin, strInput);
+						stringstream myStream(strInput);
+						if ( (myStream >> donemember) ){
+								if(donemember >=0 && donemember<=1 ){
+									break;
+								}
+								else
+									std::cout
+										<< "\n\t\t\t !!! Invalid Input !!! \n"
+										<< "\t\t\t Let's go one more time...\n"
+										<< "\n\t\t\tInput > "
+										<< std::endl;
+							}
+					}
+
+					if(donemember==0){
+						break;
+					}
+				}
+			}
 				
 			cout<<"Are you done unloading (0:No 1:Yes)"<<endl;
 			int yes;
-			 strInput = "";
-                        while (true){
-                            getline(cin, strInput);
-                            stringstream myStream(strInput);
-                            if ( (myStream >> yes) ){
-                                    if(yes >=0 && yes<=1 ){
-                                        break;
-                                    }
-									 else
-                                		cout << "Invalid input, please try again" << endl;
-                                }
-                               
-                        }  
-			if(yes == 1){
-				if(getCurrentWeight()>800){
-					cout<<"Please remove more weight"<<endl;
-				}
-				else{
-					break;
+			strInput = "";
+			
+			std::cout
+				<< "\n\t\tContinue unloading (0:No | 1:Yes)"
+				<< "\t\t\tInput > ";
+
+			while (true){
+				getline(cin, strInput);
+				stringstream myStream(strInput);
+				if ( (myStream >> yes) ){
+					if(yes >=0 && yes<=1 )
+						break;
+					else
+						std::cout
+							<< "\n\t\t\t !!! Invalid Input !!! \n"
+							<< "\t\t\t Let's go one more time...\n"
+							<< "\n\t\t\tInput > ";
 				}
 			}
-		}
 
+			if(yes == 1){
+				if(getCurrentWeight()>800)
+					std::cout
+						<< "\n\tThe current weight is not compatible for the journey to earth"
+						<< "\n\tRecommendations are to continue unloading"
+						<< std::endl;
+				else
+					break;
+			}
+		}
 	}
 	else
 	{
-		cout<<"Now unloading cargo(N.B Overall weight has to be < 800KG)"<<endl;
+		std::cout
+			<< "\nTYPE OF SPACECRAFT: \n\tCrewDragon" << std::endl;
+
+		std::cout
+			<< "\n\tConfirm Unload Options at ISS"
+			<< std::endl;
+
 		while(getCurrentWeight()){
-			cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-				cout<<"\t\t\tCargo Information:"<<endl;
-				cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
-				double w = 0;
-				int i=0;
+			double w = 0;
+			int i=0;
 
-				for(Cargo* item: getCargoList()){
-					cout<<i<<". "<<item->getName()<<" weight: "<<item->getWeight()<<" Kg"<<endl;
-					w += item->getWeight();
-					i++;
-				}
-				cout<<endl;
-				cout<<"Total spacecraft weight is: "<<w<<endl;
-				cout<<endl;
-				
-				int cCargoIndex;
-				cout<<"Please enter the index of the cargo you want to remove."<<endl;
-				string strInput = "";
-                        while (true){
-                            getline(cin, strInput);
-                            stringstream myStream(strInput);
-                            if ( (myStream >> cCargoIndex) ){
-                                    if(cCargoIndex >=0 && cCargoIndex<=getCargoList().size()-1 ){
-                                        break;
-                                    }
-									 else
-                                		cout << "Invalid input, please try again" << endl;
-                                }
-                                
-                        }  
-				string cargoName;
-				int c=0;
-				for(Cargo* item: getCargoList()){
-					if(cCargoIndex==c)
-					{
-						cargoName +=to_string(c)+". "+item->getName()+" weight: "+to_string(item->getWeight()).substr(0,5)+" Kg";
-					}
-					c++;
-				}
-				detachCargo(cCargoIndex);
-				theUnloudedloadedStuff+=" unloading: "+cargoName+"	";
-				int doneRCargo;
-				cout<<"Do you want to remove another cargo load? (0:No 1:Yes)"<<endl;
-				strInput = "";
-                        while (true){
-                            getline(cin, strInput);
-                            stringstream myStream(strInput);
-                            if ( (myStream >> doneRCargo) ){
-                                    if(doneRCargo >=0 && doneRCargo<=1 ){
-                                        break;
-                                    }
-									 else
-                                		cout << "Invalid input, please try again" << endl;
-                                }
-                                
-                        }  
-				if(doneRCargo==0){
-					break;
-				}
+			for(Cargo* item: getCargoList()){
+				std::cout
+					<< "\t\t\t" << i + 1 << ". "
+					<< item->getName() << " | " << item->getWeight() << "Kg"
+					<< std::endl;
 
+				w += item->getWeight();
+				i++;
+			}
+					
+			std::cout
+				<< "\t\tTOTAL WEIGHT OF SPACECRAFT: "
+				<< w
+				<< "Kg"
+				<< std::endl << std::endl;
+
+
+			int cCargoIndex;
 			
-		}
+			std::cout
+				<< "\t\tChoose cargo to unload at ISS by index ref\'ed by above list\n"
+				<< "\t\t\tInput > ";
 
+			string strInput = "";
+
+			while (true){
+				getline(cin, strInput);
+				stringstream myStream(strInput);
+				if ( (myStream >> cCargoIndex) ){
+					if(cCargoIndex >=1 && cCargoIndex<=getCrewList().size() )
+						break;
+					else
+						std::cout
+							<< "\n\t\t\t !!! Invalid Input !!! \n"
+							<< "\t\t\t Let's go one more time...\n"
+							<< "\n\t\t\tInput > ";
+				}
+			}
+
+			string cargoName;
+			int c=0;
+
+			for(Cargo* item: getCargoList()){
+				if(cCargoIndex==c)
+				{
+					cargoName +=to_string(c)+". "+item->getName()+" weight: "+to_string(item->getWeight()).substr(0,5)+" Kg";
+				}
+				c++;
+			}
+
+			detachCargo(cCargoIndex-1);
+
+			theUnloudedloadedStuff+=" unloading: "+cargoName+"	";
+
+			int doneRCargo;
+
+			std::cout
+				<< "\n\tContinue unloading (0:No | 1:Yes)"
+				<< "\n\t\tInput > ";
+
+			strInput = "";
+
+			while (true){
+				getline(cin, strInput);
+				stringstream myStream(strInput);
+				if ( (myStream >> doneRCargo) ){
+					if(doneRCargo >=0 && doneRCargo<=1 )
+						break;
+					else
+						std::cout
+							<< "\n\t\t\t !!! Invalid Input !!! \n"
+							<< "\t\t\t Let's go one more time...\n"
+							<< "\n\t\t\tInput > ";
+				}
+			}  
+
+			if(doneRCargo==0){
+				break;
+			}
+		}
 	}
-	
-		
 }
+
+
+/**
+ * @brief FINAL EDIT CREDITS
+ * 
+ * @author Malope Elphus (u20451696)
+ * 
+ */

@@ -3,6 +3,8 @@
 /**
  * @brief Construct a new Launch State:: Launch State object
  * 
+ * @author Awelani Murovhi (u18335412)
+ * 
  */
 LaunchState::LaunchState() {
 
@@ -14,6 +16,8 @@ LaunchState::LaunchState() {
  * @param stageOne 
  * @param interStage 
  * @param stageTwo 
+ * 
+ * @author Awelani Murovhi (u18335412)
  */
 void LaunchState::execute(Stage *stageOne, Stage *interStage, Stage *stageTwo) {
     stageOne->activate();
@@ -23,6 +27,8 @@ void LaunchState::execute(Stage *stageOne, Stage *interStage, Stage *stageTwo) {
  * @brief returns next state
  * 
  * @return RocketState* 
+ * 
+ * @author Awelani Murovhi (u18335412)
  */
 RocketState *LaunchState::getNextState() {
     return new SeparationState();
@@ -30,6 +36,8 @@ RocketState *LaunchState::getNextState() {
 
 /**
  * @brief Destroy the Launch State:: Launch State object
+ * 
+ * @author Awelani Murovhi (u18335412)
  * 
  */
 LaunchState::~LaunchState() = default;

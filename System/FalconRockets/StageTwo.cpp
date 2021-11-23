@@ -12,7 +12,8 @@
 /**
  * @brief Construct a new Stage Two:: Stage Two object
  * 
- * @param id the id of the stage.
+ * 
+ * @author Awelani Murovhi (u18335412)
  */
 StageTwo::StageTwo(string id) : Stage(id) {
 
@@ -22,12 +23,14 @@ StageTwo::StageTwo(string id) : Stage(id) {
  * @brief "attaches" the spacecraft to stage two.
  * 
  * @param spacecraft 
+ * 
+ * @author Awelani Murovhi (u18335412), Malope Elphus (u20451696)
  */
 bool StageTwo::attachSpacecraft(Spacecraft* spaceCraft)  //I'll fix it in simulator (or -tion)
 {
     if(this->satellites != NULL){
         std::cout
-            << "The rocket has already been attached to a cluster of satellites\n";
+            << "\n\t\tROCKET HAS SATELLITES ALREADY\n";
 
         return false;
     }
@@ -41,17 +44,18 @@ bool StageTwo::attachSpacecraft(Spacecraft* spaceCraft)  //I'll fix it in simula
  * @brief "attaches" the  satelitte cluster to stage two.
  * 
  * @param spacecraft 
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  */
 bool StageTwo::attachSatellite(TestSatellites* cluster)
 {
     if(this->capsule != NULL){
-        //SAME STORY
         std::cout
-            << "The rocket has already been attached to a spacecraft: " ;
+            << "\n\t\tROCKET HAS SPACECRAFT\n" ;
             if(capsule->isCrewDragon()==true)
-                std::cout << "CrewDragon.\n";
+                std::cout << "\t\t\tCrewDragon.\n";
             else
-                std::cout << "DracoSpacecraft\n";
+                std::cout << "\t\t\tDracoSpacecraft\n";
 
         return false;
     }
@@ -61,24 +65,17 @@ bool StageTwo::attachSatellite(TestSatellites* cluster)
     return true;
 }
 
-// void StageTwo::attachSpacecraft(Spacecraft *spacecraft) {
-//     this->capsule = spacecraft;
-// }
-
-// void StageTwo::attachSatellite(Satellite *satellite) {
-//     this->satellite = satellite;
-// }
-
-//*****************************************************************************
 
 /**
  * @brief "detaches" the spacecraft from stage two.
  * 
  * @param spacecraft 
+ * 
+ * @author Awelani Murovhi (u18335412), Malope Elphus (u20451696)
  */
-void StageTwo::detachSpacecraft()
-{
-    cout<<"Spacecraft is detaching from rocket.."<<endl;
+void StageTwo::detachSpacecraft(){
+    std::cout
+        << "\n\t\tDETACH SPACECRAFT\n";
     capsule=NULL;
 }
 
@@ -86,61 +83,68 @@ void StageTwo::detachSpacecraft()
  * @brief "detaches" the satellite cluster from stage two.
  * 
  * @param spacecraft 
+ * 
+ * @author Awelani Murovhi (u18335412), Malope Elphus (u20451696)
  */
-void StageTwo::detachSatellite()
-{
-    cout<<"Satellites are detaching from the rocket and are reacing orbit..."<<endl;
+void StageTwo::detachSatellite(){
+    std::cout
+        << "\n\t\tDETACH SATELLITES\n";
+
     satellites=NULL;
 }
 
 /**
  * @brief "launch stage two to desired orbit then release spacecraft"
  * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
+ * 
  */
 void StageTwo::activate() {
-    cout << endl;
     engines[0]->turnOn();
     cout << "Stage two is now taking off ";
-    for (int i = 5; i > 0; --i)
-    {
-        cout << "! " << endl;
+
+    std::cout
+        << "\n\tSTAGE TWO\n";
+    
+    this_thread::sleep_for(chrono::seconds(1));
+
+    std::cout
+        << "\t\tTAKE OFF\n";
+
+    for (int i = 10; i > 0; --i)
         this_thread::sleep_for(chrono::seconds(1));
-    }
 
     if(capsule!=NULL)
-        cout << "\nSpacecraft has reached desired orbit." << endl;
+        std::cout << "\n\t\t\tSpacecraft has reached desired orbit." << std::endl;
     else
-        cout << "\nSatellite cluster has reached desired orbit." << endl;
+        std::cout << "\n\t\t\tSatellite cluster has reached desired orbit." << std::endl;
 
-    cout << "\nSpacecraft has reached desired orbit." << endl;
     this_thread::sleep_for(chrono::seconds(2));
+
     deactivate();
 
     if(capsule!=NULL)
-        cout << "Stage Two is now separating from Dragon Spacecraft ";
+        std::cout << "\t\t\tStage Two is now separating from Spacecraft\n";
     else
-        cout << "Stage Two is now separating from Satellite cluster ";
+        std::cout << "\t\t\tStage Two is now separating from Satellite cluster\n";
     for (int i = 5; i > 0; --i)
-    {
-        cout << "<--> " << endl;
-        
         this_thread::sleep_for(chrono::seconds(1));
-    }
-    if(capsule!=NULL)
-        cout << "\nSpacecraft has now separated from Stage Two" << endl;
-    else
-        cout << "\nSatelittes have now separated from Stage Two" << endl;
-    
 
-    // This is where we are going to call the Spacecraft launch function since stage two & spacecraft have separated.
+    if(capsule!=NULL)
+        cout << "\t\t\tSpacecraft has now separated from Stage Two" << endl;
+    else
+        cout << "\t\t\tSatelittes have now separated from Stage Two" << endl;
 }
 
 /**
  * @brief turns off all the engines.
  * 
+ * @author Malope Elphus (u20451696)
+ * 
  */
 void StageTwo::deactivate() {
-    cout << "Stage Two Engines will now turn Off" << endl;
+    std::cout
+        << "\n\t\tSTAGE TWO DEACTIVATED\n";
     engines[0]->turnOff();
 }
 
@@ -148,6 +152,8 @@ void StageTwo::deactivate() {
  * @brief appends engine to the list of engines.
  * 
  * @param engine engine pointer
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 void StageTwo::addEngine(Engine* engine) {
         engines.push_back(engine);
@@ -158,122 +164,111 @@ void StageTwo::addEngine(Engine* engine) {
  * 
  * @return true 
  * @return false 
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  */
-bool StageTwo::testEngine()
-{
+bool StageTwo::testEngine(){
+    std::cout
+        << "\n\n\tSTAGE TWO TEST\n";
 
-    cout<<"----------------------------------------------------------------------------"<<endl;
-    cout<<"\t\t\tStage One successful, testing stage two..."<<endl;
-    cout<<"----------------------------------------------------------------------------"<<endl;
-    cout<<"Input the amount of liquid Oxygen fuel for the Vacuum engine: ";
+    sleep(1);
+
+    std::cout
+        << "\n\t\tAmount of liquid Oxygen fuel\n"
+        << "\n\t\t\tInput > ";
+        
     cin>>fuel;
 
-    cout<<"----------------------------------------------------------------------------"<<endl;
-    cout<<"\t\t\tInitiate the engine..."<<endl;
-    cout<<"----------------------------------------------------------------------------"<<endl;
-    sleep(1);
+
     for(int i=0;i<numEngines;i++)
     {
         engines[i]->turnOn();
         sleep(1);
     }
-    cout<<"----------------------------------------------------------------------------"<<endl;
-    cout<<"\t\t\tThe engine has been initiated..."<<endl;
-    cout<<"----------------------------------------------------------------------------"<<endl;
-    cout<<endl;
-    
-    for(int i=0;i<numEngines;i++)
-    {
 
-        if(fuel>=1000 && fuel<=1500)
-        {
+    std::cout
+        << "\n\t\tENGINES INITIATED"
+        << std::endl;
+
+    for(int i=0;i<numEngines;i++){
+        if(fuel>=1000 && fuel<=1500){
             EngineOptimisation* state = new EngineOptimum();
             engines[i]->setReadyState(state);
             fuel-=1000;
-        }
-        else
-        {
+        } else {
             EngineOptimisation* state = new EngineNotOptimum();
             engines[i]->setReadyState(state);
         }
         
     }
+
     printEngines();
-    cout<<endl;
 
-    if(determineOptimisation()==true)
-    {
-        cout<<"----------------------------------------------------------------------------"<<endl;
-        cout<<"The engine is optimum and has passed the test, proceed to launch..."<<endl;
-        cout<<"----------------------------------------------------------------------------"<<endl;
+    if(determineOptimisation()==true){
+        std::cout
+            << "\n\t\tSUCCESS\n"
+            << std::endl;
+        engines[0]->turnOff();
         return true;
-    }
-    else{
+    } else {
+        while(true){
+            std::cout
+                << "\n\t\tFAIL\n"
+                << "\t\t\tMESSAGE: Fuel amount must range between 1000 Litres - 1500 Litres";
         
-        while(true)
-        {
-            cout<<"----------------------------------------------------------------------------"<<endl;
-            cout<<"\t\tEnigine has failed the test."<<endl;
-            cout<<"\t\tFuel amount must range between 1000l - 1500l"<<endl;
-            cout<<"----------------------------------------------------------------------------"<<endl;
-            cout<<"Tweak the fuel amount needed for the Vacuum engine: ";
+
+            std::cout
+                << "\t\t\tRECOMMENDATION: Tweak fuel amount\n"
+                << "\t\t\tInput > ";
+
             cin>>fuel;
+
+            sleep(1);
+
+            std::cout
+                << "\n\t\tCONFIGURATION IN PROGRESS\n";
+
             for(int i=0;i<3;i++)
-            {
-                cout<<"tweaking..."<<endl;
                 sleep(1);
-            }
 
-            for(int i=0;i<numEngines;i++)
-            {
-
-                if(fuel>0 && fuel<=1500)
-                {
+            for(int i=0;i<numEngines;i++){
+                if(fuel>0 && fuel<=1500){
                     EngineOptimisation* state = new EngineOptimum();
                     engines[i]->setReadyState(state);
                     fuel-=1000;
-                }
-                else
-                {
+                } else {
                     EngineOptimisation* state = new EngineNotOptimum();
                     engines[i]->setReadyState(state);
                 }
-                
             }
-            printEngines();
-            cout<<endl;
 
-            if(determineOptimisation()==true)
-            {
-                cout<<"----------------------------------------------------------------------------"<<endl;
-                cout<<"The engine is optimum and has passed the test, proceed to launch..."<<endl;
-                cout<<"----------------------------------------------------------------------------"<<endl;
+            printEngines();
+
+            if(determineOptimisation()==true){
+                std::cout
+                    << "\n\t\tSTAGE ONE: Success"
+                    << std::endl;engines[0]->turnOff();
+                
                 engines[0]->turnOff();
                 return true;
-            }
-            else{
-
+            } else
                 continue;
-            }
-
-            
-            }
         }
-
+    }
 }
 
 /**
  * @brief determines engines optimisation
  * 
- * @return true 
- * @return false 
+ * @return true :-if(Optimised)
+ * @return false :-if(notOptimised)
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 bool StageTwo::determineOptimisation()
 {
-    for(int i=0;i<numEngines;i++)
-    {
-       if(engines[i]->getReadyState()=="not Optimum")
-       {
+    for(int i=0;i<numEngines;i++){
+       if(engines[i]->getReadyState()=="not Optimum") {
            return false;
        }
     }
@@ -283,14 +278,16 @@ bool StageTwo::determineOptimisation()
 /**
  * @brief prints all the engines in the stage.
  * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163)
+ * 
  */
-void StageTwo::printEngines()
-{
-    for(int i=0;i<engines.size();i++)
-    {
-        cout<<engines[i]->getId()<<" is ";
+void StageTwo::printEngines(){
+    for(int i=0;i<numEngines;i++){
+        std::cout
+            << "\n\t\t\t"
+            << engines[i]->getId() << " | ";
+
         engines[i]->notify();
-        cout<<endl;
         sleep(1);
     }
 }
@@ -300,6 +297,8 @@ void StageTwo::printEngines()
  * 
  * @return true
  * @return false
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 bool StageTwo::HasSpacecraft()
 {
@@ -315,6 +314,8 @@ bool StageTwo::HasSpacecraft()
  * 
  * @return true
  * @return false
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 bool StageTwo::HasSatellites()
 {
@@ -329,6 +330,8 @@ bool StageTwo::HasSatellites()
  * @brief getter for the spacecraft
  * 
  * @return Spacecraft*
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 Spacecraft* StageTwo::getSpacecraft()
 {
@@ -339,6 +342,8 @@ Spacecraft* StageTwo::getSpacecraft()
  * @brief getter for the satellites
  * 
  * @return Spacecraft*
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 TestSatellites* StageTwo::getSatellites()
 {
@@ -349,6 +354,8 @@ TestSatellites* StageTwo::getSatellites()
  * @brief setter for number of engines
  * 
  * @param s is number of engines
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 void StageTwo::setNum(int s)
 {
@@ -359,6 +366,8 @@ void StageTwo::setNum(int s)
  * @brief setter for fuel amount
  * 
  * @param f fuel amount
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 void StageTwo::setFuel(int f)
 {
@@ -369,6 +378,8 @@ void StageTwo::setFuel(int f)
  * @brief getter for fuel amount
  * 
  * @param f fuel amount
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 int StageTwo::getFuel()
 {
@@ -377,6 +388,8 @@ int StageTwo::getFuel()
 
 /**
  * @brief Destroy the Stage Two:: Stage Two object
+ * 
+ * @author Musa Mabasa (u18265163)
  * 
  */
 StageTwo::~StageTwo() = default;

@@ -6,6 +6,8 @@
  * @param EngineId id of engine
  * @param maxThrust engine thruster
  * @param propellants engine propellant 
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  */
 Engine::Engine(string EngineId, int maxThrust, string propellants) {
     this->id = EngineId;
@@ -16,7 +18,9 @@ Engine::Engine(string EngineId, int maxThrust, string propellants) {
 /**
  * @brief getter for engine id
  * 
- * @return string 
+ * @return string :-id
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  */
 string Engine::getId() {
     return id;
@@ -25,7 +29,9 @@ string Engine::getId() {
 /**
  * @brief setter for engine id
  * 
- * @param i 
+ * @param i :- id
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  */
 void Engine::setId(string i) {
     this->id = i;
@@ -34,7 +40,9 @@ void Engine::setId(string i) {
 /**
  * @brief getter fir propellant
  * 
- * @return string 
+ * @return string :- propellant name
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  */
 string Engine::getPropellant() {
     return propellant;
@@ -43,7 +51,9 @@ string Engine::getPropellant() {
 /**
  * @brief setter for propellant
  * 
- * @param prope 
+ * @param prope :- propellant name
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  */
 void Engine::setPropellant(string prope) {
     propellant = prope;
@@ -52,8 +62,10 @@ void Engine::setPropellant(string prope) {
 /**
  * @brief getter for state of the engine
  * 
- * @return true 
- * @return false 
+ * @return true :-if(Engine On)
+ * @return false :-if(Engine Off)
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  */
 bool Engine::getState() {
     return false;
@@ -61,30 +73,44 @@ bool Engine::getState() {
 
 
 /**
- * @brief turns engines on if turned off
+ * @brief Turns engines on if turned off
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  * 
  */
 void Engine::turnOn() {
     if (!on) {
-        cout << id << " is turning on... " << endl;
         on = true;
-    } else {
-        cout << id << " is already on!" << endl;
-    }
 
+        std::cout
+            << "\n\t\t" << id
+            << "\t\t\tON";
+
+    } else {
+        std::cout
+            << "\n\t\t" << id
+            << "\n\t\t\tALREADY ON";
+    }
 }
 
 /**
  * @brief turns engine off if turned on
  * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
+ * 
  */
 void Engine::turnOff() {
-
     if (on) {
-        cout << id << " is turning off... " << endl;
         on = false;
+
+        std::cout
+            << "\n\t\t" << id
+            << "\t\t\tOFF";
+
     } else {
-        cout << id << " is already off!" << endl;
+        std::cout
+            << "\n\t\t" << id
+            << "\n\t\t\tALREADY OFF";
     }
 }
 
@@ -92,6 +118,8 @@ void Engine::turnOff() {
  * @brief setter for engine state
  * 
  * @param state 
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  */
 void Engine::setState(bool state) {
     on = state;
@@ -99,6 +127,8 @@ void Engine::setState(bool state) {
 
 /**
  * @brief change the ready state
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  * 
  */
 void Engine::changeReadyState()
@@ -109,6 +139,8 @@ void Engine::changeReadyState()
 /**
  * @brief handle ready state
  * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
+ * 
  */
 void Engine::handleReadyState()
 {
@@ -118,7 +150,9 @@ void Engine::handleReadyState()
 /**
  * @brief getter for state
  * 
- * @return string 
+ * @return string :-state
+ * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
  */
 string Engine::getReadyState()
 {
@@ -128,7 +162,7 @@ string Engine::getReadyState()
 /**
  * @brief Destroy the Engine:: Engine object
  * 
+ * @authors Malope Elphus (u20451696), Musa Mabasa (u18265163), Awelani Murovhi (u18335412)
+ * 
  */
 Engine::~Engine() = default;
-
-

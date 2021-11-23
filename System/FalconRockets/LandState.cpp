@@ -3,6 +3,8 @@
 /**
  * @brief Construct a new Land State:: Land State object
  * 
+ * @authors Awelani Murovhi (u20451696)
+ * 
  */
 LandState::LandState() = default;
 
@@ -12,6 +14,8 @@ LandState::LandState() = default;
  * @param stageOne 
  * @param interStage 
  * @param stageTwo 
+ * 
+ * @author Awelani Murovhi (u18335412)
  */
 void LandState::execute(Stage *stageOne, Stage *interStage, Stage *stageTwo) {
     dynamic_cast<StageOne *>(stageOne)->land();
@@ -21,6 +25,8 @@ void LandState::execute(Stage *stageOne, Stage *interStage, Stage *stageTwo) {
  * @brief returns next stage
  * 
  * @return RocketState* 
+ * 
+ * @author Awelani Murovhi (u18335412)
  */
 RocketState *LandState::getNextState() {
     return nullptr;
@@ -28,6 +34,8 @@ RocketState *LandState::getNextState() {
 
 /**
  * @brief Destroy the Land State:: Land State object
+ * 
+ * @author Awelani Murovhi (u18335412)
  * 
  */
 LandState::~LandState() = default;

@@ -3,6 +3,8 @@
 /**
  * @brief Construct a new Separation State:: Separation State object
  * 
+ * @author Musa Mabasa (u18265163)
+ * 
  */
 SeparationState::SeparationState() = default;
 
@@ -12,6 +14,8 @@ SeparationState::SeparationState() = default;
  * @param stageOne  first stage pointer
  * @param interStage  interStage pointer
  * @param stageTwo  second stage pointer
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 void SeparationState::execute(Stage *stageOne, Stage *interStage, Stage *stageTwo)
 {
@@ -23,6 +27,8 @@ void SeparationState::execute(Stage *stageOne, Stage *interStage, Stage *stageTw
  * @brief returns next state
  * 
  * @return RocketState* 
+ * 
+ * @author Awelani Murovhi (u18335412)
  */
 RocketState *SeparationState::getNextState() {
     return nullptr;
@@ -30,6 +36,8 @@ RocketState *SeparationState::getNextState() {
 
 /**
  * @brief Destroy the Separation State:: Separation State object
+ * 
+ * @author Awelani Murovhi (u18335412)
  * 
  */
 SeparationState::~SeparationState() = default;

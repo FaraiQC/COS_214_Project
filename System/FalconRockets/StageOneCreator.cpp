@@ -3,6 +3,8 @@
 /**
  * @brief Construct a new Stage One Creator:: Stage One Creator object
  * 
+ * @author Musa Mabasa (u18265163)
+ * 
  */
 StageOneCreator::StageOneCreator() = default;
 
@@ -11,6 +13,8 @@ StageOneCreator::StageOneCreator() = default;
  * 
  * @param id  stage id
  * @return Stage* stage one pointer
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 Stage *StageOneCreator::createStage(string id)
 {
@@ -19,6 +23,8 @@ Stage *StageOneCreator::createStage(string id)
 
 /**
  * @brief Destroy the Stage One Creator:: Stage One Creator object
+ * 
+ * @author Musa Mabasa (u18265163)
  * 
  */
 StageOneCreator::~StageOneCreator() = default;

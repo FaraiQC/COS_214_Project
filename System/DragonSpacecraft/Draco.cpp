@@ -3,15 +3,28 @@
 
 using namespace std;
 
-//@brief Constructor initialises a Draco switched off with a power of 80, but is not cereated 
+
+/**
+ * @brief Construct a new Draco:: Draco object
+ * 		  Switched off with a power of 80
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 Draco::Draco() {
 	turnOff();
 	this->setPower(80);
 	SetDracoisCreatedChecker(0);
 }
 
-//@brief Constructor initialises a Draco switched off with a power of 80 and an id, but is not created
-//@param id is the ID of the Draco
+
+/**
+ * @brief Construct a new Draco:: Draco object
+ * 		  Switched off with a power of 80
+ * 
+ * @param id :-ID of the Draco
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 Draco::Draco(string id) {
 	SetDracoisCreatedChecker(0);
 	this->setPower(80);
@@ -19,18 +32,53 @@ Draco::Draco(string id) {
 	turnOff();
 }
 
-//@brief Switches on the Draco
+
+/**
+ * @brief Turn Draco on
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
 void Draco::fireUp() {
 	if(isOn() == true){
-		cout<<getId()<<" turned on, firing up!"<<endl;
+		std::cout
+			<< "\t"
+			<< getId()
+			<<"\n\t\tSTATUS: Active\n"
+			<<std::endl;
 	}
 	else{
-		cout<<getId()<<" is not turned on yet, please turn it on"<<endl;
+		std::cout
+			<< "\t"
+			<<getId()
+			<<"\n\t\tSTATUS: Inactive\n"
+			<< "\t\tMESSAGE: Please Turn it On\n"
+			<<endl;
 	}	
 }
 
-//@brief Shuts down the Draco
+//@brief 
+
+/**
+ * @brief 
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
 void Draco::shutDown() {
 	this->turnOff();
-	cout<<getId()<<" has been shut down"<<endl;
+
+	std::cout
+		<< "\t"
+		<<getId()
+		<<"\n\t\tSHUTDOWN\n"
+		<<std::endl;
 }
+
+
+/**
+ * @brief FINAL EDIT CREDIT
+ * 
+ * @author Malope Elphus (u20451696)
+ * 
+ */

@@ -3,6 +3,9 @@
 /**
  * @brief Construct a new Stage Two Creator:: Stage Two Creator object
  * 
+ * 
+ * @author Awelani Murovhi (u18335412)
+ * 
  */
 StageTwoCreator::StageTwoCreator() = default;
 
@@ -11,6 +14,9 @@ StageTwoCreator::StageTwoCreator() = default;
  * 
  * @param name name/id of the stage
  * @return Stage*  StageTwo pointer 
+ * 
+ * 
+ * @author Awelani Murovhi (u18335412)
  */
 Stage *StageTwoCreator::createStage(string name) {
     return new StageTwo(name);
@@ -18,6 +24,9 @@ Stage *StageTwoCreator::createStage(string name) {
 
 /**
  * @brief Destroy the Stage Two Creator:: Stage Two Creator object
+ * 
+ * 
+ * @author Awelani Murovhi (u18335412)
  * 
  */
 StageTwoCreator::~StageTwoCreator() = default;

@@ -3,6 +3,7 @@
 /**
  * @brief Construct a new Inter Stage Creator:: Inter Stage Creator object
  * 
+ * @author Malope Elphus (u20451696)
  */
 InterStageCreator::InterStageCreator() = default;
 
@@ -11,6 +12,8 @@ InterStageCreator::InterStageCreator() = default;
  * 
  * @param id 
  * @return Stage* 
+ * 
+ * @author Malope Elphus (u20451696)
  */
 Stage *InterStageCreator::createStage(string id) {
     return new InterStage(id, 0);
@@ -20,6 +23,8 @@ Stage *InterStageCreator::createStage(string id) {
  * @brief setter for gridFins 
  * 
  * @param numberFins number of grid fins
+ * 
+ * @author Malope Elphus (u20451696)
  */
 void InterStageCreator::setGridFins(int numberFins) {
     this->numberOfFins = numberFins;
@@ -28,5 +33,6 @@ void InterStageCreator::setGridFins(int numberFins) {
 /**
  * @brief Destroy the Inter Stage Creator:: Inter Stage Creator object
  * 
+ * @author Malope Elphus (u20451696)
  */
 InterStageCreator::~InterStageCreator() = default;

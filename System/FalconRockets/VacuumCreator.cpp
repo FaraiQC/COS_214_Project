@@ -3,6 +3,9 @@
 /**
  * @brief Construct a new Vacuum Creator:: Vacuum Creator object
  * 
+ * 
+ * @author Awelani Murovhi (u18335412)
+ * 
  */
 VacuumCreator::VacuumCreator() {
 
@@ -12,6 +15,9 @@ VacuumCreator::VacuumCreator() {
  * @brief factory method for VacuumEngine
  * 
  * @return Engine* engine pointer
+ * 
+ * 
+ * @author Awelani Murovhi (u18335412)
  */
 Engine *VacuumCreator::createEngine() {
     return new VacuumEngine("");
@@ -19,6 +25,9 @@ Engine *VacuumCreator::createEngine() {
 
 /**
  * @brief Destroy the Vacuum Creator:: Vacuum Creator object
+ * 
+ * 
+ * @author Awelani Murovhi (u18335412)
  * 
  */
 VacuumCreator::~VacuumCreator() {

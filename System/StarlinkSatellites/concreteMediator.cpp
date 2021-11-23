@@ -4,22 +4,50 @@
 
 using namespace std;
 
-//@brief Spreads the satellites evenly then switches off all of their lasers
-void concreteMediator::notify() 
-{
-    cout<<"Configuration done! All Satellites are spread equally.\n";
-    cout<<"Satellite's lasers have been turned Off.\n";
+
+/**
+ * @brief Spreads the satellites evenly then switches off all of their lasers
+ * 
+ * @authors Kudakwashe Chivunga (u19068752), Farai Chivunga (u19068710)
+ * 
+ */
+void concreteMediator::notify() {
+    std::cout
+        << "\n\t\tCONFIGURATION COMPLETE\n"
+        << "\t\t\t+> All Satellites are spread equally\n"
+        << "\t\t\t+>Satellite's lasers have been turned Off\n"
+        << std::endl;
 }
 
 
-//@brief constructor
-concreteMediator :: concreteMediator() : SatelliteMediator()
+
+/**
+ * @brief Construct a new concrete Mediator::concrete Mediator object
+ * 
+ * @authors Kudakwashe Chivunga (u19068752), Farai Chivunga (u19068710)
+ * 
+ */
+concreteMediator::concreteMediator() : SatelliteMediator()
 {
 
 }
 
-//@brief Destructor
-concreteMediator :: ~concreteMediator()
+
+/**
+ * @brief Destroy the concrete Mediator::concrete Mediator object
+ * 
+ * @authors Kudakwashe Chivunga (u19068752), Farai Chivunga (u19068710)
+ * 
+ */
+concreteMediator::~concreteMediator()
 {
     
 }
+
+
+/**
+ * @brief FINAL EDIT CREDS
+ * 
+ * @author Malope Elphus (u20451696)
+ * 
+ */

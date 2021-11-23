@@ -7,6 +7,8 @@
  * 
  * @param name is the id of the inter stage
  * @param numberOfFins the number of interstage grid fins which are used for landing stage one
+ * 
+ * @author Malope Elphus (u20451696)
  */
 InterStage::InterStage(string name, int numberOfFins) : Stage(name) {
     numberOfGridFins = numberOfFins;
@@ -14,6 +16,8 @@ InterStage::InterStage(string name, int numberOfFins) : Stage(name) {
 
 /**
  * @brief setter for grid fins
+ * 
+ * @author Malope Elphus (u20451696)
  * 
  */
 void InterStage::setGridFins(int) {
@@ -23,20 +27,28 @@ void InterStage::setGridFins(int) {
 /**
  * @brief handles the separation of stage one and stage two
  * 
+ * @author Malope Elphus (u20451696)
+ * 
  */
 void InterStage::separate() {
-    cout << endl;
-    cout << "Separation Stage has begun: " << endl;
-    cout << "Stage One and Stage Two are now separating ";
-    for (int i = 5; i > 0; --i) {
-        cout << "<-> " << endl;
-        this_thread::sleep_for(chrono::seconds(1));
-    }
-    cout << "\nStage One and Stage Two are now detached.\nFirst Stage is now returning back to earth." << endl;
+    std::cout
+        << "\n\t\tSTAGE SEPARATION\n";
+    
+    this_thread::sleep_for(chrono::seconds(1));
+    std::cout
+        << "\t\t\t+>Separating\n";
+
+    this_thread::sleep_for(chrono::seconds(5));
+    
+    std::cout
+        << "\t\t\tStage One has been detached and heading back to earth for land sequence\n"
+        << std::endl;
 }
 
 /**
  * @brief calls the separation function
+ * 
+ * @author Malope Elphus (u20451696)
  * 
  */
 void InterStage::activate() {
@@ -45,6 +57,8 @@ void InterStage::activate() {
 
 /**
  * @brief Destroy the Inter Stage:: Inter Stage object
+ * 
+ * @author Malope Elphus (u20451696)
  * 
  */
 InterStage::~InterStage() = default;

@@ -4,6 +4,8 @@
  * @brief Construct a new Vacuum Engine:: Vacuum Engine object
  * 
  * @param EngineId engine id
+ * 
+ * @author Malope Elphus (u20451696)
  */
 VacuumEngine::VacuumEngine(string EngineId) : Engine(EngineId, 981, "LOX/RP-1") {
 
@@ -12,19 +14,24 @@ VacuumEngine::VacuumEngine(string EngineId) : Engine(EngineId, 981, "LOX/RP-1") 
 /**
  * @brief turn on the vacuum engine
  * 
+ * @author Malope Elphus (u20451696)
  */
 void VacuumEngine::turnOn() {
-    cout << "Vacuum-E: ";
+    std::cout
+        << "\n\t\tVACUUM-E: ";
     Engine::turnOn();
 }
 
 /**
  * @brief turn off the vacuum engine
  * 
+ * @author Malope Elphus (u20451696)
+ * 
  */
 
 void VacuumEngine::turnOff() {
-    cout << "Vacuum-E: ";
+    std::cout
+        << "\n\t\tVACUUM-E: ";
     Engine::turnOff();
 }
 
@@ -32,6 +39,8 @@ void VacuumEngine::turnOff() {
  * @brief getter for ready state
  * 
  * @return string 
+ * 
+ * @author Malope Elphus (u20451696)
  */
 string VacuumEngine::getReadyState()
 {
@@ -42,6 +51,8 @@ string VacuumEngine::getReadyState()
  * @brief setter fir readyState
  * 
  * @param e 
+ * 
+ * @author Malope Elphus (u20451696)
  */
 void VacuumEngine::setReadyState(EngineOptimisation* e)
 {
@@ -50,6 +61,8 @@ void VacuumEngine::setReadyState(EngineOptimisation* e)
 
 /**
  * @brief check state
+ * 
+ * @author Malope Elphus (u20451696)
  * 
  */
 void VacuumEngine::checkState()
@@ -60,6 +73,8 @@ void VacuumEngine::checkState()
 /**
  * @brief notify
  * 
+ * @author Malope Elphus (u20451696)
+ * 
  */
 void VacuumEngine::notify()
 {
@@ -68,6 +83,8 @@ void VacuumEngine::notify()
 
 /**
  * @brief Destroy the Vacuum Engine:: Vacuum Engine object
+ * 
+ * @author Malope Elphus (u20451696)
  * 
  */
 VacuumEngine::~VacuumEngine() = default;

@@ -59,9 +59,6 @@ void Switch(char menuChoice)
                     {
                         cout<<"Do you want to run ALL simulations/ Specific number of simulations?(1/2) : ";
                         cin>>OneOrTwo;
-                        std::cout
-                            << "Note that after the simulations are done this option will not be available" 
-                            << std::endl;
 
                         sleep(1);
                         std::cout

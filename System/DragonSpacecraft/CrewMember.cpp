@@ -3,40 +3,85 @@
 
 using namespace std;
 
-//@brief Constructor
+
+
+/**
+ * @brief Construct a new Crew Member:: Crew Member object
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
 CrewMember::CrewMember() {
 	
 }
 
-//@brief Sets the name and the weight of the crew member
-//@param name is the name of the crew member
-//@param weight is the weight of the crew member
+
+
+/**
+ * @brief Construct a new Crew Member:: Crew Member object
+ *  	  Sets the name and the weight of the crew member
+ * 
+ * @param name :-the name of the crew member
+ * @param weight :-the weight of the crew member
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 CrewMember::CrewMember(string name, double weight) {
 	setName(name);
 	setWeight(weight);
 }
 
-//@brief Sets the name of the crew member
-//@param name is the name of the crew member
-void CrewMember::setName(string name) {
+
+/**
+ * @brief Sets the name of the crew member
+ * 
+ * @param name :-the name of the crew member
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
+void CrewMember::setName(string name){
 	this->name=name;	
 }
 
-//@brief Sets the weight of the crew member
-//@param weight is the weight of the crew member
-void CrewMember::setWeight(double weight) {
+
+/**
+ * @brief Sets the weight of the crew member
+ * 
+ * @param weight :-the weight of the crew member
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
+void CrewMember::setWeight(double weight){
 	this->weight=weight;
 }
 
-//@brief gets the name of the crew member
-//@return returns the name of the crew member
-string CrewMember::getName() {
+
+/**
+ * @brief Gets the name of the crew member
+ * 
+ * @return string :-name
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
+string CrewMember::getName(){
 	return name;
 }
 
-//@brief gets the weight of the crew member
-//@return returns the weight of the crew member
-double CrewMember::getWeight() {
+/**
+ * @brief Gets the weight of the crew member
+ * 
+ * @return double :-weight
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
+double CrewMember::getWeight(){
 	return this->weight;
 }
 
+
+/**
+ * @brief FINAL EDIT CREDIT
+ * 
+ * @author Malope Elphus (u20451696)
+ * 
+ */

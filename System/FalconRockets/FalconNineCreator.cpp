@@ -3,6 +3,8 @@
 /**
  * @brief Construct a new Falcon Nine Creator:: Falcon Nine Creator object
  * 
+ * @author Musa Mabasa (u18265163)
+ * 
  */
 FalconNineCreator::FalconNineCreator() = default;
 
@@ -10,6 +12,8 @@ FalconNineCreator::FalconNineCreator() = default;
  * @brief  creater new Falcon nine shell/container object
  * 
  * @return Rocket* 
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 Rocket *FalconNineCreator::createRocket()
 {
@@ -19,6 +23,8 @@ Rocket *FalconNineCreator::createRocket()
 /**
  * 
  * @brief Destroy the Falcon Nine Creator:: Falcon Nine Creator object
+ * 
+ * @author Musa Mabasa (u18265163)
  * 
  */
 FalconNineCreator::~FalconNineCreator() = default;

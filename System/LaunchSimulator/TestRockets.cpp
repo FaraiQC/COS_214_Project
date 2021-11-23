@@ -3,11 +3,35 @@
 #include <iostream>
 #include <string>
 
+/**
+ * @brief Construct a new Test Rockets:: Test Rockets object
+ * @authors Mabunda Thabo (u19116498)
+ * 			Malope Elphus (u20451696)
+ * 			Musa Mabasa (u18265163)
+ * 			Simphiwe Ndlovu (u19027372)
+ * 			Awelani Murovhi (u18335412)
+ * 			Kudakwashe Chivunga (u19068752)
+ * 			Farai Chivunga (u19068710)
+ * 
+ */
 TestRockets::TestRockets()
 {
 
 }
 
+/**
+ * @brief testRockets
+ * 
+ * @return vector<Rocket*> 
+ * 
+ * @authors Mabunda Thabo (u19116498)
+ * 			Malope Elphus (u20451696)
+ * 			Musa Mabasa (u18265163)
+ * 			Simphiwe Ndlovu (u19027372)
+ * 			Awelani Murovhi (u18335412)
+ * 			Kudakwashe Chivunga (u19068752)
+ * 			Farai Chivunga (u19068710)
+ */
 vector<Rocket*> TestRockets::testRockets()
 {
         int choice;
@@ -48,24 +72,62 @@ vector<Rocket*> TestRockets::testRockets()
                 rocketList.push_back(falconHeavyBuilder.getRocket());
             }
     
-    std::cout 
-        << "**** WATCHOUT ****\n"
-        << "\t\t\tRocketList size: " << rocketList.size() << std::endl
-        << "\n**** END_WATCHOUT ****\n";
 
     return rocketList;
 }
 
-bool TestRockets::attachSpaceCraft(Spacecraft* spacecraft) //I'll fix it in simulator (or -tion)
+/**
+ * @brief attach spacecraft
+ * 
+ * @param spacecraft 
+ * @return true 
+ * @return false 
+ * 
+ * @authors Mabunda Thabo (u19116498)
+ * 			Malope Elphus (u20451696)
+ * 			Musa Mabasa (u18265163)
+ * 			Simphiwe Ndlovu (u19027372)
+ * 			Awelani Murovhi (u18335412)
+ * 			Kudakwashe Chivunga (u19068752)
+ * 			Farai Chivunga (u19068710)
+ */
+bool TestRockets::attachSpaceCraft(Spacecraft* spacecraft)
 {
-    return rocketList[1]->getStageTwo()->attachSpacecraft(spacecraft); //check bool if possible
+    return rocketList[1]->getStageTwo()->attachSpacecraft(spacecraft); 
 }
 
+
+/**
+ * @brief attach satellites
+ * 
+ * @param cluster 
+ * @return true 
+ * @return false 
+ * 
+ * @authors Mabunda Thabo (u19116498)
+ * 			Malope Elphus (u20451696)
+ * 			Musa Mabasa (u18265163)
+ * 			Simphiwe Ndlovu (u19027372)
+ * 			Awelani Murovhi (u18335412)
+ * 			Kudakwashe Chivunga (u19068752)
+ * 			Farai Chivunga (u19068710)
+ */
 bool TestRockets::attachSatellite(TestSatellites* cluster)
 {
     return rocketList[0]->getStageTwo()->attachSatellite(cluster);
 }
 
+/**
+ * @brief Sets up pre_Launch parameters and conditions
+ * 
+ * @authors Mabunda Thabo (u19116498)
+ * 			Malope Elphus (u20451696)
+ * 			Musa Mabasa (u18265163)
+ * 			Simphiwe Ndlovu (u19027372)
+ * 			Awelani Murovhi (u18335412)
+ * 			Kudakwashe Chivunga (u19068752)
+ * 			Farai Chivunga (u19068710)
+ */
 void TestRockets::BeforeLaunch()
 {
     string falconName = TypeRocket();
@@ -89,20 +151,49 @@ void TestRockets::BeforeLaunch()
     }
 }
 
+/**
+ * @brief release spacecraft
+ * 
+ * @authors Mabunda Thabo (u19116498)
+ * 			Malope Elphus (u20451696)
+ * 			Musa Mabasa (u18265163)
+ * 			Simphiwe Ndlovu (u19027372)
+ * 			Awelani Murovhi (u18335412)
+ * 			Kudakwashe Chivunga (u19068752)
+ * 			Farai Chivunga (u19068710)
+ * 
+ */
 void TestRockets::ReleaseSpaceCraft()
 {
     this->spacecraft = NULL;
 }
 
+/**
+ * @brief release satellites
+ * 
+ * 
+ * @authors Mabunda Thabo (u19116498)
+ * 			Malope Elphus (u20451696)
+ * 			Musa Mabasa (u18265163)
+ * 			Simphiwe Ndlovu (u19027372)
+ * 			Awelani Murovhi (u18335412)
+ * 			Kudakwashe Chivunga (u19068752)
+ * 			Farai Chivunga (u19068710)
+ * 
+ */
 void TestRockets::ReleaseSatellites()
 {
     this->satellites = NULL;
 }
 
-
-/**must these cause the rocket not to launch or be accepted if
-    NOT:
-*/
+/**
+ * @brief checks the rocket
+ * 
+ * @return true 
+ * @return false 
+ * 
+ * @author Malope Elphus (u20451696)
+ */
 bool TestRockets::HasSpacecraft()
 {
     if(spacecraft==NULL)
@@ -111,6 +202,14 @@ bool TestRockets::HasSpacecraft()
     return true;
 }
 
+/**
+ * @brief Checks the rocket
+ * 
+ * @return true 
+ * @return false 
+ * 
+ * @author Malope Elphus (u20451696)
+ */
 bool TestRockets::HasSatellites()
 {
     if(HasSpacecraft())
@@ -119,28 +218,27 @@ bool TestRockets::HasSatellites()
     return true;
 }
 
-//TILL HERE: ?
-/**IF YES:
-    then do we provide a function to do so?
-        i.e: if(this == "falcon 9 rocket" && HasSpacecraft()) D O  N O T  L A U N C H; 
-                    {why?: logic is simple - falcon 9 cannot go to deepSpace
-                    So it can travel to mid/end earth's atmosphere - NOT OUT}
 
-             if(this == "falcon heavy" && HasSatellites()) D O  N O T  L A U N C H;
-                    {why?: waste of fuel and falcon rocket equipment,
-                    remember we thrive to save - "OPTIMISE" - both on resources
-                    spending.}
-
-            i can't think of any other conditions :)
-*/
-
-//IF NO: These two functions above are useless - let's save compilation time :)
-
+/**
+ * @brief gets type of rocket
+ * 
+ * @return string 
+ * 
+ * 
+ * @author Musa Mabasa (u18265163)
+ */
 string TestRockets::TypeRocket()
 {
     return typeRocket;
 }
 
+/**
+ * @brief set type
+ * 
+ * @param s 
+ * 
+ * @author Musa Mabasa (u18265163)
+ */
 void TestRockets::setTypeRocket(string s)
 {
     typeRocket=s;

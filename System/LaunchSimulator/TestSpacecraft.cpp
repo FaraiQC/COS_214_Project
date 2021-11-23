@@ -383,7 +383,11 @@ void TestSpacecraft::test(Spacecraft* spacecraft){
     bool isOptimum=spacecraft->IsSpcacecraftInOptimum();
     if(isOptimum == true){
         cout<<"What would you like to unload when you get to your destination."<<endl;
+
+        //must alter output,
         spacecraft->Unloading();
+        //alteration done
+
         cout<<"Spacecraft added to the list of working spacecrafts!!"<<endl;
         successfulSpacecrafts.push_back(spacecraft);
     }

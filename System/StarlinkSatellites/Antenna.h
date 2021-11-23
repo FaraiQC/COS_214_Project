@@ -3,15 +3,14 @@
 #include <iostream>
 using namespace std;
 
+
 class Antenna {
+	public:
+		virtual void update() = 0;
 
+		Antenna();
 
-public:
-	virtual void update() = 0;
-
-	Antenna();
-
-	~Antenna();
+		~Antenna();
 };
 
 #endif

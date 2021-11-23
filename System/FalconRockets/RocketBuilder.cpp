@@ -3,6 +3,8 @@
 /**
  * @brief Construct a new Rocket Builder:: Rocket Builder object
  * 
+ * @author Musa Mabasa (u18265163)
+ * 
  */
 RocketBuilder::RocketBuilder()
 {
@@ -11,13 +13,17 @@ RocketBuilder::RocketBuilder()
 /**
  * @brief add Stage one to the rocket
  * 
+ * @author Musa Mabasa (u18265163)
+ * 
  */
 void RocketBuilder::addStageOne()
 {
 }
 
 /**
- * @brief add Stage two to the rocket 
+ * @brief add Stage two to the rocket
+ * 
+ * @author Musa Mabasa (u18265163) 
  * 
  */
 void RocketBuilder::addStageTwo()
@@ -27,6 +33,8 @@ void RocketBuilder::addStageTwo()
 /**
  * @brief add Interstage to the rocket
  * 
+ * @author Musa Mabasa (u18265163)
+ * 
  */
 void RocketBuilder::addInterStage()
 {
@@ -34,6 +42,8 @@ void RocketBuilder::addInterStage()
 
 /**
  * @brief Destroy the Rocket Builder:: Rocket Builder object
+ * 
+ * @author Musa Mabasa (u18265163)
  * 
  */
 RocketBuilder::~RocketBuilder() = default;

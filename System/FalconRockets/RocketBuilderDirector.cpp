@@ -3,6 +3,8 @@
 /**
  * @brief Construct a new Rocket Builder Director:: Rocket Builder Director object
  * 
+ * @author Musa Mabasa (u18265163)
+ * 
  */
 RocketBuilderDirector::RocketBuilderDirector()
 {
@@ -13,6 +15,8 @@ RocketBuilderDirector::RocketBuilderDirector()
  * @brief setter for builder rocket
  * 
  * @param b builder object (FalconNineBuilder/FalconHeavyBuilder) 
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 void RocketBuilderDirector::setBuilder(RocketBuilder *b)
 {
@@ -23,12 +27,15 @@ void RocketBuilderDirector::setBuilder(RocketBuilder *b)
  * @brief buid Falcon Nine rocket
  * 
  * @param id is the name/id of the rocket to be built.
+ * 
+ * @authors Musa Mabasa (u18265163), Malope Elphus (u20451696)
  */
 void RocketBuilderDirector::buildFalconNine(string id)
 {
     if (!dynamic_cast<FalconNineBuilder *>(builder))
     {
-        cout << " The current builder is not for falcon 9, set correct builder." << endl;
+        std::cout
+            << "\n\t\t\tError: current builder is not for falcon 9, set correct builder\n";
         return;
     }
 
@@ -45,12 +52,15 @@ void RocketBuilderDirector::buildFalconNine(string id)
  * @brief build Falcon Heavy rocket
  * 
  * @param id is the id of the rocket to be built
+ * 
+ * @authors Musa Mabasa (u18265163), Malope Elphus (u20451696)
  */
 void RocketBuilderDirector::buildFalconHeavy(string id)
 {
     if (!dynamic_cast<FalconHeavyBuilder *>(builder))
     {
-        cout << " The current builder is not for falcon heavy, set correct builder." << endl;
+        std::cout
+            << "\n\t\t\tError: current builder is not for falcon Heavy, set correct builder\n";
         return;
     }
 
@@ -67,5 +77,7 @@ void RocketBuilderDirector::buildFalconHeavy(string id)
  * @brief Destruct Object
  * 
  * @return RocketBuilderDirector::~ 
+ * 
+ * @author Musa Mabasa (u18265163)
  */
 RocketBuilderDirector::~RocketBuilderDirector() = default;

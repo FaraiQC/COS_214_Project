@@ -5,15 +5,22 @@
 
 using namespace std;
 
-//@brief Destructor
-Satellite :: ~Satellite() 
-{
+
+/**
+ * @brief Destroy the Satellite:: Satellite object
+ * 
+ * @authors Kudakwashe Chivunga (u19068752), Farai Chivunga (u19068710)
+ * 
+ */
+Satellite::~Satellite() {
 
 }
 
-//@brief sets Iterator variables to NULL and create a new instance of mediator
-Satellite :: Satellite() 
-{
+
+/**
+ * @brief Sets Iterator variables to NULL and create a new instance of mediator
+ */
+Satellite::Satellite() {
 	nextS = NULL;
 	prevS = NULL;
 
@@ -22,44 +29,71 @@ Satellite :: Satellite()
 	mediator = new concreteMediator();
 }
 
-//@brief gets the neighbouring satellite of a certain satellite
-//@return the neighbouring Satellite of a given satellite
-Satellite* Satellite :: nextSatellite() 
-{
+
+/**
+ * @brief Gets the neighbouring satellite of a certain satellite
+ * 
+ * @return Satellite* :-next Satellites
+ */
+Satellite* Satellite::nextSatellite() {
 	return nextS;
 }
 
-//@brief returns a clone of a Satellite
-//@return a cloned Satellite
-Satellite* Satellite :: Clone() 
-{
+
+/**
+ * @brief Clones a satellite
+ * 
+ * @return Satellite* :-clone
+ */
+Satellite* Satellite::Clone() {
 	return new Satellite();
 }
 
-//@brief gets the neighbouring satellite of a certain satellite
-//@return the neighbouring Satellite of a given satellite
-Satellite* Satellite :: prevSatellite() 
+
+/**
+ * @brief Gets the neighbouring satellite of a certain satellite
+ * 
+ * @return Satellite* :-previous satellite
+ */
+Satellite* Satellite::prevSatellite() 
 {
 	return prevS;
 }
 
-//@brief adds/attachs a new Antenna to the antenna list (antenna connected to satellites)
-void Satellite :: attach(Antenna* a) 
-{
-	cout<<"10 000 new Antennas have been successfully attached to the Antennas list.\n";
+//@brief 
+
+/**
+ * @brief Adds/attaches a new Antenna to the antenna list (antenna connected to satellites)
+ * 
+ * @authors Kudakwashe Chivunga (u19068752), Farai Chivunga (u19068710)
+ */
+void Satellite::attach(Antenna* a) {
 	antenna.push_back(a);
+
+	std::cout
+		<< "\n\t\tCONNECTIONS MADE\n"
+		<< "\n\t\t\tA total number of 10 000 Antennas\n"
+		<< std::endl;
 }
 
-//@brief removes/dettachs an Antenna to the antenna list (antenna connected to satellites)
-void Satellite :: detach(Antenna* a) 
-{
-	cout<<"100 Antennas have been disconected from the satellites.\n";
+
+/**
+ * @brief Removes/detaches an Antenna to the antenna list (antenna connected to satellites)
+ * 
+ * @param a :-Antenna to attach
+ * 
+ * @authors Kudakwashe Chivunga (u19068752), Farai Chivunga (u19068710)
+ */
+void Satellite::detach(Antenna* a) {
+	std::cout
+		<< "\n\t\tDISCONNECTIONS MADE\n"
+		<< "\n\t\t\tA total number of 10 000 Antennas\n"
+		<< std::endl;
+
 	bool found = false;
 	vector<Antenna*>::iterator it = antenna.begin();
-	while((it != antenna.end()) && (!found))
-	{
-		if (*it == a)
-		{
+	while((it != antenna.end()) && (!found)){
+		if (*it == a){
 			found = true;
 			antenna.erase(it);
 		}
@@ -67,42 +101,80 @@ void Satellite :: detach(Antenna* a)
 	}
 }
 
-//@brief switches on radio radio signals to allow commnication between Antennas and satellites, and notifies the Antennas
-void Satellite :: notifyAntenna() 
-{
+//@brief 
+
+/**
+ * @brief switches on radio radio signals to allow commnication between Antennas and satellites,
+ * 		  and notifies the Antennas
+ * 
+ * @authors Kudakwashe Chivunga (u19068752), Farai Chivunga (u19068710)
+ */
+void Satellite::notifyAntenna() {
 	vector<Antenna*>::iterator it = antenna.begin();
 	for (it = antenna.begin(); it < antenna.end(); ++it)
 	{
 		(*it)->update();
 	}
-	cout<<"Configuration done! All Antenna's Radio signals, set to ON."<<endl;
-
+	
+	std::cout
+		<< "\n\t\tCONFIGURATION COMPLETE\n"
+		<< "\t\t\tAll Antenna's Radio signals, set to ON"
+		<< std::endl;
 }
 
-//@brief notifies the system that one or more Satellites have moved out of position
-void Satellite :: satellitesMoved()
-{
-	cout<<"One or more satellites have moved, Notifying the system!"<<endl;
+//@brief n
+
+/**
+ * @brief Notifies the system that one or more Satellites have moved out of position
+ * 
+ * @authors Kudakwashe Chivunga (u19068752), Farai Chivunga (u19068710)
+ * 
+ */
+void Satellite::satellitesMoved(){
+	std::cout
+		<< "\n\t\tSATELLITES DRIFTED\n"
+		<< "\t\t\tNotifying the system"
+		<< std::endl;
+
 	mediator -> notify();
 	
 }
 
-//@brief gets the distsance between a satellite and the neighbouring satellites
-//@return the distance between a satellite and the neighbouring satellites
-double Satellite :: getDistance()
-{
+/**
+ * @brief Get the Distance object
+ * 
+ * @return double :-the distance between a satellite and the neighbouring satellites
+ * 
+ * @authors Kudakwashe Chivunga (u19068752), Farai Chivunga (u19068710)
+ */
+double Satellite::getDistance(){
 	return this->distance;
 }
 
-//@brief gets the distsance between a satellite and the neighbouring satellites
-//@return the distance between a satellite and the neighbouring satellites
-double Satellite :: getDist()
-{
+
+/**
+ * @brief Get the Dist object
+ * 
+ * @return double :-the distance between a satellite and the neighbouring satellites
+ */
+double Satellite::getDist(){
 	return this->distance;
 }
 
-//@brief sets distance between a satellite and the neighbouring satellites
-void Satellite ::  setDist(double d)
-{
+
+/**
+ * @brief Set the Dist object
+ * 
+ * @param d :-distance between a satellite and the neighbouring satellites
+ */
+void Satellite::setDist(double d){
 	this->distance = d;
 }
+
+
+/**
+ * @brief FINAL EDIT CREDS
+ * 
+ * @author Malope Elphus (u20451696)
+ * 
+ */

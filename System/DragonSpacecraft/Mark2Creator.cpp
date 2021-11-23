@@ -3,16 +3,36 @@
 
 using namespace std;
 
-//@brief Consructor Creates a Mark2 Parachute
-Mark2Creator::Mark2Creator() {
-	cout<<"create Mark2 Parachutes."<<endl;
+
+/**
+ * @brief Construct a new Mark 2 Creator:: Mark 2 Creator object
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
+Mark2Creator::Mark2Creator(){
+	std::cout
+		<< "\t"
+		<<"CREATE:\n\t\tMark_2\n"
+		<<endl;
 }
 
-//@brief Creates a Mark2 Parachute with a specific ID
-//@param a is the ID of the Parachute
-//@return returns a new Mark2Parachute with the given ID
-Parachute* Mark2Creator::createParachute(string a) {
-	cout<<"Mark2 Parachute has been created"<<endl;
+
+/**
+ * @brief Creates a Mark2 Parachute with a specific ID
+ * 
+ * @param a :-the ID of the Parachute
+ * @return Parachute* :-new Mark2
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
+Parachute* Mark2Creator::createParachute(string a){
 	return new Mark2Parachute(a);
-
 }
+
+
+/**
+ * @brief FINAL EDIT CREDIT
+ * 
+ * @author Malope Elphus (u20451696)
+ * 
+ */

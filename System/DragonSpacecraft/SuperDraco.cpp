@@ -4,14 +4,30 @@
 using namespace std;
 
 //@brief Constructor creates a SuperDraco with a power of 90 that is switched off
+
+/**
+ * @brief Construct a new Super Draco:: Super Draco object
+ * 		  initialisedwith power of 90 and switched off
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
 SuperDraco::SuperDraco() {
 	turnOff();
 	this->setPower(90);
 	SetDracoisCreatedChecker(1);
 }
 
-//@brief Creates a SuperDraco with a specific ID that has a power of 90 and is switched off
-//@param id is the id of the newly created SuperDraco
+
+
+/**
+ * @brief Construct a new Super Draco:: Super Draco object
+ * 		  initialisedwith power of 90 and switched off
+ * 
+ * @param id :-the id of the newly created SuperDraco
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ */
 SuperDraco::SuperDraco(string id) {
 	this->setPower(90);
 	SetDracoisCreatedChecker(1);
@@ -19,19 +35,53 @@ SuperDraco::SuperDraco(string id) {
 	turnOff();
 }
 
-//@brief Switches on the SuperDraco
+
+/**
+ * @brief Turn Draco on
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
 void SuperDraco::fireUp() {
 	if(isOn() == true){
-		cout<<getId()<<" turned on, firing up!"<<endl;
+		std::cout
+			<< "\t"
+			<< getId()
+			<<"\n\t\tSTATUS: Active\n"
+			<<std::endl;
 	}
 	else{
-		cout<<getId()<<" is not turned on yet, please turn it on"<<endl;
+		std::cout
+			<< "\t"
+			<<getId()
+			<<"\n\t\tSTATUS: Inactive\n"
+			<< "\t\tMESSAGE: Please Turn it On\n"
+			<<endl;
 	}	
 }
 
-//@brief Switches off the SuperDraco
+//@brief 
+
+/**
+ * @brief 
+ * 
+ * @authors Maduna Thabo (u19116498), Simphiwe Ndlovu (u19027372)
+ * 
+ */
 void SuperDraco::shutDown() {
 	this->turnOff();
-	cout<<getId()<<" has been shut down"<<endl;
+
+	std::cout
+		<< "\t"
+		<<getId()
+		<<"\n\t\tSHUTDOWN\n"
+		<<std::endl;
 }
 
+
+/**
+ * @brief FINAL EDIT CREDIT
+ * 
+ * @author Malope Elphus
+ * 
+ */
