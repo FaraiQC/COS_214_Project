@@ -58,15 +58,25 @@ Satellite* Satellite::prevSatellite()
 	return prevS;
 }
 
-//@brief adds/attachs a new Antenna to the antenna list (antenna connected to satellites)
+
+/**
+ * @brief Adds/attachs a new Antenna to the antenna list (antenna connected to satellites)
+ * 
+ * @param a 
+ */
 void Satellite :: attach(Antenna* a) 
 {
 	cout<<"10 000 new Antennas have been successfully attached to the Antennas list.\n";
 	antenna.push_back(a);
 }
 
-//@brief removes/dettachs an Antenna to the antenna list (antenna connected to satellites)
-void Satellite :: detach(Antenna* a) 
+
+/**
+ * @brief Removes/dettachs an Antenna to the antenna list (antenna connected to satellites)
+ * 
+ * @param a 
+ */
+void Satellite::detach(Antenna* a) 
 {
 	cout<<"100 Antennas have been disconected from the satellites.\n";
 	bool found = false;
@@ -82,8 +92,13 @@ void Satellite :: detach(Antenna* a)
 	}
 }
 
-//@brief switches on radio radio signals to allow commnication between Antennas and satellites, and notifies the Antennas
-void Satellite :: notifyAntenna() 
+//@brief 
+
+/**
+ * @brief Switches on radio radio signals to allow commnication between Antennas and satellites, and notifies the Antennas
+ * 
+ */
+void Satellite::notifyAntenna() 
 {
 	vector<Antenna*>::iterator it = antenna.begin();
 	for (it = antenna.begin(); it < antenna.end(); ++it)
@@ -95,6 +110,11 @@ void Satellite :: notifyAntenna()
 }
 
 //@brief notifies the system that one or more Satellites have moved out of position
+
+/**
+ * @brief 
+ * 
+ */
 void Satellite :: satellitesMoved()
 {
 	cout<<"One or more satellites have moved, Notifying the system!"<<endl;
