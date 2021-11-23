@@ -3,46 +3,82 @@
 #include "sstream"
 using namespace std;
 
-//@brief constructor sets number of times used to 0 and sets default location to Earth
-//@param reused, the number of times spacecraft is used is set to 0
+
+/**
+ * @brief Construct a new Spacecraft:: Spacecraft object
+ * 
+ */
  Spacecraft::Spacecraft() {
 	reused = 0;
 	setCurrentLocation("Earth");
 }
 
-//@brief set the location of the spacecraft
-//@param is the current location
+
+/**
+ * @brief set the location of the spacecraft
+ * 
+ * @param location 
+ */
 void Spacecraft::setCurrentLocation(string location) {
 	this->currentLocation = location;
 }
 
-//return the currents location of the spacecraft
+
+/**
+ * @brief return the currents location of the spacecraft
+ * 
+ * @return string 
+ */
 string Spacecraft::getCurrentLocation() {
 	return this->currentLocation;
 }
 
-//@brief sets the destination of the destination
+
+/**
+ * @brief sets the destination of the destination
+ * 
+ * @param destination 
+ */
 void Spacecraft::setDestination(string destination) {
 	this->destination = destination;
 }
 
-//@return returns the weight carried out of earth
-//@param maxWeightToEarth is the weight of crew and cargo 
+
+
+/**
+ * @brief returns the weight carried out of earth
+ * 
+ * @return double 
+ */
 double Spacecraft::getWeightToOrbit() {
 	return maxWeightToEarth;
 }
 
-//@brief sets the weight of the crew members plus the cargo
+
+/**
+ * @brief sets the weight of the crew members plus the cargo
+ * 
+ * @param weight 
+ */
 void Spacecraft::setWeightToOrbit(double weight) {
 	this->maxWeightToOrbit=weight;
 }
 
-//@brief returns the weight carried from outer space to earth
+
+/**
+ * @brief returns the weight carried from outer space to earth
+ * 
+ * @return double 
+ */
 double Spacecraft::getWeightToEarth() {
 	return this->maxWeightToEarth;
 }
 
-//@brief it prints the spacecraft moving from current location to the destination, after arriving destination becomes the current location
+
+/**
+ * @brief it prints the spacecraft moving from current location to the destination, after arriving destination becomes the current location
+ * 
+ */
 void Spacecraft::goToDestination() {
 	cout<<"\n\n\t\t\tThe spacecraft leaves "<<this->currentLocation<<" to "<<this->destination<<endl<<endl;
 	for(int i=0; i<5;i++){
@@ -53,7 +89,11 @@ void Spacecraft::goToDestination() {
 	setCurrentLocation(destination);
 }
 
-//@brief it updates the observer class about the height of spacecraft the deployment of the parachute
+
+/**
+ * @brief updates the observer class about the height of spacecraft the deployment of the parachute
+ * 
+ */
 void Spacecraft::notify() {
 	for(int i=0;i<observerList.size();i++)
 	{
@@ -62,14 +102,22 @@ void Spacecraft::notify() {
 	}
 }
 
-//@brief attaches an parachute system observer to the parachute observer list
-//@param observerList is a vector of parachute system observers pointers
+
+/**
+ * @brief attaches an parachute system observer to the parachute observer list
+ * 
+ * @param obj 
+ */
 void Spacecraft::attach(ParachuteSystemObserver* obj) {
 	observerList.push_back(obj);
 }
 
-//@brief removes a parachute observer..it searches by a pointer
-//@param index is the index the observer list is searched on
+
+/**
+ * @brief removes a parachute observer..it searches by a pointer
+ * 
+ * @param obj 
+ */
 void Spacecraft::detach(ParachuteSystemObserver* obj) {
 	int index=0;
 	for(int i=0;i<observerList.size();i++)
@@ -86,48 +134,81 @@ void Spacecraft::detach(ParachuteSystemObserver* obj) {
     observerList.erase(observerList.begin()+index);
 }
 
-//@brief attaches a cargo pointer to the cargo list and prints confirmation
-//@param cargoList is a vector holding pointers to the cargo loaded on the spacecraft
+
+/**
+ * @brief attaches a cargo pointer to the cargo list and prints confirmation
+ * 
+ * @param obj 
+ */
 void Spacecraft::attachCargo(Cargo* obj) {
 	cargoList.push_back(obj);
 	cout<<obj->getName()<<" has been added to the list"<<endl;
 }
 
-//@brief removes cargo from the spacecraft by index
+
+/**
+ * @brief removes cargo from the spacecraft by index
+ * 
+ * @param index 
+ */
 void Spacecraft::detachCargo(int index) {
 	cargoList.erase(cargoList.begin()+index);
 }
 
-//@brief confirms the safe return of the spacecraft and increases the number of times the spacecraft has been used
+
+/**
+ * @brief confirms the safe return of the spacecraft and increases the number of times the spacecraft has been used
+ * 
+ */
 void Spacecraft::missionComplete() {
 	cout<<"\t\t\tThe spacecraft has reached earth, successfully."<<endl<<endl;
 	reused++;
 }
 
-//@brief attaches a thruster to the thrusters list
-//@param thrustersList is a vector list holding pointers to the spacecraft's thrusters
+
+/**
+ * @brief attaches a thruster to the thrusters list
+ * 
+ * @param thruster 
+ */
 void Spacecraft::attachThruster(Thruster* thruster){
 	this->thrustersList.push_back(thruster);
 }
 
-//@brief removes all the the thrusters in the thrusters list vector
+
+/**
+ * @brief removes all the the thrusters in the thrusters list vector
+ * 
+ */
 void Spacecraft::detachThruster(){
 	thrustersList.clear();
 }
 
-//@return returns dummy value 0, virtual function
+
+/**
+ * @brief returns dummy value 0, virtual function
+ * 
+ * @return double 
+ */
 double Spacecraft::getCurrentHeight(){
 	return 0;
 }
 
-//@brief virtual function
+
+/**
+ * @brief virtual function
+ * 
+ * @param currtHight 
+ */
 void Spacecraft::setCurrentHeight(double currtHight){
 	
 }
 
-//@brief shows all item in the cargo, parachute, hrusters and possibly crew member's vector lists 
-//@param i used as an index
-//@param w is used a the total weight of the cargo loaded on the spacecraft 
+
+/**
+ * @brief shows all item in the cargo, parachute, hrusters and possibly crew member's vector lists 
+ * 
+ */
 void Spacecraft::print(){
 	crewInfo();
 
@@ -170,21 +251,32 @@ void Spacecraft::print(){
 	cout<<endl;
 }
 
-//@brief attaches a parachute pointer to the cargo list and prints confirmation
-//@param parachuteList is a vector holding pointers to the parachute attached on the spacecraft
+
+/**
+ * @brief attaches a parachute pointer to the cargo list and prints confirmation
+ * 
+ * @param parachute 
+ */
 void Spacecraft::attachParachute(Parachute* parachute){
 	parachuteList.push_back(parachute);
 	cout<<parachute->getId()<<" Has been added to the spacecraft"<<endl;
 }
 
-//@brief removes all the the parachutes in the parachute list vector
+
+/**
+ * @brief removes all the the parachutes in the parachute list vector
+ * 
+ */
 void Spacecraft::detachParachute(){
 	parachuteList.clear();
 }
 
-//@brief calculates the total power generated by the thrusters all together
-//@param sum is the sum of the power of all thrusters
-//@return the sum is returned
+
+/**
+ * @brief calculates the total power generated by the thrusters all together
+ * 
+ * @return double 
+ */
 double Spacecraft::TotalPowerOfThrusters(){
 	double sum=0;
 	for(Thruster* item: thrustersList){
@@ -193,21 +285,33 @@ double Spacecraft::TotalPowerOfThrusters(){
 	return sum;
 }
 
-//@brief virtual function for showing the crew members is spacecraft is crewDragon type
+
+/**
+ * @brief virtual function for showing the crew members is spacecraft is crewDragon type
+ * 
+ */
 void Spacecraft::crewInfo(){
 	
 }
 
-//@brief virtual funcyion calculates how many crew members boarded the spacecraft
+
+/**
+ * @brief virtual funcyion calculates how many crew members boarded the spacecraft
+ * 
+ * @return int 
+ */
 int Spacecraft::getTotalNumCrewMember()
 {
 	return 0;
 }
 
-//@brief check if all conditions for the spacecraft to lift off are met
-//@return returns true if all the conditions have been met
-//@return returns false if one or more conditions are not met
-//@param isOptimum is used to select diffent tests and check if they pass
+
+/**
+ * @brief check if all conditions for the spacecraft to lift off are met
+ * 
+ * @return true 
+ * @return false 
+ */
 bool Spacecraft::IsSpcacecraftInOptimum(){
 	cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
 	cout<<"\t\t\tChecking if the spacecraft is in optimum."<<endl;
@@ -340,47 +444,83 @@ bool Spacecraft::IsSpcacecraftInOptimum(){
 	return false;
 }
 
-//@brief returns a vector list of cargo pointers
+
+/**
+ * @brief returns a vector list of cargo pointers
+ * 
+ * @return vector<Cargo*> 
+ */
 vector<Cargo*> Spacecraft::getCargoList(){
 	return cargoList;
 }
 
-//@brief virtual fucnction: attaches a  crew member into the spacecraft
+
+/**
+ * @brief virtual fucnction: attaches a  crew member into the spacecraft
+ * 
+ * @param a 
+ */
 void Spacecraft::enterCrewMember(CrewMember* a){
 
 }
 
-//@brief detaches a crew member from the crew member vector list
+
+/**
+ * @brief detaches a crew member from the crew member vector list
+ * 
+ * @param a 
+ */
 void Spacecraft::removeCrewMember(int a){
 
 }
 
-//@brief return an empty vector list for crew member class pointer
-//@param a is vector list of crew member pointers
+
+/**
+ * @brief Get the Crew List object
+ * 
+ * @return vector<CrewMember*>Spacecraft:: 
+ */
 vector<CrewMember*>Spacecraft:: getCrewList(){
 	vector<CrewMember*> a;
 	return a;
 }
 
-//@brief check is spacecraft is a crew dragon spacecraft
-//@return returns true if the spacecraft is a crew dragonm
-//@return returns fasle if the spacecraft is not crew dragon spacecraft
+
+/**
+ * @brief check is spacecraft is a crew dragon spacecraft
+ * 
+ * @return true 
+ * @return false 
+ */
 bool Spacecraft::isCrewDragon(){
 	return IsCrewDragon;
 }
 
-//@brief sets the isCrewDragon boolean
-//@param isCrewDragon determines is spacecraft is a crew dragon
+
+/**
+ * @brief sets the isCrewDragon boolean
+ * 
+ * @param IsCrewDragon 
+ */
 void Spacecraft::setIsCrewDragon(bool IsCrewDragon){
 	this->IsCrewDragon=IsCrewDragon;
 }
 
-//@brief returns the destination of the spacecraft 
+
+/**
+ * @brief returns the destination of the spacecraft
+ * 
+ * @return string 
+ */
 string Spacecraft::getDestination(){
 	return destination;
 }
 
-//@brief simulates the launch of the spacecraft from Earth to the destination then back to earth
+
+/**
+ * @brief simulates the launch of the spacecraft from Earth to the destination then back to earth
+ * 
+ */
 void Spacecraft::launch(){	
 	cout<<"Please select the destination of the Spacecraft"<<endl;
 	string dest="ISS";
@@ -452,8 +592,11 @@ void Spacecraft::launch(){
 	
 }
 
-//@brief removes the cargo when reaching the destination and preparing to go back to earth
-//@param strInput is a string input from the user
+
+/**
+ * @brief removes the cargo when reaching the destination and preparing to go back to earth
+ * 
+ */
 void Spacecraft::Unloading(){
 	if(isCrewDragon()==true)
 	{
