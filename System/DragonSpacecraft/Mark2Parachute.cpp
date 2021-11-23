@@ -5,7 +5,10 @@
 
 using namespace std;
 
-//@brief Constructor
+/**
+ * @brief Construct a new Mark 2 Parachute:: Mark 2 Parachute object
+ * 
+ */
 Mark2Parachute::Mark2Parachute() {
 
 }
