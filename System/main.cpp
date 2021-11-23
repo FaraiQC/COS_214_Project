@@ -57,7 +57,7 @@ void Switch(char menuChoice)
                     }
                     else
                     {
-                        cout<<"Do you want to run ALL simulations/ Specific number of simulations?(1/2) : ";
+                        cout<<"Run ALL simulations or close (1/2): ";
                         cin>>OneOrTwo;
                         std::cout
                             << "Note that after the simulations are done this option will not be available" 
@@ -82,14 +82,8 @@ void Switch(char menuChoice)
                         }
                         else if(OneOrTwo == '2')
                         {
-                            cout<<"How many actual simulations do you want to run? : ";
-                            cin>>choiceNumOfActualSimulations;
-                            launch->Launch(choiceNumOfActualSimulations);
-
-                            numOfSavedSimulations = 0;
-                            sleep(1);
-                            cout<<"********** " <<choiceNumOfActualSimulations<<" ACTUAL simulations have been run ***************\n";
-
+                            
+                            exit(0);
 
                         }
                         
