@@ -1,7 +1,11 @@
 #include "SuperDracoCreator.h"
 
-//@brief Creates a SuperdDraco with a specific ID
-//@return returns the newly created Super Draco
+/**
+ * @brief Construct SuperdDraco and set ID
+ * 
+ * @param id 
+ * @return Thruster* 
+ */
 Thruster* SuperDracoCreator::createThruster(string id){
 	return new SuperDraco(id);
 }
