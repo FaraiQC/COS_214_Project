@@ -5,8 +5,6 @@
 
 using namespace std;
 
-//@brief Destructor
-
 /**
  * @brief Destroy the Satellite:: Satellite object
  * 
@@ -16,7 +14,6 @@ Satellite::~Satellite()
 
 }
 
-//@brief sets Iterator variables to NULL and create a new instance of mediator
 
 /**
  * @brief Construct a new Satellite:: Satellite object
@@ -32,8 +29,6 @@ Satellite::Satellite()
 	mediator = new concreteMediator();
 }
 
-//@brief gets the neighbouring satellite of a certain satellite
-//@return the neighbouring Satellite of a given satellite
 
 /**
  * @brief Returns the next
@@ -52,9 +47,13 @@ Satellite* Satellite :: Clone()
 	return new Satellite();
 }
 
-//@brief gets the neighbouring satellite of a certain satellite
-//@return the neighbouring Satellite of a given satellite
-Satellite* Satellite :: prevSatellite() 
+
+/**
+ * @brief Gets the neighbouring satellite of a certain satellite
+ * 
+ * @return Satellite* 
+ */
+Satellite* Satellite::prevSatellite() 
 {
 	return prevS;
 }
