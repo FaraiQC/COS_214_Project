@@ -1,20 +1,29 @@
 #include "ConcreteAntenna.h"
 
 
-//@brief Sets radio Signal to equal the subjects signal
+/**
+ * @brief updates the radioSignal
+ * 
+ */
 void ConcreteAntenna::update() 
 {
   radioSignal = subject->getSignal();
 }
 
-//@brief Sets radio Signal to false
+/**
+ * @brief Construct a new Concrete Antenna:: Concrete Antenna object
+ * 
+ */
 ConcreteAntenna::ConcreteAntenna() : Antenna()
 {
   radioSignal = false;
 }
 
 
-//@brief Sets radio Signal to false
+/**
+ * @brief Destroy the Concrete Antenna:: Concrete Antenna object
+ * 
+ */
 ConcreteAntenna::~ConcreteAntenna() 
 {
   radioSignal = false;

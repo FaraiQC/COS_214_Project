@@ -1,12 +1,18 @@
 #include "Antenna.h"
 
-//@brief Constructor
+/**
+ * @brief Construct a new Antenna:: Antenna object
+ * 
+ */
 Antenna::Antenna() 
 {
 
 }
 
-//@brief Destructor
+/**
+ * @brief Destroy the Antenna:: Antenna object
+ * 
+ */
 Antenna::~Antenna() 
 {
 	
