@@ -16,7 +16,6 @@ void concreteMediator::notify()
 }
 
 
-//@brief constructor
 
 /**
  * @brief Constructor
@@ -28,7 +27,6 @@ concreteMediator :: concreteMediator() : SatelliteMediator()
 
 }
 
-//@brief Destructor
 
 /**
  * @brief Destructor
