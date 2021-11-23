@@ -69,16 +69,6 @@ void Switch(char menuChoice)
                     {
                         cout<<"Run ALL simulations or close (1/2): ";
                         cin>>OneOrTwo;
-                        std::cout
-                            << "Note that after the simulations are done this option will not be available" 
-                            << std::endl;
-
-                        sleep(1);
-                        std::cout
-                            << "Starting the simulation chosen..."
-                            << std::endl;
-                        sleep(1);
-        
                         
                         if(OneOrTwo == '1')
                         {
