@@ -3,8 +3,11 @@
 
 using namespace std;
 
-//@brief Constructor initializes the spacecraft pointer
-//@param Dragon_Or_Crew_subj is the pointer to the spacecraft
+/**
+ * @brief Construct a new Mark 2 Parachute System Observer:: Mark 2 Parachute System Observer object
+ * 
+ * @param Dragon_Or_Crew_subj 
+ */
 Mark2ParachuteSystemObserver::Mark2ParachuteSystemObserver(Spacecraft * Dragon_Or_Crew_subj)
 {
 	this->Dragon_Or_Crew_subj=Dragon_Or_Crew_subj;
@@ -12,7 +15,11 @@ Mark2ParachuteSystemObserver::Mark2ParachuteSystemObserver(Spacecraft * Dragon_O
 	theParachute=new Mark2Parachute();
 }
 
-//@brief updates the current height of the spacecraft
+
+/**
+ * @brief updates the current height of the spacecraft
+ * 
+ */
 void Mark2ParachuteSystemObserver::update() {
 	if(Dragon_Or_Crew_subj !=NULL)
 	{	
@@ -20,15 +27,19 @@ void Mark2ParachuteSystemObserver::update() {
 	}	
 }
 
-//@brief check for height of spacecraft and deploys when less or equal to 6 kilometres
+
+/**
+ * @brief check for height of spacecraft and deploys when less or equal to 6 kilometres
+ * 
+ */
 void Mark2ParachuteSystemObserver::print()
 {
-	if(observerCurrentHight<=6)// 6 km
-	{
+	if(observerCurrentHight<=6)
+	{	
 		theParachute->deploy();
 	}
 	else
 	{
-		cout<<"NOT IN  OPTIMUM HIGHT TO DEPLOY PARACHUTE"<<endl;
+		cout<<observerCurrentHight<<endl;
 	}
 }
