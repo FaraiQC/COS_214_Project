@@ -3,39 +3,57 @@
 
 using namespace std;
 
-//@brief Constructor
+/**
+ * @brief Construct a new Crew Member:: Crew Member object
+ * 
+ */
 CrewMember::CrewMember() {
 	
 }
 
-//@brief Sets the name and the weight of the crew member
-//@param name is the name of the crew member
-//@param weight is the weight of the crew member
+/**
+ * @brief Construct a new Crew Member:: Crew Member object
+ * 
+ * @param name 
+ * @param weight 
+ */
 CrewMember::CrewMember(string name, double weight) {
 	setName(name);
 	setWeight(weight);
 }
 
-//@brief Sets the name of the crew member
-//@param name is the name of the crew member
+/**
+ * @brief setter for the name
+ * 
+ * @param name 
+ */
 void CrewMember::setName(string name) {
 	this->name=name;	
 }
 
-//@brief Sets the weight of the crew member
-//@param weight is the weight of the crew member
+/**
+ * @brief setter for weight
+ * 
+ * @param weight 
+ */
 void CrewMember::setWeight(double weight) {
 	this->weight=weight;
 }
 
-//@brief gets the name of the crew member
-//@return returns the name of the crew member
+/**
+ * @brief getter for the name
+ * 
+ * @return string 
+ */
 string CrewMember::getName() {
 	return name;
 }
 
-//@brief gets the weight of the crew member
-//@return returns the weight of the crew member
+/**
+ * @brief getter for weight
+ * 
+ * @return double 
+ */
 double CrewMember::getWeight() {
 	return this->weight;
 }
