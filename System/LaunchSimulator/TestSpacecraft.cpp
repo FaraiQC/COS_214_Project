@@ -1,18 +1,27 @@
 #include "TestSpacecraft.h"
 #include "sstream"
 
-//@brief Constructor
+/**
+ * @brief Construct a new Test Spacecraft:: Test Spacecraft object
+ * 
+ */
 TestSpacecraft::TestSpacecraft(){
 
 }
 
-//@brief Destractor
+/**
+ * @brief Destroy the Test Spacecraft:: Test Spacecraft object
+ * 
+ */
 TestSpacecraft::~TestSpacecraft(){
 
 }
-//@brief Tweaking Spacecraft Configurations, if the spacecraft is not in optimum, The user is asked to retweak the Spacecraft Configurations
-//@brief until the spacecraft is in Optimum.
-//@param spacecraft is the spacecraft object that needs to be tweaked
+
+/**
+ * @brief tweaks the spacecraft
+ * 
+ * @param spacecraft 
+ */
 void TestSpacecraft::tweakSpacecraft(Spacecraft* spacecraft){
     cout<<"-----------------------------------------------------------------------------------------------------------------"<<endl;
     cout<<"\t\t\tTweaking Spacecraft Configurations"<<endl;

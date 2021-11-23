@@ -15,7 +15,7 @@ MerlinCore::MerlinCore(string EngineID) : Engine(EngineID, 845, "LOX/RP-1") {
  * 
  */
 void MerlinCore::turnOn() {
-    cout << "Merline Core: ";
+    cout << "Merlin Core: ";
     Engine::turnOn();
 }
 
@@ -24,7 +24,7 @@ void MerlinCore::turnOn() {
  * 
  */
 void MerlinCore::turnOff() {
-    cout << "Merline Core: ";
+    cout << "Merlin Core: ";
     Engine::turnOff();
 }
 

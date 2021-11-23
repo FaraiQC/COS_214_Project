@@ -5,6 +5,10 @@
 
 using namespace std;
 
+/**
+ * @brief Construct a new Simulation:: Simulation object
+ * 
+ */
 Simulation::Simulation() {
 	sats = new TestSatellites();
 	spaceC = new TestSpacecraft();
@@ -13,11 +17,17 @@ Simulation::Simulation() {
 	falconIndex = 0;
 	count=0;
 }
-
+/**
+ * @brief Destroy the Simulation:: Simulation object
+ * 
+ */
 Simulation::~Simulation() {
  	reset();//clear the simulation before going out of scope
 }
-
+/**
+ * @brief resets every atrribute
+ * 
+ */
 void Simulation::reset()
 {
 	delete sats;
@@ -31,6 +41,10 @@ void Simulation::reset()
 	FinalSimulations.clear();
 }
 
+/**
+ * @brief updates the falcon vector
+ * 
+ */
 void Simulation::updateFalcon_ONCE()
 {
 	vector<Rocket*> temp = rkt->testRockets();
@@ -38,6 +52,10 @@ void Simulation::updateFalcon_ONCE()
 	this->falcons.push_back(temp.at(count++));
 }
 
+/**
+ * @brief tests every subsystem
+ * 
+ */
 void Simulation::TestSimulation() {
 
 	int OneOrTwo;
@@ -101,12 +119,20 @@ void Simulation::TestSimulation() {
 }
 
 
-
+/**
+ * @brief launches the rocket
+ * 
+ */
 void Simulation::Launch() {
 	for(int i = _list; i < FinalSimulations.size(); i++, _list++)
 		Launch(i);
 }
 
+/**
+ * @brief lauches a certian rocket
+ * 
+ * @param k 
+ */
 void Simulation::Launch(int k) {
 
 	if(k < FinalSimulations.size() && k >= 0)

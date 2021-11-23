@@ -3,11 +3,20 @@
 #include <iostream>
 #include <string>
 
+/**
+ * @brief Construct a new Test Rockets:: Test Rockets object
+ * 
+ */
 TestRockets::TestRockets()
 {
 
 }
 
+/**
+ * @brief tests the rockets
+ * 
+ * @return vector<Rocket*> 
+ */
 vector<Rocket*> TestRockets::testRockets()
 {
         int choice;
@@ -48,24 +57,38 @@ vector<Rocket*> TestRockets::testRockets()
                 rocketList.push_back(falconHeavyBuilder.getRocket());
             }
     
-    std::cout 
-        << "**** WATCHOUT ****\n"
-        << "\t\t\tRocketList size: " << rocketList.size() << std::endl
-        << "\n**** END_WATCHOUT ****\n";
 
     return rocketList;
 }
 
+/**
+ * @brief attsches a spacecraft
+ * 
+ * @param spacecraft 
+ * @return true 
+ * @return false 
+ */
 bool TestRockets::attachSpaceCraft(Spacecraft* spacecraft) //I'll fix it in simulator (or -tion)
 {
     return rocketList[1]->getStageTwo()->attachSpacecraft(spacecraft); //check bool if possible
 }
 
+/**
+ * @brief attaches a satellite cluster
+ * 
+ * @param cluster 
+ * @return true 
+ * @return false 
+ */
 bool TestRockets::attachSatellite(TestSatellites* cluster)
 {
     return rocketList[0]->getStageTwo()->attachSatellite(cluster);
 }
 
+/**
+ * @brief defines the rocket before it is launched
+ * 
+ */
 void TestRockets::BeforeLaunch()
 {
     string falconName = TypeRocket();
@@ -89,20 +112,31 @@ void TestRockets::BeforeLaunch()
     }
 }
 
+/**
+ * @brief detached the spacecraft
+ * 
+ */
 void TestRockets::ReleaseSpaceCraft()
 {
     this->spacecraft = NULL;
 }
 
+/**
+ * @brief detaches the satellite cluster
+ * 
+ */
 void TestRockets::ReleaseSatellites()
 {
     this->satellites = NULL;
 }
 
 
-/**must these cause the rocket not to launch or be accepted if
-    NOT:
-*/
+/**
+ * @brief checks if a spacecraft is attached
+ * 
+ * @return true 
+ * @return false 
+ */
 bool TestRockets::HasSpacecraft()
 {
     if(spacecraft==NULL)
@@ -111,6 +145,12 @@ bool TestRockets::HasSpacecraft()
     return true;
 }
 
+/**
+ * @brief checks if a satellite is attached
+ * 
+ * @return true 
+ * @return false 
+ */
 bool TestRockets::HasSatellites()
 {
     if(HasSpacecraft())
@@ -119,31 +159,28 @@ bool TestRockets::HasSatellites()
     return true;
 }
 
-//TILL HERE: ?
-/**IF YES:
-    then do we provide a function to do so?
-        i.e: if(this == "falcon 9 rocket" && HasSpacecraft()) D O  N O T  L A U N C H; 
-                    {why?: logic is simple - falcon 9 cannot go to deepSpace
-                    So it can travel to mid/end earth's atmosphere - NOT OUT}
-
-             if(this == "falcon heavy" && HasSatellites()) D O  N O T  L A U N C H;
-                    {why?: waste of fuel and falcon rocket equipment,
-                    remember we thrive to save - "OPTIMISE" - both on resources
-                    spending.}
-
-            i can't think of any other conditions :)
-*/
-
-//IF NO: These two functions above are useless - let's save compilation time :)
-
+/**
+ * @brief gets the type of the rocket
+ * 
+ * @return string 
+ */
 string TestRockets::TypeRocket()
 {
     return typeRocket;
 }
 
+/**
+ * @brief setter the typeRocket
+ * 
+ * @param s 
+ */
 void TestRockets::setTypeRocket(string s)
 {
     typeRocket=s;
 }
 
+/**
+ * @brief Destroy the Test Rockets:: Test Rockets object
+ * 
+ */
 TestRockets::~TestRockets(){}

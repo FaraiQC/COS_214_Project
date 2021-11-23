@@ -10,11 +10,19 @@
 
 using namespace std;
 
-
+/**
+ * @brief Construct a new Test Satellites:: Test Satellites object
+ * 
+ */
 TestSatellites::TestSatellites() {
 	
 }
 
+/**
+ * @brief  tests the satelliet cluster
+ * 
+ * @return vector<satellitesMaker*> 
+ */
 vector<satellitesMaker*> TestSatellites:: testSatellites()
 {
 
@@ -116,10 +124,18 @@ vector<satellitesMaker*> TestSatellites:: testSatellites()
 	return  satsMaker;
 }
 
+/**
+ * @brief Destroy the Test Satellites:: Test Satellites object
+ * 
+ */
 TestSatellites::~TestSatellites() {
 
 }
 
+/**
+ * @brief shows the satellites before launch
+ * 
+ */
 void TestSatellites::BeforeLaunch() {
 	satellitesMaker* sat = new satellitesMaker();
 
@@ -131,6 +147,10 @@ void TestSatellites::BeforeLaunch() {
 
 }
 
+/**
+ * @brief when satellites reach the desired orbit
+ * 
+ */
 void TestSatellites::InDesiredOrbit() {
 
 	satellitesMaker* sat = new satellitesMaker();
@@ -165,7 +185,10 @@ void TestSatellites::InDesiredOrbit() {
 	
 }
 
-
+/**
+ * @brief authenticates the satellite cluster
+ * 
+ */
 void TestSatellites :: SatellitesAuntentication()
 {
 	Satellite* s =  new Satellite();
@@ -201,7 +224,10 @@ void TestSatellites :: SatellitesAuntentication()
 	cout<<"All Satellites are in place and are functioning well!\n";
 }
 
-
+/**
+ * @brief launches the satellites
+ * 
+ */
 void TestSatellites :: launch()
 {
 	TestSatellites* tSatellites = new TestSatellites();
