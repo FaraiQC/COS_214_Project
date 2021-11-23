@@ -13,14 +13,20 @@ Mark2Parachute::Mark2Parachute() {
 
 }
 
-//@brief Sets the ID of the Parachute and checks that it is created, which it is.
-//@param name is the ID of the Parachute
+/**
+ * @brief Construct a new Mark 2 Parachute:: Mark 2 Parachute object
+ * 
+ * @param name 
+ */
 Mark2Parachute::Mark2Parachute(string name) {
 	setId(name);
 	SetMark2isCreatedChecker(0);
 }
 
-//@brief Displays that Mark2Parachute is now being deployed
+/**
+ * @brief Prints out the parachute being deployed
+ * 
+ */
 void Mark2Parachute::deploy() {
 	cout<<"Now deploying Mark2Parachute."<<endl;
 }
