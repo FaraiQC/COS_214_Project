@@ -25,6 +25,11 @@ using namespace std;
 char Menu();
 void Switch(char i);
 
+/**
+ * @brief Main
+ * 
+ * @return int 
+ */
 int main()
 {
     
@@ -41,6 +46,11 @@ int main()
     return 0;
 }
 
+/**
+ * @brief Switch Menu
+ * 
+ * @param menuChoice 
+ */
 void Switch(char menuChoice)
 {
     int choiceNumOfActualSimulations ;
@@ -117,6 +127,11 @@ void Switch(char menuChoice)
     }
 }
 
+/**
+ * @brief Menu
+ * 
+ * @return char 
+ */
 char Menu()
 {
     char menuChoice;
