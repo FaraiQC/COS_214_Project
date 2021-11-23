@@ -61,16 +61,6 @@ bool StageTwo::attachSatellite(TestSatellites* cluster)
     return true;
 }
 
-// void StageTwo::attachSpacecraft(Spacecraft *spacecraft) {
-//     this->capsule = spacecraft;
-// }
-
-// void StageTwo::attachSatellite(Satellite *satellite) {
-//     this->satellite = satellite;
-// }
-
-//*****************************************************************************
-
 /**
  * @brief "detaches" the spacecraft from stage two.
  * 
@@ -132,7 +122,6 @@ void StageTwo::activate() {
         cout << "\nSatelittes have now separated from Stage Two" << endl;
     
 
-    // This is where we are going to call the Spacecraft launch function since stage two & spacecraft have separated.
 }
 
 /**
