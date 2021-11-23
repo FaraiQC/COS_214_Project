@@ -3,19 +3,28 @@
 
 using namespace std;
 
-//@brief Constructor
+/**
+ * @brief Construct a new Mark 3 Parachute:: Mark 3 Parachute object
+ * 
+ */
 Mark3Parachute::Mark3Parachute() {
 	
 }
 
-//@brief Constructor initializes the id of the Parachute
-//@param name is the id of the parachute
+/**
+ * @brief Construct a new Mark 3 Parachute:: Mark 3 Parachute object
+ * 
+ * @param name 
+ */
 Mark3Parachute::Mark3Parachute(string name) {
 	setId(name);
 	SetMark2isCreatedChecker(1);
 }
 
-//@brief Displays that Mark3Parachute is being deployed
+/**
+ * @brief Displays the parachute that is being deployed
+ * 
+ */
 void Mark3Parachute::deploy() {
 	cout<<"Now deploying Mark3Parachute."<<endl;
 }
