@@ -109,10 +109,9 @@ void Satellite::notifyAntenna()
 
 }
 
-//@brief notifies the system that one or more Satellites have moved out of position
 
 /**
- * @brief 
+ * @brief Notifies the system that one or more Satellites have moved out of position
  * 
  */
 void Satellite :: satellitesMoved()
@@ -122,8 +121,11 @@ void Satellite :: satellitesMoved()
 	
 }
 
-//@brief gets the distsance between a satellite and the neighbouring satellites
-//@return the distance between a satellite and the neighbouring satellites
+/**
+ * @brief Get the Distance object
+ * 
+ * @return double 
+ */
 double Satellite :: getDistance()
 {
 	return this->distance;
