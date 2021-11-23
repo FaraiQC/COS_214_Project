@@ -3,6 +3,11 @@
 
 using namespace std;
 
+
+/**
+ * @brief Construct a new satellites Maker::satellites Maker object
+ * 
+ */
 satellitesMaker::satellitesMaker() 
 {
 	// this->first = new Satellite();
@@ -10,6 +15,10 @@ satellitesMaker::satellitesMaker()
 	
 }
 
+/**
+ * @brief Collects Next satellites
+ * 
+ */
 void satellitesMaker::CollectNextCluster() 
 {
 	//var
@@ -38,6 +47,12 @@ void satellitesMaker::CollectNextCluster()
 	this->empty = true;
 }
 
+/**
+ * @brief Checks if it's empty
+ * 
+ * @return true 
+ * @return false 
+ */
 bool satellitesMaker::isEmpty() 
 {
 	if(first == NULL)
@@ -47,6 +62,11 @@ bool satellitesMaker::isEmpty()
 	return false;
 }
 
+/**
+ * @brief Returns a cluster
+ * 
+ * @return Satellite* 
+ */
 Satellite* satellitesMaker :: testCluster()
 {
 	CollectNextCluster();
