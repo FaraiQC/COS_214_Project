@@ -1,43 +1,71 @@
 #include "Thruster.h"
 #include <iostream>
 
-//@brief Constructor initializes the thrusterSwitch to false
+
+/**
+ * @brief Construct a new Thruster:: Thruster object
+ * 
+ */
 Thruster::Thruster() {
 	this->thrusterSwitch = false;
 }
 
-//@briefConstructor initializes the thruster switch to false and sets the ID of the Thruster
-//@param Sets the ID of the thruster
+
+/**
+ * @brief Construct a new Thruster:: Thruster object
+ * 
+ * @param id 
+ */
 Thruster::Thruster(string id) {
 	this->thrusterSwitch = false;
 	setId(id);
 }
 
-//@brief Destructor
+
+/**
+ * @brief Destroy the Thruster:: Thruster object
+ * 
+ */
 Thruster::~Thruster(){
 
 }
 
-//@brief Sets the id of the Thruster
-//@param id is the id of the Thruster
+
+/**
+ * @brief set the ID of the thruster
+ * 
+ * @param id 
+ */
 void Thruster::setId(string id){
 	this->id = id;
 }
 
-//@brief Gets the id of the Thruster
-//@return returns the id of the Thruster
+
+/**
+ * @brief return the ID of the thruster
+ * 
+ * @return string 
+ */
 string Thruster::getId(){
 	return id;
 }
 
-//@brief Sets the power of the Thruster
-//@param power is the power of the Thruster
+
+/**
+ * @brief set the amount of power the thruster has
+ * 
+ * @param power 
+ */
 void Thruster::setPower(int power) {
 	this->power = power;
 }
 
-//@brief Gets the power of the Thruster
-//@return returns the power of the Thruster
+
+/**
+ * @brief return the amount of power the thruster
+ * 
+ * @return int 
+ */
 int Thruster::getPower() {
 	return this->power;
 }
@@ -56,32 +84,52 @@ int Thruster::getPower() {
 // 	cout<<"Thruster has been shut down"<<endl;
 // }
 
-//@brief Checks if the thrusterSwitch is on or off
-//@return returns true of the thrusterSwitch is on
-//@return returns false if the thrusterSwitch is off
+
+/**
+ * @brief Checks if the thrusterSwitch is on or off
+ * 
+ * @return true if the thrusterSwitch is on
+ * @return false if the thrusterSwitch is off
+ */
 bool Thruster::isOn(){
 	return this->thrusterSwitch;
 }
 
-//@brief Switches off the thrusterSwitch
+
+/**
+ * @brief Switches off the thrusterSwitch
+ * 
+ */
 void Thruster::turnOff(){
 	this->thrusterSwitch = false;
 }
 
-//@brief Switches on the thrusterSwitch
+
+/**
+ * @brief Switches on the thrusterSwitch
+ * 
+ */
 void Thruster::turnOn(){
 	this->thrusterSwitch = true;
 }
 
-//@brief confirms if Draco was created or not
-//@param check is either 0 to show that no Draco was created, or 1 to show that a Draco was created
+
+/**
+ * @brief confirms if Draco was created or not
+ * 
+ * @param chech 
+ */
 void Thruster::SetDracoisCreatedChecker(int chech)
 {
 	this->chech=chech;
 }
 
-//@brief shows if a Draco was created or not
-//@brief returns the check to see if a Draco was created or not
+
+/**
+ * @brief shows if a Draco was created or not
+ * 
+ * @return int 
+ */
 int Thruster::GetDracoisCreatedChecker()
 {
 	return chech;
