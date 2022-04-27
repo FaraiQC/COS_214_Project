@@ -9,7 +9,7 @@ We broke the Spacex and Starlink simulation into 4 subsystems, namely Falcon roc
 ## How to run
 - Locate yourself to the System folder that is in the root directory
 - Run the makefile with the following commands:
-```bash
+```
 make
 
 make run
